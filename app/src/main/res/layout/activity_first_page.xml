@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Blurred background image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- Main content layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top bar with coin counter -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Menu icon at top left -->
+            <ImageButton
+                android:id="@+id/btnMenu"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_sort_by_size"
+                android:contentDescription="Menu"
+                android:scaleType="fitCenter"
+                android:padding="8dp" />
+
+            <!-- Coin counter at top right -->
+            <RelativeLayout
+                android:id="@+id/coinContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp">
+
+                <!-- Background pill shape - much smaller and narrower -->
+                <LinearLayout
+                    android:id="@+id/coinBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/coin_background"
+                    android:paddingStart="28dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/coinText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="24sp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:minWidth="30dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <!-- Coin icon overlapping on the left - centered on background -->
+                <ImageView
+                    android:id="@+id/coinIcon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/coin"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignTop="@id/coinBackground"
+                    android:layout_alignBottom="@id/coinBackground"
+                    android:layout_centerVertical="true"
+                    android:elevation="2dp"
+                    android:contentDescription="Coin icon" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!-- Logo at top center -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter"
+            android:contentDescription="GeoQuiz Logo"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp" />
+
+        <!-- Four mode buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp">
+
+            <!-- Daily country button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/modes_buttom"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@null" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btnDailyCountry">
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/daily_country"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Daily country"
+                        android:textSize="22sp"
+                        android:textColor="#3E2723"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="none" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Guess by Map button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/modes_buttom"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@null" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btnGuessByMap">
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/guess_by_map"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guess by Map"
+                        android:textSize="22sp"
+                        android:textColor="#3E2723"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="none" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Guess by flag button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/modes_buttom"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@null" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btnGuessByFlag">
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/guess_by_flag"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guess by flag"
+                        android:textSize="22sp"
+                        android:textColor="#3E2723"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="none" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Guess the Capital button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@drawable/modes_buttom"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@null" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/btnGuessTheCapital">
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/guess_the_capital"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="@null" />
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Guess the Capital"
+                        android:textSize="22sp"
+                        android:textColor="#3E2723"
+                        android:textStyle="bold"
+                        android:singleLine="true"
+                        android:ellipsize="none" />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

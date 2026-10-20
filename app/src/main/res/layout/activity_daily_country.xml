@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Blurred background image -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- Main content layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top bar: back | title (center) | level (right) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:minHeight="48dp">
+
+            <!-- Back button at top left -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:contentDescription="@string/back"
+                android:scaleType="fitCenter"
+                android:padding="8dp" />
+
+            <!-- Level badge at top right -->
+            <TextView
+                android:id="@+id/tvLevelIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="1/195"
+                android:textSize="16sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:background="@drawable/coin_background"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+
+            <!-- Title centered between back and level badge -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/daily_country_title"
+                android:textSize="26sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <!-- Input row: autocomplete + hint button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical">
+
+            <!-- Country autocomplete input — tapping a suggestion submits immediately -->
+            <AutoCompleteTextView
+                android:id="@+id/etCountryInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:hint="@string/enter_country_name"
+                android:textSize="16sp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/button_background"
+                android:textColor="#000000"
+                android:textColorHint="#8B4513"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"
+                android:inputType="textCapWords"
+                android:popupBackground="@drawable/dropdown_background"
+                android:dropDownVerticalOffset="4dp"
+                android:completionThreshold="1" />
+
+            <!--
+                Hint button — replaces the old Search button.
+                Shows a light-bulb emoji as the label.
+                Enabled only when a hint slot is unlocked and available;
+                alpha 0.4 when disabled to give clear visual feedback.
+            -->
+            <TextView
+                android:id="@+id/btnHint"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="💡"
+                android:textSize="26sp"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:enabled="false"
+                android:alpha="0.4"
+                android:contentDescription="Hint" />
+
+        </LinearLayout>
+
+        <!-- Divider line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#8B4513"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- ================================================================
+             HINTS PANEL
+             Shown when the hint button is tapped and a slot is available.
+             ================================================================ -->
+        <LinearLayout
+            android:id="@+id/layoutHintsPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/hint_panel_background"
+            android:padding="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone">
+
+            <!-- Header row: "Hints" title + coin balance + close button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="💡 Choose a Hint"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="#3E2723" />
+
+                <!-- Live coin balance -->
+                <TextView
+                    android:id="@+id/tvHintCoinBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🪙 0"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#3E2723"
+                    android:background="@drawable/coin_background"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginStart="8dp" />
+
+                <!-- Close / collapse the panel -->
+                <TextView
+                    android:id="@+id/btnCloseHints"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="✕"
+                    android:textSize="18sp"
+                    android:textColor="#8B4513"
+                    android:gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Close hints" />
+
+            </LinearLayout>
+
+            <!-- Slot status row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tvSlot1Status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Slot 1: 🔓 Unlocked"
+                    android:textSize="12sp"
+                    android:textColor="#5D4037"
+                    android:gravity="center"
+                    android:background="@drawable/coin_background"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginEnd="4dp" />
+
+                <TextView
+                    android:id="@+id/tvSlot2Status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Slot 2: 🔒 After guess 8"
+                    android:textSize="12sp"
+                    android:textColor="#5D4037"
+                    android:gravity="center"
+                    android:background="@drawable/coin_background"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+            <!-- Dynamic hint rows inserted programmatically -->
+            <LinearLayout
+                android:id="@+id/layoutHintRows"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+        <!-- Guess counter row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/your_guesses"
+                android:textSize="20sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvGuessCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 / 10"
+                android:textSize="16sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:background="@drawable/coin_background"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+
+        </LinearLayout>
+
+        <!-- Scrollable guess list -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGuessList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false" />
+
+    </LinearLayout>
+
+</FrameLayout>

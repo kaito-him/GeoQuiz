@@ -1,0 +1,4393 @@
+[
+  {
+    "ISO Code": "AR",
+    "Country": "Argentina",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Buenos Aires",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "ARS",
+    "Currency Name": "Argentine Peso",
+    "Continent": "South America",
+    "Population (2026)": 46003734,
+    "Area (in km2)": 2780400,
+    "Map": "AR_Argentina.png",
+    "Fun Fact": "The first feature-length animated film, El Apóstol (1917), was made in its capital.",
+    "Flag Colors": [
+      "Light blue",
+      "White",
+      "Gold"
+    ],
+    "Flag": "ar.png"
+  },
+  {
+    "ISO Code": "AU",
+    "Country": "Australia",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Canberra",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "AUD",
+    "Currency Name": "Australian Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 27227096,
+    "Area (in km2)": 7692024,
+    "Map": "AU_Australia.png",
+    "Fun Fact": "Has the largest population of wild camels in the world.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "au.png"
+  },
+  {
+    "ISO Code": "AT",
+    "Country": "Austria",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Vienna",
+    "Main Languages": [
+      "German"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 9107266,
+    "Area (in km2)": 83871,
+    "Map": "AT_Austria.png",
+    "Fun Fact": "Tiergarten Schönbrunn (1752) is the world's oldest zoo still in operation.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "at.png"
+  },
+  {
+    "ISO Code": "BR",
+    "Country": "Brazil",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Brasília",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "BRL",
+    "Currency Name": "Brazilian Real",
+    "Continent": "South America",
+    "Population (2026)": 213562666,
+    "Area (in km2)": 8515767,
+    "Map": "BR_Brazil.png",
+    "Fun Fact": "Its name comes from a tree, brazilwood, once prized for red dye.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Blue",
+      "White"
+    ],
+    "Flag": "br.png"
+  },
+  {
+    "ISO Code": "CA",
+    "Country": "Canada",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Ottawa",
+    "Main Languages": [
+      "English",
+      "French"
+    ],
+    "Currency Code": "CAD",
+    "Currency Name": "Canadian Dollar",
+    "Continent": "North America",
+    "Population (2026)": 40467728,
+    "Area (in km2)": 9984670,
+    "Map": "CA_Canada.png",
+    "Fun Fact": "Has the longest coastline of any country.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "ca.png"
+  },
+  {
+    "ISO Code": "CL",
+    "Country": "Chile",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Santiago",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "CLP",
+    "Currency Name": "Chilean Peso",
+    "Continent": "South America",
+    "Population (2026)": 19945850,
+    "Area (in km2)": 756102,
+    "Map": "CL_Chile.png",
+    "Fun Fact": "About 4,300 km long north to south, but on average only ~175 km wide.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red"
+    ],
+    "Flag": "cl.png"
+  },
+  {
+    "ISO Code": "CN",
+    "Country": "China",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Beijing",
+    "Main Languages": [
+      "Standard Chinese"
+    ],
+    "Currency Code": "CNY",
+    "Currency Name": "Chinese Yuan",
+    "Continent": "Asia",
+    "Population (2026)": 1412914089,
+    "Area (in km2)": 9596960,
+    "Map": "CN_China.png",
+    "Fun Fact": "Spans five geographic time zones but officially uses just one.",
+    "Flag Colors": [
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "cn.png"
+  },
+  {
+    "ISO Code": "CU",
+    "Country": "Cuba",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Havana",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "CUP",
+    "Currency Name": "Cuban Peso",
+    "Continent": "North America",
+    "Population (2026)": 10892659,
+    "Area (in km2)": 109884,
+    "Map": "CU_Cuba.png",
+    "Fun Fact": "Home to the bee hummingbird, the smallest bird on Earth.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red"
+    ],
+    "Flag": "cu.png"
+  },
+  {
+    "ISO Code": "DK",
+    "Country": "Denmark",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Copenhagen",
+    "Main Languages": [
+      "Danish"
+    ],
+    "Currency Code": "DKK",
+    "Currency Name": "Danish Krone",
+    "Continent": "Europe",
+    "Population (2026)": 6023520,
+    "Area (in km2)": 42933,
+    "Map": "DK_Denmark.png",
+    "Fun Fact": "Its flag, the Dannebrog, is the oldest continuously used national flag.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "dk.png"
+  },
+  {
+    "ISO Code": "EG",
+    "Country": "Egypt",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Cairo",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "EGP",
+    "Currency Name": "Egyptian Pound",
+    "Continent": "Africa",
+    "Population (2026)": 120101175,
+    "Area (in km2)": 1002450,
+    "Map": "EG_Egypt.png",
+    "Fun Fact": "Cleopatra lived closer in time to the Moon landing than to the building of the Great Pyramid.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black",
+      "Gold"
+    ],
+    "Flag": "eg.png"
+  },
+  {
+    "ISO Code": "FI",
+    "Country": "Finland",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Helsinki",
+    "Main Languages": [
+      "Finnish",
+      "Swedish"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 5621739,
+    "Area (in km2)": 338145,
+    "Map": "FI_Finland.png",
+    "Fun Fact": "There are roughly as many saunas as there are people.",
+    "Flag Colors": [
+      "White",
+      "Blue"
+    ],
+    "Flag": "fi.png"
+  },
+  {
+    "ISO Code": "FR",
+    "Country": "France",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Paris",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 66746401,
+    "Area (in km2)": 551695,
+    "Map": "FR_France.png",
+    "Fun Fact": "With its overseas territories, it spans more time zones than any other country.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red"
+    ],
+    "Flag": "fr.png"
+  },
+  {
+    "ISO Code": "DE",
+    "Country": "Germany",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Berlin",
+    "Main Languages": [
+      "German"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 83644258,
+    "Area (in km2)": 357022,
+    "Map": "DE_Germany.png",
+    "Fun Fact": "Large stretches of its motorway network have no general speed limit.",
+    "Flag Colors": [
+      "Black",
+      "Red",
+      "Gold"
+    ],
+    "Flag": "de.png"
+  },
+  {
+    "ISO Code": "GR",
+    "Country": "Greece",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Athens",
+    "Main Languages": [
+      "Greek"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 9897115,
+    "Area (in km2)": 131990,
+    "Map": "GR_Greece.png",
+    "Fun Fact": "Has thousands of islands and islets, but only a couple of hundred are inhabited.",
+    "Flag Colors": [
+      "Blue",
+      "White"
+    ],
+    "Flag": "gr.png"
+  },
+  {
+    "ISO Code": "IS",
+    "Country": "Iceland",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Reykjavik",
+    "Main Languages": [
+      "Icelandic"
+    ],
+    "Currency Code": "ISK",
+    "Currency Name": "Icelandic Króna",
+    "Continent": "Europe",
+    "Population (2026)": 402329,
+    "Area (in km2)": 103000,
+    "Map": "IS_Iceland.png",
+    "Fun Fact": "Famously has no mosquitoes.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red"
+    ],
+    "Flag": "is.png"
+  },
+  {
+    "ISO Code": "IN",
+    "Country": "India",
+    "Difficulty Category": "Easy",
+    "Capital Name": "New Delhi",
+    "Main Languages": [
+      "Hindi",
+      "English"
+    ],
+    "Currency Code": "INR",
+    "Currency Name": "Indian Rupee",
+    "Continent": "Asia",
+    "Population (2026)": 1476625576,
+    "Area (in km2)": 3287263,
+    "Map": "IN_India.png",
+    "Fun Fact": "Has a floating post office on Dal Lake in Srinagar.",
+    "Flag Colors": [
+      "Saffron",
+      "White",
+      "Green",
+      "Navy blue"
+    ],
+    "Flag": "in.png"
+  },
+  {
+    "ISO Code": "ID",
+    "Country": "Indonesia",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Jakarta",
+    "Main Languages": [
+      "Indonesian"
+    ],
+    "Currency Code": "IDR",
+    "Currency Name": "Indonesian Rupiah",
+    "Continent": "Asia",
+    "Population (2026)": 287886782,
+    "Area (in km2)": 1904569,
+    "Map": "ID_Indonesia.png",
+    "Fun Fact": "Home to Rafflesia arnoldii, the largest individual flower in the world.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "id.png"
+  },
+  {
+    "ISO Code": "IR",
+    "Country": "Iran",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Tehran",
+    "Main Languages": [
+      "Persian"
+    ],
+    "Currency Code": "IRR",
+    "Currency Name": "Iranian Rial",
+    "Continent": "Asia",
+    "Population (2026)": 93168497,
+    "Area (in km2)": 1648195,
+    "Map": "IR_Iran.png",
+    "Fun Fact": "Ancient windcatcher towers in Yazd cooled buildings centuries before air conditioning.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red"
+    ],
+    "Flag": "ir.png"
+  },
+  {
+    "ISO Code": "IE",
+    "Country": "Ireland",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Dublin",
+    "Main Languages": [
+      "English",
+      "Irish"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 5356950,
+    "Area (in km2)": 70273,
+    "Map": "IE_Ireland.png",
+    "Fun Fact": "Halloween traces back to the ancient festival of Samhain.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Orange"
+    ],
+    "Flag": "ie.png"
+  },
+  {
+    "ISO Code": "IT",
+    "Country": "Italy",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Rome",
+    "Main Languages": [
+      "Italian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 58926166,
+    "Area (in km2)": 301340,
+    "Map": "IT_Italy.png",
+    "Fun Fact": "The University of Bologna (1088) is considered the oldest university in continuous operation in the West.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red"
+    ],
+    "Flag": "it.png"
+  },
+  {
+    "ISO Code": "JP",
+    "Country": "Japan",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Tokyo",
+    "Main Languages": [
+      "Japanese"
+    ],
+    "Currency Code": "JPY",
+    "Currency Name": "Japanese Yen",
+    "Continent": "Asia",
+    "Population (2026)": 122427731,
+    "Area (in km2)": 377975,
+    "Map": "JP_Japan.png",
+    "Fun Fact": "Consists of around 6,800 islands, though four make up most of the land.",
+    "Flag Colors": [
+      "White",
+      "Red"
+    ],
+    "Flag": "jp.png"
+  },
+  {
+    "ISO Code": "MG",
+    "Country": "Madagascar",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Antananarivo",
+    "Main Languages": [
+      "Malagasy",
+      "French"
+    ],
+    "Currency Code": "MGA",
+    "Currency Name": "Malagasy Ariary",
+    "Continent": "Africa",
+    "Population (2026)": 33522052,
+    "Area (in km2)": 587041,
+    "Map": "MG_Madagascar.png",
+    "Fun Fact": "The vast majority of its wildlife exists nowhere else on Earth.",
+    "Flag Colors": [
+      "White",
+      "Red",
+      "Green"
+    ],
+    "Flag": "mg.png"
+  },
+  {
+    "ISO Code": "MX",
+    "Country": "Mexico",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Mexico City",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "MXN",
+    "Currency Name": "Mexican Peso",
+    "Continent": "North America",
+    "Population (2026)": 132997658,
+    "Area (in km2)": 1964375,
+    "Map": "MX_Mexico.png",
+    "Fun Fact": "The capital sits on a drained lake bed and is sinking several centimetres a year.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red",
+      "Brown"
+    ],
+    "Flag": "mx.png"
+  },
+  {
+    "ISO Code": "NZ",
+    "Country": "New Zealand",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Wellington",
+    "Main Languages": [
+      "English",
+      "Māori"
+    ],
+    "Currency Code": "NZD",
+    "Currency Name": "New Zealand Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 5287479,
+    "Area (in km2)": 268021,
+    "Map": "NZ_New_Zealand.png",
+    "Fun Fact": "First self-governing country to give women the national vote (1893).",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "nz.png"
+  },
+  {
+    "ISO Code": "NO",
+    "Country": "Norway",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Oslo",
+    "Main Languages": [
+      "Norwegian"
+    ],
+    "Currency Code": "NOK",
+    "Currency Name": "Norwegian Krone",
+    "Continent": "Europe",
+    "Population (2026)": 5652989,
+    "Area (in km2)": 385207,
+    "Map": "NO_Norway.png",
+    "Fun Fact": "A king penguin at Edinburgh Zoo was knighted by its army: Sir Nils Olav.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "no.png"
+  },
+  {
+    "ISO Code": "PK",
+    "Country": "Pakistan",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Islamabad",
+    "Main Languages": [
+      "Urdu",
+      "English"
+    ],
+    "Currency Code": "PKR",
+    "Currency Name": "Pakistani Rupee",
+    "Continent": "Asia",
+    "Population (2026)": 259299791,
+    "Area (in km2)": 881912,
+    "Map": "PK_Pakistan.png",
+    "Fun Fact": "Shares the Khunjerab Pass, one of the highest paved international border crossings.",
+    "Flag Colors": [
+      "Green",
+      "White"
+    ],
+    "Flag": "pk.png"
+  },
+  {
+    "ISO Code": "PH",
+    "Country": "Philippines",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Manila",
+    "Main Languages": [
+      "Filipino",
+      "English"
+    ],
+    "Currency Code": "PHP",
+    "Currency Name": "Philippine Peso",
+    "Continent": "Asia",
+    "Population (2026)": 117724471,
+    "Area (in km2)": 300000,
+    "Map": "PH_Philippines.png",
+    "Fun Fact": "World’s second-largest coconut producer",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White",
+      "Yellow"
+    ],
+    "Flag": "ph.png"
+  },
+  {
+    "ISO Code": "PT",
+    "Country": "Portugal",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Lisbon",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 10395362,
+    "Area (in km2)": 92090,
+    "Map": "PT_Portugal.png",
+    "Fun Fact": "Livraria Bertrand (1732) is the world's oldest operating bookstore.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "Yellow",
+      "White",
+      "Blue"
+    ],
+    "Flag": "pt.png"
+  },
+  {
+    "ISO Code": "RU",
+    "Country": "Russia",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Moscow",
+    "Main Languages": [
+      "Russian"
+    ],
+    "Currency Code": "RUB",
+    "Currency Name": "Russian Ruble",
+    "Continent": "Europe",
+    "Population (2026)": 143394458,
+    "Area (in km2)": 17098242,
+    "Map": "RU_Russia.png",
+    "Fun Fact": "Lake Baikal holds about a fifth of the world's unfrozen fresh water.",
+    "Flag Colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "Flag": "ru.png"
+  },
+  {
+    "ISO Code": "SA",
+    "Country": "Saudi Arabia",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Riyadh",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "SAR",
+    "Currency Name": "Saudi Riyal",
+    "Continent": "Asia",
+    "Population (2026)": 35165787,
+    "Area (in km2)": 2149690,
+    "Map": "SA_Saudi_Arabia.png",
+    "Fun Fact": "Has no permanent rivers.",
+    "Flag Colors": [
+      "Green",
+      "White"
+    ],
+    "Flag": "sa.png"
+  },
+  {
+    "ISO Code": "ZA",
+    "Country": "South Africa",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Pretoria",
+    "Main Languages": [
+      "Zulu",
+      "Xhosa"
+    ],
+    "Currency Code": "ZAR",
+    "Currency Name": "South African Rand",
+    "Continent": "Africa",
+    "Population (2026)": 65453084,
+    "Area (in km2)": 1221037,
+    "Map": "ZA_South_Africa.png",
+    "Fun Fact": "Has three official capital cities.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue",
+      "Green",
+      "Yellow",
+      "Black"
+    ],
+    "Flag": "za.png"
+  },
+  {
+    "ISO Code": "KR",
+    "Country": "South Korea",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Seoul",
+    "Main Languages": [
+      "Korean"
+    ],
+    "Currency Code": "KRW",
+    "Currency Name": "South Korean Won",
+    "Continent": "Asia",
+    "Population (2026)": 51600388,
+    "Area (in km2)": 100210,
+    "Map": "KR_South_Korea.png",
+    "Fun Fact": "You are officially born at one year old due to traditional age-counting methods.",
+    "Flag Colors": [
+      "White",
+      "Red",
+      "Blue",
+      "Black"
+    ],
+    "Flag": "kr.png"
+  },
+  {
+    "ISO Code": "ES",
+    "Country": "Spain",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Madrid",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 47850793,
+    "Area (in km2)": 505992,
+    "Map": "ES_Spain.png",
+    "Fun Fact": "Sobrino de Botín in Madrid (1725) is recognised as the oldest restaurant in the world.",
+    "Flag Colors": [
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "es.png"
+  },
+  {
+    "ISO Code": "SE",
+    "Country": "Sweden",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Stockholm",
+    "Main Languages": [
+      "Swedish"
+    ],
+    "Currency Code": "SEK",
+    "Currency Name": "Swedish Krona",
+    "Continent": "Europe",
+    "Population (2026)": 10701047,
+    "Area (in km2)": 450295,
+    "Map": "SE_Sweden.png",
+    "Fun Fact": "'Allemansrätten' lets anyone roam and camp freely on most land, public or private.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "se.png"
+  },
+  {
+    "ISO Code": "TR",
+    "Country": "Turkey",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Ankara",
+    "Main Languages": [
+      "Turkish"
+    ],
+    "Currency Code": "TRY",
+    "Currency Name": "Turkish Lira",
+    "Continent": "Asia",
+    "Population (2026)": 87926082,
+    "Area (in km2)": 783562,
+    "Map": "TR_Turkey.png",
+    "Fun Fact": "Saint Nicholas, the historical figure who inspired Santa Claus, was born here.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "tr.png"
+  },
+  {
+    "ISO Code": "UA",
+    "Country": "Ukraine",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Kyiv",
+    "Main Languages": [
+      "Ukrainian"
+    ],
+    "Currency Code": "UAH",
+    "Currency Name": "Ukrainian Hryvnia",
+    "Continent": "Europe",
+    "Population (2026)": 39535849,
+    "Area (in km2)": 603500,
+    "Map": "UA_Ukraine.png",
+    "Fun Fact": "Kyiv's Arsenalna is among the deepest metro stations in the world (~105 m).",
+    "Flag Colors": [
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "ua.png"
+  },
+  {
+    "ISO Code": "GB",
+    "Country": "United Kingdom",
+    "Difficulty Category": "Easy",
+    "Capital Name": "London",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "GBP",
+    "Currency Name": "British Pound Sterling",
+    "Continent": "Europe",
+    "Population (2026)": 69931528,
+    "Area (in km2)": 242900,
+    "Map": "GB_United_Kingdom.png",
+    "Fun Fact": "Has no single written constitutional document.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "gb.png"
+  },
+  {
+    "ISO Code": "US",
+    "Country": "United States of America",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Washington, D.C.",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "North America",
+    "Population (2026)": 349035494,
+    "Area (in km2)": 9833517,
+    "Map": "US_United_States_of_America.png",
+    "Fun Fact": "Has no official language at the federal level.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "us.png"
+  },
+  {
+    "ISO Code": "VN",
+    "Country": "Vietnam",
+    "Difficulty Category": "Easy",
+    "Capital Name": "Hanoi",
+    "Main Languages": [
+      "Vietnamese"
+    ],
+    "Currency Code": "VND",
+    "Currency Name": "Vietnamese Dong",
+    "Continent": "Asia",
+    "Population (2026)": 102177431,
+    "Area (in km2)": 331212,
+    "Map": "VN_Vietnam.png",
+    "Fun Fact": "Second-largest coffee producer in the world.",
+    "Flag Colors": [
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "vn.png"
+  },
+  {
+    "ISO Code": "AF",
+    "Country": "Afghanistan",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kabul",
+    "Main Languages": [
+      "Pashto",
+      "Dari"
+    ],
+    "Currency Code": "AFN",
+    "Currency Name": "Afghan Afghani",
+    "Continent": "Asia",
+    "Population (2026)": 45047069,
+    "Area (in km2)": 652230,
+    "Map": "AF_Afghanistan.png",
+    "Fun Fact": "Band-e Amir, its first national park, has blue lakes held back by natural travertine dams.",
+    "Flag Colors": [
+      "White",
+      "Black"
+    ],
+    "Flag": "af.png"
+  },
+  {
+    "ISO Code": "DZ",
+    "Country": "Algeria",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Algiers",
+    "Main Languages": [
+      "Arabic",
+      "Tamazight"
+    ],
+    "Currency Code": "DZD",
+    "Currency Name": "Algerian Dinar",
+    "Continent": "Africa",
+    "Population (2026)": 48028334,
+    "Area (in km2)": 2381741,
+    "Map": "DZ_Algeria.png",
+    "Fun Fact": "Became Africa's largest country by area in 2011 when Sudan split.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red"
+    ],
+    "Flag": "dz.png"
+  },
+  {
+    "ISO Code": "AO",
+    "Country": "Angola",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Luanda",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "AOA",
+    "Currency Name": "Angolan Kwanza",
+    "Continent": "Africa",
+    "Population (2026)": 40215179,
+    "Area (in km2)": 1246700,
+    "Map": "AO_Angola.png",
+    "Fun Fact": "Kalandula Falls is one of the largest waterfalls in Africa by volume.",
+    "Flag Colors": [
+      "Red",
+      "Black",
+      "Yellow"
+    ],
+    "Flag": "ao.png"
+  },
+  {
+    "ISO Code": "AZ",
+    "Country": "Azerbaijan",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Baku",
+    "Main Languages": [
+      "Azerbaijani"
+    ],
+    "Currency Code": "AZN",
+    "Currency Name": "Azerbaijani Manat",
+    "Continent": "Asia",
+    "Population (2026)": 10454855,
+    "Area (in km2)": 86600,
+    "Map": "AZ_Azerbaijan.png",
+    "Fun Fact": "Yanar Dag is a hillside that has burned continuously from natural gas.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "Green",
+      "White"
+    ],
+    "Flag": "az.png"
+  },
+  {
+    "ISO Code": "BS",
+    "Country": "Bahamas",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Nassau",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "BSD",
+    "Currency Name": "Bahamian Dollar",
+    "Continent": "North America",
+    "Population (2026)": 404628,
+    "Area (in km2)": 13880,
+    "Map": "BS_Bahamas.png",
+    "Fun Fact": "A group of feral pigs famously swim off Big Major Cay.",
+    "Flag Colors": [
+      "Aquamarine",
+      "Gold",
+      "Black"
+    ],
+    "Flag": "bs.png"
+  },
+  {
+    "ISO Code": "BD",
+    "Country": "Bangladesh",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Dhaka",
+    "Main Languages": [
+      "Bengali"
+    ],
+    "Currency Code": "BDT",
+    "Currency Name": "Bangladeshi Taka",
+    "Continent": "Asia",
+    "Population (2026)": 177818044,
+    "Area (in km2)": 147570,
+    "Map": "BD_Bangladesh.png",
+    "Fun Fact": "Shares the world's largest river delta with India.",
+    "Flag Colors": [
+      "Green",
+      "Red"
+    ],
+    "Flag": "bd.png"
+  },
+  {
+    "ISO Code": "BY",
+    "Country": "Belarus",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Minsk",
+    "Main Languages": [
+      "Belarusian",
+      "Russian"
+    ],
+    "Currency Code": "BYN",
+    "Currency Name": "Belarusian Ruble",
+    "Continent": "Europe",
+    "Population (2026)": 8937018,
+    "Area (in km2)": 207600,
+    "Map": "BY_Belarus.png",
+    "Fun Fact": "Białowieża Forest shelters Europe's largest wild bison population.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "White"
+    ],
+    "Flag": "by.png"
+  },
+  {
+    "ISO Code": "BE",
+    "Country": "Belgium",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Brussels",
+    "Main Languages": [
+      "Dutch",
+      "French"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 11774642,
+    "Area (in km2)": 30528,
+    "Map": "BE_Belgium.png",
+    "Fun Fact": "Went 541 days without an elected government (2010–2011).",
+    "Flag Colors": [
+      "Black",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "be.png"
+  },
+  {
+    "ISO Code": "BO",
+    "Country": "Bolivia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Sucre",
+    "Main Languages": [
+      "Spanish",
+      "Quechua"
+    ],
+    "Currency Code": "BOB",
+    "Currency Name": "Bolivian Boliviano",
+    "Continent": "South America",
+    "Population (2026)": 12749291,
+    "Area (in km2)": 1098581,
+    "Map": "BO_Bolivia.png",
+    "Fun Fact": "La Paz is the highest seat of government in the world.",
+    "Flag Colors": [
+      "Red",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "bo.png"
+  },
+  {
+    "ISO Code": "BA",
+    "Country": "Bosnia and Herzegovina",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Sarajevo",
+    "Main Languages": [
+      "Bosnian",
+      "Croatian"
+    ],
+    "Currency Code": "BAM",
+    "Currency Name": "Bosnia-Herzegovina Convertible Mark",
+    "Continent": "Europe",
+    "Population (2026)": 3114242,
+    "Area (in km2)": 51197,
+    "Map": "BA_Bosnia_and_Herzegovina.png",
+    "Fun Fact": "Sarajevo hosted the 1984 Winter Olympics.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "White"
+    ],
+    "Flag": "ba.png"
+  },
+  {
+    "ISO Code": "BG",
+    "Country": "Bulgaria",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Sofia",
+    "Main Languages": [
+      "Bulgarian"
+    ],
+    "Currency Code": "BGN",
+    "Currency Name": "Bulgarian Lev",
+    "Continent": "Europe",
+    "Population (2026)": 6667659,
+    "Area (in km2)": 110879,
+    "Map": "BG_Bulgaria.png",
+    "Fun Fact": "The Cyrillic alphabet was developed in the medieval.",
+    "Flag Colors": [
+      "White",
+      "Green",
+      "Red"
+    ],
+    "Flag": "bg.png"
+  },
+  {
+    "ISO Code": "KH",
+    "Country": "Cambodia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Phnom Penh",
+    "Main Languages": [
+      "Khmer"
+    ],
+    "Currency Code": "KHR",
+    "Currency Name": "Cambodian Riel",
+    "Continent": "Asia",
+    "Population (2026)": 18051219,
+    "Area (in km2)": 181035,
+    "Map": "KH_Cambodia.png",
+    "Fun Fact": "Its flag is the only national flag to feature a building.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "kh.png"
+  },
+  {
+    "ISO Code": "CM",
+    "Country": "Cameroon",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Yaoundé",
+    "Main Languages": [
+      "French",
+      "English"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 30640817,
+    "Area (in km2)": 475442,
+    "Map": "CM_Cameroon.png",
+    "Fun Fact": "Nicknamed 'Africa in miniature' for its varied landscapes.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "cm.png"
+  },
+  {
+    "ISO Code": "CO",
+    "Country": "Colombia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bogotá",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "COP",
+    "Currency Name": "Colombian Peso",
+    "Continent": "South America",
+    "Population (2026)": 53936226,
+    "Area (in km2)": 1141748,
+    "Map": "CO_Colombia.png",
+    "Fun Fact": "Has more bird species than any other country.",
+    "Flag Colors": [
+      "Yellow",
+      "Blue",
+      "Red"
+    ],
+    "Flag": "co.png"
+  },
+  {
+    "ISO Code": "CR",
+    "Country": "Costa Rica",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "San José",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "CRC",
+    "Currency Name": "Costa Rican Colón",
+    "Continent": "North America",
+    "Population (2026)": 5174789,
+    "Area (in km2)": 51100,
+    "Map": "CR_Costa_Rica.png",
+    "Fun Fact": "Abolished its army in 1948.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red"
+    ],
+    "Flag": "cr.png"
+  },
+  {
+    "ISO Code": "HR",
+    "Country": "Croatia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Zagreb",
+    "Main Languages": [
+      "Croatian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 3822345,
+    "Area (in km2)": 56594,
+    "Map": "HR_Croatia.png",
+    "Fun Fact": "The necktie (cravat) takes its name from it's soldiers.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "hr.png"
+  },
+  {
+    "ISO Code": "CY",
+    "Country": "Cyprus",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Nicosia",
+    "Main Languages": [
+      "Greek",
+      "Turkish"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Asia",
+    "Population (2026)": 1382334,
+    "Area (in km2)": 9251,
+    "Map": "CY_Cyprus.png",
+    "Fun Fact": "A cat buried with a human ~9,500 years ago is among the earliest evidence of cat domestication.",
+    "Flag Colors": [
+      "White",
+      "Copper orange",
+      "Green"
+    ],
+    "Flag": "cy.png"
+  },
+  {
+    "ISO Code": "CZ",
+    "Country": "Czechia (Czech Republic)",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Prague",
+    "Main Languages": [
+      "Czech"
+    ],
+    "Currency Code": "CZK",
+    "Currency Name": "Czech Koruna",
+    "Continent": "Europe",
+    "Population (2026)": 10527781,
+    "Area (in km2)": 78865,
+    "Map": "CZ_Czechia_(Czech_Republic).png",
+    "Fun Fact": "Has the highest beer consumption per person in the world.",
+    "Flag Colors": [
+      "White",
+      "Red",
+      "Blue"
+    ],
+    "Flag": "cz.png"
+  },
+  {
+    "ISO Code": "CD",
+    "Country": "Democratic Republic of the Congo",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kinshasa",
+    "Main Languages": [
+      "French",
+      "Lingala"
+    ],
+    "Currency Code": "CDF",
+    "Currency Name": "Congolese Franc",
+    "Continent": "Africa",
+    "Population (2026)": 116452162,
+    "Area (in km2)": 2344858,
+    "Map": "CD_Democratic_Republic_of_the_Congo.png",
+    "Fun Fact": "Its capital faces Brazzaville across a river, the closest pair of national capitals after Rome and Vatican City.",
+    "Flag Colors": [
+      "Sky blue",
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "cd.png"
+  },
+  {
+    "ISO Code": "DO",
+    "Country": "Dominican Republic",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Santo Domingo",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "DOP",
+    "Currency Name": "Dominican Peso",
+    "Continent": "North America",
+    "Population (2026)": 11609500,
+    "Area (in km2)": 48670,
+    "Map": "DO_Dominican_Republic.png",
+    "Fun Fact": "Santo Domingo has the oldest cathedral in the Americas.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "do.png"
+  },
+  {
+    "ISO Code": "EC",
+    "Country": "Ecuador",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Quito",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "South America",
+    "Population (2026)": 18444506,
+    "Area (in km2)": 283561,
+    "Map": "EC_Ecuador.png",
+    "Fun Fact": "The summit of Chimborazo is the farthest point on Earth's surface from Earth's centre.",
+    "Flag Colors": [
+      "Yellow",
+      "Blue",
+      "Red"
+    ],
+    "Flag": "ec.png"
+  },
+  {
+    "ISO Code": "EE",
+    "Country": "Estonia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Tallinn",
+    "Main Languages": [
+      "Estonian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 1331062,
+    "Area (in km2)": 45227,
+    "Map": "EE_Estonia.png",
+    "Fun Fact": "Skype was created by it's engineers.",
+    "Flag Colors": [
+      "Blue",
+      "Black",
+      "White"
+    ],
+    "Flag": "ee.png"
+  },
+  {
+    "ISO Code": "ET",
+    "Country": "Ethiopia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Addis Ababa",
+    "Main Languages": [
+      "Amharic"
+    ],
+    "Currency Code": "ETB",
+    "Currency Name": "Ethiopian Birr",
+    "Continent": "Africa",
+    "Population (2026)": 138902185,
+    "Area (in km2)": 1104300,
+    "Map": "ET_Ethiopia.png",
+    "Fun Fact": "Uses a 13-month calendar and is roughly seven years behind the Gregorian one.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red",
+      "Blue"
+    ],
+    "Flag": "et.png"
+  },
+  {
+    "ISO Code": "FJ",
+    "Country": "Fiji",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Suva",
+    "Main Languages": [
+      "English",
+      "Fijian"
+    ],
+    "Currency Code": "FJD",
+    "Currency Name": "Fijian Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 937282,
+    "Area (in km2)": 18274,
+    "Map": "FJ_Fiji.png",
+    "Fun Fact": "The International Date Line bends around it so the islands share one day.",
+    "Flag Colors": [
+      "Light blue",
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "fj.png"
+  },
+  {
+    "ISO Code": "GE",
+    "Country": "Georgia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Tbilisi",
+    "Main Languages": [
+      "Georgian"
+    ],
+    "Currency Code": "GEL",
+    "Currency Name": "Georgian Lari",
+    "Continent": "Asia",
+    "Population (2026)": 3804642,
+    "Area (in km2)": 69700,
+    "Map": "GE_Georgia.png",
+    "Fun Fact": "Winemaking here dates back about 8,000 years.",
+    "Flag Colors": [
+      "White",
+      "Red"
+    ],
+    "Flag": "ge.png"
+  },
+  {
+    "ISO Code": "GH",
+    "Country": "Ghana",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Accra",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "GHS",
+    "Currency Name": "Ghanaian Cedi",
+    "Continent": "Africa",
+    "Population (2026)": 35697557,
+    "Area (in km2)": 238533,
+    "Map": "GH_Ghana.png",
+    "Fun Fact": "First sub-Saharan African country to gain independence from colonial rule (1957).",
+    "Flag Colors": [
+      "Red",
+      "Gold",
+      "Green",
+      "Black"
+    ],
+    "Flag": "gh.png"
+  },
+  {
+    "ISO Code": "GT",
+    "Country": "Guatemala",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Guatemala City",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "GTQ",
+    "Currency Name": "Guatemalan Quetzal",
+    "Continent": "North America",
+    "Population (2026)": 18967978,
+    "Area (in km2)": 108889,
+    "Map": "GT_Guatemala.png",
+    "Fun Fact": "Its national bird, the quetzal, also gave its name to the currency.",
+    "Flag Colors": [
+      "Light blue",
+      "White"
+    ],
+    "Flag": "gt.png"
+  },
+  {
+    "ISO Code": "HT",
+    "Country": "Haiti",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Port-au-Prince",
+    "Main Languages": [
+      "French",
+      "Haitian Creole"
+    ],
+    "Currency Code": "HTG",
+    "Currency Name": "Haitian Gourde",
+    "Continent": "North America",
+    "Population (2026)": 12037506,
+    "Area (in km2)": 27750,
+    "Map": "HT_Haiti.png",
+    "Fun Fact": "Its 1804 independence made it the first Black-led republic in the world.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "ht.png"
+  },
+  {
+    "ISO Code": "HN",
+    "Country": "Honduras",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Tegucigalpa",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "HNL",
+    "Currency Name": "Honduran Lempira",
+    "Continent": "North America",
+    "Population (2026)": 11184760,
+    "Area (in km2)": 112492,
+    "Map": "HN_Honduras.png",
+    "Fun Fact": "Yoro is known for the 'lluvia de peces', when fish are said to appear after storms.",
+    "Flag Colors": [
+      "Blue",
+      "White"
+    ],
+    "Flag": "hn.png"
+  },
+  {
+    "ISO Code": "HU",
+    "Country": "Hungary",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Budapest",
+    "Main Languages": [
+      "Hungarian"
+    ],
+    "Currency Code": "HUF",
+    "Currency Name": "Hungarian Forint",
+    "Continent": "Europe",
+    "Population (2026)": 9585818,
+    "Area (in km2)": 93028,
+    "Map": "HU_Hungary.png",
+    "Fun Fact": "The Rubik's Cube was invented here in 1974.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "hu.png"
+  },
+  {
+    "ISO Code": "IQ",
+    "Country": "Iraq",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Baghdad",
+    "Main Languages": [
+      "Arabic",
+      "Kurdish"
+    ],
+    "Currency Code": "IQD",
+    "Currency Name": "Iraqi Dinar",
+    "Continent": "Asia",
+    "Population (2026)": 48007437,
+    "Area (in km2)": 438317,
+    "Map": "IQ_Iraq.png",
+    "Fun Fact": "Sumerians here created some of the earliest known writing.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black",
+      "Green"
+    ],
+    "Flag": "iq.png"
+  },
+  {
+    "ISO Code": "IL",
+    "Country": "Israel",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Jerusalem",
+    "Main Languages": [
+      "Hebrew"
+    ],
+    "Currency Code": "ILS",
+    "Currency Name": "Israeli New Shekel",
+    "Continent": "Asia",
+    "Population (2026)": 9647689,
+    "Area (in km2)": 22072,
+    "Map": "IL_Israel.png",
+    "Fun Fact": "Cherry tomatoes were developed by researchers here.",
+    "Flag Colors": [
+      "White",
+      "Blue"
+    ],
+    "Flag": "il.png"
+  },
+  {
+    "ISO Code": "JM",
+    "Country": "Jamaica",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kingston",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "JMD",
+    "Currency Name": "Jamaican Dollar",
+    "Continent": "North America",
+    "Population (2026)": 2833403,
+    "Area (in km2)": 10991,
+    "Map": "JM_Jamaica.png",
+    "Fun Fact": "Reggae was added to UNESCO's intangible heritage list in 2018.",
+    "Flag Colors": [
+      "Green",
+      "Gold",
+      "Black"
+    ],
+    "Flag": "jm.png"
+  },
+  {
+    "ISO Code": "JO",
+    "Country": "Jordan",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Amman",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "JOD",
+    "Currency Name": "Jordanian Dinar",
+    "Continent": "Asia",
+    "Population (2026)": 11589532,
+    "Area (in km2)": 89342,
+    "Map": "JO_Jordan.png",
+    "Fun Fact": "Wadi Rum has doubled for Mars in several films.",
+    "Flag Colors": [
+      "Black",
+      "White",
+      "Green",
+      "Red"
+    ],
+    "Flag": "jo.png"
+  },
+  {
+    "ISO Code": "KZ",
+    "Country": "Kazakhstan",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Astana",
+    "Main Languages": [
+      "Kazakh",
+      "Russian"
+    ],
+    "Currency Code": "KZT",
+    "Currency Name": "Kazakhstani Tenge",
+    "Continent": "Asia",
+    "Population (2026)": 21083626,
+    "Area (in km2)": 2724900,
+    "Map": "KZ_Kazakhstan.png",
+    "Fun Fact": "The world's largest landlocked country.",
+    "Flag Colors": [
+      "Sky blue",
+      "Yellow"
+    ],
+    "Flag": "kz.png"
+  },
+  {
+    "ISO Code": "KE",
+    "Country": "Kenya",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Nairobi",
+    "Main Languages": [
+      "Swahili",
+      "English"
+    ],
+    "Currency Code": "KES",
+    "Currency Name": "Kenyan Shilling",
+    "Continent": "Africa",
+    "Population (2026)": 58636412,
+    "Area (in km2)": 580367,
+    "Map": "KE_Kenya.png",
+    "Fun Fact": "Lake Turkana is the largest permanent desert lake in the world.",
+    "Flag Colors": [
+      "Black",
+      "Red",
+      "Green",
+      "White"
+    ],
+    "Flag": "ke.png"
+  },
+  {
+    "ISO Code": "KW",
+    "Country": "Kuwait",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kuwait City",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "KWD",
+    "Currency Name": "Kuwaiti Dinar",
+    "Continent": "Asia",
+    "Population (2026)": 5102773,
+    "Area (in km2)": 17818,
+    "Map": "KW_Kuwait.png",
+    "Fun Fact": "Its dinar is the highest-valued currency unit in the world.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red",
+      "Black"
+    ],
+    "Flag": "kw.png"
+  },
+  {
+    "ISO Code": "LV",
+    "Country": "Latvia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Riga",
+    "Main Languages": [
+      "Latvian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 1835935,
+    "Area (in km2)": 64589,
+    "Map": "LV_Latvia.png",
+    "Fun Fact": "Riga claims to have displayed the first decorated Christmas tree in 1510.",
+    "Flag Colors": [
+      "Carmine red",
+      "White"
+    ],
+    "Flag": "lv.png"
+  },
+  {
+    "ISO Code": "LB",
+    "Country": "Lebanon",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Beirut",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "LBP",
+    "Currency Name": "Lebanese Pound",
+    "Continent": "Asia",
+    "Population (2026)": 5897467,
+    "Area (in km2)": 10452,
+    "Map": "LB_Lebanon.png",
+    "Fun Fact": "Phoenician cities here are credited with spreading the alphabet.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "lb.png"
+  },
+  {
+    "ISO Code": "LY",
+    "Country": "Libya",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Tripoli",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "LYD",
+    "Currency Name": "Libyan Dinar",
+    "Continent": "Africa",
+    "Population (2026)": 7539851,
+    "Area (in km2)": 1759540,
+    "Map": "LY_Libya.png",
+    "Fun Fact": "Leptis Magna is one of the best-preserved Roman cities anywhere.",
+    "Flag Colors": [
+      "Red",
+      "Black",
+      "Green",
+      "White"
+    ],
+    "Flag": "ly.png"
+  },
+  {
+    "ISO Code": "LT",
+    "Country": "Lithuania",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Vilnius",
+    "Main Languages": [
+      "Lithuanian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 2797338,
+    "Area (in km2)": 65300,
+    "Map": "LT_Lithuania.png",
+    "Fun Fact": "Was the last pagan state in Europe, converting in 1387.",
+    "Flag Colors": [
+      "Yellow",
+      "Green",
+      "Red"
+    ],
+    "Flag": "lt.png"
+  },
+  {
+    "ISO Code": "MY",
+    "Country": "Malaysia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kuala Lumpur",
+    "Main Languages": [
+      "Malay"
+    ],
+    "Currency Code": "MYR",
+    "Currency Name": "Malaysian Ringgit",
+    "Continent": "Asia",
+    "Population (2026)": 36385115,
+    "Area (in km2)": 330803,
+    "Map": "MY_Malaysia.png",
+    "Fun Fact": "Its Petronas Towers were the world's tallest buildings from 1998 to 2004.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "my.png"
+  },
+  {
+    "ISO Code": "MV",
+    "Country": "Maldives",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Malé",
+    "Main Languages": [
+      "Dhivehi"
+    ],
+    "Currency Code": "MVR",
+    "Currency Name": "Maldivian Rufiyaa",
+    "Continent": "Asia",
+    "Population (2026)": 531517,
+    "Area (in km2)": 300,
+    "Map": "MV_Maldives.png",
+    "Fun Fact": "The lowest-lying country on Earth, averaging about 1.5 m above sea level.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "White"
+    ],
+    "Flag": "mv.png"
+  },
+  {
+    "ISO Code": "ML",
+    "Country": "Mali",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bamako",
+    "Main Languages": [
+      "French",
+      "Bambara"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 25932275,
+    "Area (in km2)": 1240192,
+    "Map": "ML_Mali.png",
+    "Fun Fact": "Timbuktu's libraries hold hundreds of thousands of ancient manuscripts.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "ml.png"
+  },
+  {
+    "ISO Code": "MD",
+    "Country": "Moldova",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Chișinău",
+    "Main Languages": [
+      "Romanian"
+    ],
+    "Currency Code": "MDL",
+    "Currency Name": "Moldovan Leu",
+    "Continent": "Europe",
+    "Population (2026)": 2961253,
+    "Area (in km2)": 33846,
+    "Map": "MD_Moldova.png",
+    "Fun Fact": "Mileștii Mici holds one of the world's largest wine collections in underground tunnels.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "md.png"
+  },
+  {
+    "ISO Code": "MN",
+    "Country": "Mongolia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Ulaanbaatar",
+    "Main Languages": [
+      "Mongolian"
+    ],
+    "Currency Code": "MNT",
+    "Currency Name": "Mongolian Tögrög",
+    "Continent": "Asia",
+    "Population (2026)": 3556798,
+    "Area (in km2)": 1564110,
+    "Map": "MN_Mongolia.png",
+    "Fun Fact": "Livestock outnumber people by more than ten to one.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "mn.png"
+  },
+  {
+    "ISO Code": "MA",
+    "Country": "Morocco",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Rabat",
+    "Main Languages": [
+      "Arabic",
+      "Tamazight"
+    ],
+    "Currency Code": "MAD",
+    "Currency Name": "Moroccan Dirham",
+    "Continent": "Africa",
+    "Population (2026)": 38762441,
+    "Area (in km2)": 446550,
+    "Map": "MA_Morocco.png",
+    "Fun Fact": "Fez is home to al-Qarawiyyin (859), among the oldest universities still operating.",
+    "Flag Colors": [
+      "Red",
+      "Green"
+    ],
+    "Flag": "ma.png"
+  },
+  {
+    "ISO Code": "MM",
+    "Country": "Myanmar (formerly Burma)",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Naypyidaw",
+    "Main Languages": [
+      "Burmese"
+    ],
+    "Currency Code": "MMK",
+    "Currency Name": "Myanmar Kyat",
+    "Continent": "Asia",
+    "Population (2026)": 55184819,
+    "Area (in km2)": 676578,
+    "Map": "MM_Myanmar_(formerly_Burma).png",
+    "Fun Fact": "Moved its capital to the purpose-built Naypyidaw in 2005–06.",
+    "Flag Colors": [
+      "Yellow",
+      "Green",
+      "Red",
+      "White"
+    ],
+    "Flag": "mm.png"
+  },
+  {
+    "ISO Code": "NA",
+    "Country": "Namibia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Windhoek",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "NAD",
+    "Currency Name": "Namibian Dollar",
+    "Continent": "Africa",
+    "Population (2026)": 3153246,
+    "Area (in km2)": 825615,
+    "Map": "NA_Namibia.png",
+    "Fun Fact": "Hosts the Namib, thought to be the oldest desert in the world.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "Green",
+      "White",
+      "Gold"
+    ],
+    "Flag": "na.png"
+  },
+  {
+    "ISO Code": "NP",
+    "Country": "Nepal",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Kathmandu",
+    "Main Languages": [
+      "Nepali"
+    ],
+    "Currency Code": "NPR",
+    "Currency Name": "Nepalese Rupee",
+    "Continent": "Asia",
+    "Population (2026)": 29629410,
+    "Area (in km2)": 147181,
+    "Map": "NP_Nepal.png",
+    "Fun Fact": "Its flag is the only national flag that is not rectangular.",
+    "Flag Colors": [
+      "Crimson",
+      "Blue",
+      "White"
+    ],
+    "Flag": "np.png"
+  },
+  {
+    "ISO Code": "NL",
+    "Country": "Netherlands",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Amsterdam",
+    "Main Languages": [
+      "Dutch"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 18448775,
+    "Area (in km2)": 41543,
+    "Map": "NL_Netherlands.png",
+    "Fun Fact": "About a quarter of the land lies below sea level.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "nl.png"
+  },
+  {
+    "ISO Code": "NI",
+    "Country": "Nicaragua",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Managua",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "NIO",
+    "Currency Name": "Nicaraguan Córdoba",
+    "Continent": "North America",
+    "Population (2026)": 7097329,
+    "Area (in km2)": 130373,
+    "Map": "NI_Nicaragua.png",
+    "Fun Fact": "Have a lake that is a home to freshwater-dwelling bull sharks.",
+    "Flag Colors": [
+      "Blue",
+      "White"
+    ],
+    "Flag": "ni.png"
+  },
+  {
+    "ISO Code": "NG",
+    "Country": "Nigeria",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Abuja",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "NGN",
+    "Currency Name": "Nigerian Naira",
+    "Continent": "Africa",
+    "Population (2026)": 242431832,
+    "Area (in km2)": 923768,
+    "Map": "NG_Nigeria.png",
+    "Fun Fact": "Its film industry is the largest in Africa by output.",
+    "Flag Colors": [
+      "Green",
+      "White"
+    ],
+    "Flag": "ng.png"
+  },
+  {
+    "ISO Code": "KP",
+    "Country": "North Korea",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Pyongyang",
+    "Main Languages": [
+      "Korean"
+    ],
+    "Currency Code": "KPW",
+    "Currency Name": "North Korean Won",
+    "Continent": "Asia",
+    "Population (2026)": 26633691,
+    "Area (in km2)": 120538,
+    "Map": "KP_North_Korea.png",
+    "Fun Fact": "Counts years from 1912 under its own Juche calendar.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "kp.png"
+  },
+  {
+    "ISO Code": "MK",
+    "Country": "North Macedonia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Skopje",
+    "Main Languages": [
+      "Macedonian",
+      "Albanian"
+    ],
+    "Currency Code": "MKD",
+    "Currency Name": "Macedonian Denar",
+    "Continent": "Europe",
+    "Population (2026)": 1804063,
+    "Area (in km2)": 25713,
+    "Map": "MK_North_Macedonia.png",
+    "Fun Fact": "Lake Ohrid is among the oldest lakes in Europe.",
+    "Flag Colors": [
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "mk.png"
+  },
+  {
+    "ISO Code": "OM",
+    "Country": "Oman",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Muscat",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "OMR",
+    "Currency Name": "Omani Rial",
+    "Continent": "Asia",
+    "Population (2026)": 5671458,
+    "Area (in km2)": 309500,
+    "Map": "OM_Oman.png",
+    "Fun Fact": "Frankincense from Dhofar has been traded for thousands of years.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "om.png"
+  },
+  {
+    "ISO Code": "PA",
+    "Country": "Panama",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Panama City",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "PAB",
+    "Currency Name": "Panamanian Balboa",
+    "Continent": "North America",
+    "Population (2026)": 4625718,
+    "Area (in km2)": 75417,
+    "Map": "PA_Panama.png",
+    "Fun Fact": "At some points you can watch the sun rise over the Pacific and set over the Atlantic.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "pa.png"
+  },
+  {
+    "ISO Code": "PG",
+    "Country": "Papua New Guinea",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Port Moresby",
+    "Main Languages": [
+      "English",
+      "Tok Pisin"
+    ],
+    "Currency Code": "PGK",
+    "Currency Name": "Papua New Guinean Kina",
+    "Continent": "Oceania",
+    "Population (2026)": 10947848,
+    "Area (in km2)": 462840,
+    "Map": "PG_Papua_New_Guinea.png",
+    "Fun Fact": "Has more than 800 languages, the most of any country.",
+    "Flag Colors": [
+      "Red",
+      "Black",
+      "Yellow",
+      "White"
+    ],
+    "Flag": "pg.png"
+  },
+  {
+    "ISO Code": "PY",
+    "Country": "Paraguay",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Asunción",
+    "Main Languages": [
+      "Spanish",
+      "Guarani"
+    ],
+    "Currency Code": "PYG",
+    "Currency Name": "Paraguayan Guaraní",
+    "Continent": "South America",
+    "Population (2026)": 7095279,
+    "Area (in km2)": 406752,
+    "Map": "PY_Paraguay.png",
+    "Fun Fact": "Its flag has a different emblem on each side.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "py.png"
+  },
+  {
+    "ISO Code": "PE",
+    "Country": "Peru",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Lima",
+    "Main Languages": [
+      "Spanish",
+      "Quechua"
+    ],
+    "Currency Code": "PEN",
+    "Currency Name": "Peruvian Sol",
+    "Continent": "South America",
+    "Population (2026)": 34922148,
+    "Area (in km2)": 1285216,
+    "Map": "PE_Peru.png",
+    "Fun Fact": "Grows thousands of varieties of potato.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "pe.png"
+  },
+  {
+    "ISO Code": "PL",
+    "Country": "Poland",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Warsaw",
+    "Main Languages": [
+      "Polish"
+    ],
+    "Currency Code": "PLN",
+    "Currency Name": "Polish Złoty",
+    "Continent": "Europe",
+    "Population (2026)": 37843188,
+    "Area (in km2)": 312696,
+    "Map": "PL_Poland.png",
+    "Fun Fact": "Copernicus was born in Toruń.",
+    "Flag Colors": [
+      "White",
+      "Red"
+    ],
+    "Flag": "pl.png"
+  },
+  {
+    "ISO Code": "QA",
+    "Country": "Qatar",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Doha",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "QAR",
+    "Currency Name": "Qatari Riyal",
+    "Continent": "Asia",
+    "Population (2026)": 3173559,
+    "Area (in km2)": 11586,
+    "Map": "QA_Qatar.png",
+    "Fun Fact": "First Arab country to host a FIFA World Cup.",
+    "Flag Colors": [
+      "Maroon",
+      "White"
+    ],
+    "Flag": "qa.png"
+  },
+  {
+    "ISO Code": "RO",
+    "Country": "Romania",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bucharest",
+    "Main Languages": [
+      "Romanian"
+    ],
+    "Currency Code": "RON",
+    "Currency Name": "Romanian Leu",
+    "Continent": "Europe",
+    "Population (2026)": 18800605,
+    "Area (in km2)": 238391,
+    "Map": "RO_Romania.png",
+    "Fun Fact": "Its Palace of Parliament is considered the heaviest building in the world.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "ro.png"
+  },
+  {
+    "ISO Code": "SN",
+    "Country": "Senegal",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Dakar",
+    "Main Languages": [
+      "French",
+      "Wolof"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 19366548,
+    "Area (in km2)": 196722,
+    "Map": "SN_Senegal.png",
+    "Fun Fact": "Lake Retba turns pink thanks to salt-loving algae.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "sn.png"
+  },
+  {
+    "ISO Code": "RS",
+    "Country": "Serbia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Belgrade",
+    "Main Languages": [
+      "Serbian"
+    ],
+    "Currency Code": "RSD",
+    "Currency Name": "Serbian Dinar",
+    "Continent": "Europe",
+    "Population (2026)": 6641964,
+    "Area (in km2)": 88361,
+    "Map": "RS_Serbia.png",
+    "Fun Fact": "Nikola Tesla's ashes are kept in a Belgrade museum.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "White"
+    ],
+    "Flag": "rs.png"
+  },
+  {
+    "ISO Code": "SG",
+    "Country": "Singapore",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Singapore",
+    "Main Languages": [
+      "English",
+      "Malay"
+    ],
+    "Currency Code": "SGD",
+    "Currency Name": "Singapore Dollar",
+    "Continent": "Asia",
+    "Population (2026)": 5905748,
+    "Area (in km2)": 719,
+    "Map": "SG_Singapore.png",
+    "Fun Fact": "Chewing gum sales have been banned since 1992.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "sg.png"
+  },
+  {
+    "ISO Code": "SK",
+    "Country": "Slovakia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bratislava",
+    "Main Languages": [
+      "Slovak"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 5451342,
+    "Area (in km2)": 49035,
+    "Map": "SK_Slovakia.png",
+    "Fun Fact": "Reportedly has more castles and chateaux per person than any other country.",
+    "Flag Colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "Flag": "sk.png"
+  },
+  {
+    "ISO Code": "SI",
+    "Country": "Slovenia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Ljubljana",
+    "Main Languages": [
+      "Slovenian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 2114573,
+    "Area (in km2)": 20273,
+    "Map": "SI_Slovenia.png",
+    "Fun Fact": "Predjama Castle is built into the mouth of a cave.",
+    "Flag Colors": [
+      "White",
+      "Blue",
+      "Red"
+    ],
+    "Flag": "si.png"
+  },
+  {
+    "ISO Code": "LK",
+    "Country": "Sri Lanka",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Sri Jayawardenepura Kotte",
+    "Main Languages": [
+      "Sinhala",
+      "Tamil"
+    ],
+    "Currency Code": "LKR",
+    "Currency Name": "Sri Lankan Rupee",
+    "Continent": "Asia",
+    "Population (2026)": 23348315,
+    "Area (in km2)": 65610,
+    "Map": "LK_Sri_Lanka.png",
+    "Fun Fact": "Sri Maha Bodhi, planted around 288 BCE, is the oldest documented planted tree.",
+    "Flag Colors": [
+      "Yellow",
+      "Maroon",
+      "Orange",
+      "Green"
+    ],
+    "Flag": "lk.png"
+  },
+  {
+    "ISO Code": "CH",
+    "Country": "Switzerland",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bern",
+    "Main Languages": [
+      "German",
+      "French"
+    ],
+    "Currency Code": "CHF",
+    "Currency Name": "Swiss Franc",
+    "Continent": "Europe",
+    "Population (2026)": 9007798,
+    "Area (in km2)": 41284,
+    "Map": "CH_Switzerland.png",
+    "Fun Fact": "Women only got the federal vote in 1971.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "ch.png"
+  },
+  {
+    "ISO Code": "SY",
+    "Country": "Syria",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Damascus",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "SYP",
+    "Currency Name": "Syrian Pound",
+    "Continent": "Asia",
+    "Population (2026)": 26472497,
+    "Area (in km2)": 185180,
+    "Map": "SY_Syria.png",
+    "Fun Fact": "Damascus is among the oldest continuously inhabited cities in the world.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black",
+      "Green"
+    ],
+    "Flag": "sy.png"
+  },
+  {
+    "ISO Code": "TZ",
+    "Country": "Tanzania",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Dodoma",
+    "Main Languages": [
+      "Swahili",
+      "English"
+    ],
+    "Currency Code": "TZS",
+    "Currency Name": "Tanzanian Shilling",
+    "Continent": "Africa",
+    "Population (2026)": 72563780,
+    "Area (in km2)": 947303,
+    "Map": "TZ_Tanzania.png",
+    "Fun Fact": "Olduvai Gorge has yielded key early human fossils.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Black",
+      "Blue"
+    ],
+    "Flag": "tz.png"
+  },
+  {
+    "ISO Code": "TH",
+    "Country": "Thailand",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Bangkok",
+    "Main Languages": [
+      "Thai"
+    ],
+    "Currency Code": "THB",
+    "Currency Name": "Thai Baht",
+    "Continent": "Asia",
+    "Population (2026)": 71559614,
+    "Area (in km2)": 513120,
+    "Map": "TH_Thailand.png",
+    "Fun Fact": "Its capital's ceremonial name is one of the longest place names in the world.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "th.png"
+  },
+  {
+    "ISO Code": "TN",
+    "Country": "Tunisia",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Tunis",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "TND",
+    "Currency Name": "Tunisian Dinar",
+    "Continent": "Africa",
+    "Population (2026)": 12415138,
+    "Area (in km2)": 163610,
+    "Map": "TN_Tunisia.png",
+    "Fun Fact": "Star Wars' desert planet Tatooine is named after the town of Tataouine.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "tn.png"
+  },
+  {
+    "ISO Code": "AE",
+    "Country": "United Arab Emirates",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Abu Dhabi",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "AED",
+    "Currency Name": "UAE Dirham",
+    "Continent": "Asia",
+    "Population (2026)": 11574682,
+    "Area (in km2)": 83600,
+    "Map": "AE_United_Arab_Emirates.png",
+    "Fun Fact": "Some vending machines dispense gold bars.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "White",
+      "Black"
+    ],
+    "Flag": "ae.png"
+  },
+  {
+    "ISO Code": "UY",
+    "Country": "Uruguay",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Montevideo",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "UYU",
+    "Currency Name": "Uruguayan Peso",
+    "Continent": "South America",
+    "Population (2026)": 3382537,
+    "Area (in km2)": 176215,
+    "Map": "UY_Uruguay.png",
+    "Fun Fact": "Hosted and won the very first World Cup in 1930.",
+    "Flag Colors": [
+      "White",
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "uy.png"
+  },
+  {
+    "ISO Code": "VE",
+    "Country": "Venezuela",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Caracas",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "VES",
+    "Currency Name": "Venezuelan Bolívar",
+    "Continent": "South America",
+    "Population (2026)": 28633711,
+    "Area (in km2)": 916445,
+    "Map": "VE_Venezuela.png",
+    "Fun Fact": "Angel Falls is the tallest uninterrupted waterfall on Earth.",
+    "Flag Colors": [
+      "Yellow",
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "Flag": "ve.png"
+  },
+  {
+    "ISO Code": "YE",
+    "Country": "Yemen",
+    "Difficulty Category": "Intermediate",
+    "Capital Name": "Sana'a",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "YER",
+    "Currency Name": "Yemeni Rial",
+    "Continent": "Asia",
+    "Population (2026)": 42961653,
+    "Area (in km2)": 527968,
+    "Map": "YE_Yemen.png",
+    "Fun Fact": "Socotra's dragon blood trees look like upside-down umbrellas.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black"
+    ],
+    "Flag": "ye.png"
+  },
+  {
+    "ISO Code": "AL",
+    "Country": "Albania",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Tirana",
+    "Main Languages": [
+      "Albanian"
+    ],
+    "Currency Code": "ALL",
+    "Currency Name": "Albanian Lek",
+    "Continent": "Europe",
+    "Population (2026)": 2751025,
+    "Area (in km2)": 28748,
+    "Map": "AL_Albania.png",
+    "Fun Fact": "Dotted with roughly 175,000 concrete bunkers built under Hoxha.",
+    "Flag Colors": [
+      "Red",
+      "Black"
+    ],
+    "Flag": "al.png"
+  },
+  {
+    "ISO Code": "AM",
+    "Country": "Armenia",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Yerevan",
+    "Main Languages": [
+      "Armenian"
+    ],
+    "Currency Code": "AMD",
+    "Currency Name": "Armenian Dram",
+    "Continent": "Asia",
+    "Population (2026)": 2930915,
+    "Area (in km2)": 29743,
+    "Map": "AM_Armenia.png",
+    "Fun Fact": "First nation to adopt Christianity as a state religion (301 CE).",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "Orange"
+    ],
+    "Flag": "am.png"
+  },
+  {
+    "ISO Code": "BH",
+    "Country": "Bahrain",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Manama",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "BHD",
+    "Currency Name": "Bahraini Dinar",
+    "Continent": "Asia",
+    "Population (2026)": 1675572,
+    "Area (in km2)": 765,
+    "Map": "BH_Bahrain.png",
+    "Fun Fact": "Pearl diving was the main economy before oil.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "bh.png"
+  },
+  {
+    "ISO Code": "BZ",
+    "Country": "Belize",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Belmopan",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "BZD",
+    "Currency Name": "Belize Dollar",
+    "Continent": "North America",
+    "Population (2026)": 428644,
+    "Area (in km2)": 22966,
+    "Map": "BZ_Belize.png",
+    "Fun Fact": "Home to the largest barrier reef in the Northern Hemisphere.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "bz.png"
+  },
+  {
+    "ISO Code": "BJ",
+    "Country": "Benin",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Porto-Novo",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 15170419,
+    "Area (in km2)": 114763,
+    "Map": "BJ_Benin.png",
+    "Fun Fact": "Birthplace of Vodun, the religion behind Haitian Vodou.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "bj.png"
+  },
+  {
+    "ISO Code": "BT",
+    "Country": "Bhutan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Thimphu",
+    "Main Languages": [
+      "Dzongkha"
+    ],
+    "Currency Code": "BTN",
+    "Currency Name": "Bhutanese Ngultrum",
+    "Continent": "Asia",
+    "Population (2026)": 802214,
+    "Area (in km2)": 38394,
+    "Map": "BT_Bhutan.png",
+    "Fun Fact": "Measures national progress with Gross National Happiness.",
+    "Flag Colors": [
+      "Yellow",
+      "Orange",
+      "White"
+    ],
+    "Flag": "bt.png"
+  },
+  {
+    "ISO Code": "BW",
+    "Country": "Botswana",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Gaborone",
+    "Main Languages": [
+      "English",
+      "Tswana"
+    ],
+    "Currency Code": "BWP",
+    "Currency Name": "Botswana Pula",
+    "Continent": "Africa",
+    "Population (2026)": 2603388,
+    "Area (in km2)": 581730,
+    "Map": "BW_Botswana.png",
+    "Fun Fact": "The Okavango River ends in an inland delta instead of reaching the sea.",
+    "Flag Colors": [
+      "Light blue",
+      "White",
+      "Black"
+    ],
+    "Flag": "bw.png"
+  },
+  {
+    "ISO Code": "BN",
+    "Country": "Brunei",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Bandar Seri Begawan",
+    "Main Languages": [
+      "Malay"
+    ],
+    "Currency Code": "BND",
+    "Currency Name": "Brunei Dollar",
+    "Continent": "Asia",
+    "Population (2026)": 469775,
+    "Area (in km2)": 5765,
+    "Map": "BN_Brunei.png",
+    "Fun Fact": "The Sultan's palace has 1,788 rooms.",
+    "Flag Colors": [
+      "Yellow",
+      "White",
+      "Black",
+      "Red"
+    ],
+    "Flag": "bn.png"
+  },
+  {
+    "ISO Code": "BF",
+    "Country": "Burkina Faso",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Ouagadougou",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 24601700,
+    "Area (in km2)": 274200,
+    "Map": "BF_Burkina_Faso.png",
+    "Fun Fact": "The name roughly means 'land of upright people'.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "Yellow"
+    ],
+    "Flag": "bf.png"
+  },
+  {
+    "ISO Code": "BI",
+    "Country": "Burundi",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Gitega",
+    "Main Languages": [
+      "Kirundi",
+      "French"
+    ],
+    "Currency Code": "BIF",
+    "Currency Name": "Burundian Franc",
+    "Continent": "Africa",
+    "Population (2026)": 14729157,
+    "Area (in km2)": 27834,
+    "Map": "BI_Burundi.png",
+    "Fun Fact": "Claims the southernmost source of the Nile.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "White"
+    ],
+    "Flag": "bi.png"
+  },
+  {
+    "ISO Code": "CV",
+    "Country": "Cabo Verde",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Praia",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "CVE",
+    "Currency Name": "Cape Verdean Escudo",
+    "Continent": "Africa",
+    "Population (2026)": 529630,
+    "Area (in km2)": 4033,
+    "Map": "CV_Cabo_Verde.png",
+    "Fun Fact": "Singer Cesária Évora became famous for performing barefoot.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "cv.png"
+  },
+  {
+    "ISO Code": "CF",
+    "Country": "Central African Republic",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Bangui",
+    "Main Languages": [
+      "Sango",
+      "French"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 5698984,
+    "Area (in km2)": 622984,
+    "Map": "CF_Central_African_Republic.png",
+    "Fun Fact": "Dzanga Bai is a forest clearing where hundreds of forest elephants gather.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "cf.png"
+  },
+  {
+    "ISO Code": "TD",
+    "Country": "Chad",
+    "Difficulty Category": "Hard",
+    "Capital Name": "N'Djamena",
+    "Main Languages": [
+      "Arabic",
+      "French"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 21560380,
+    "Area (in km2)": 1284000,
+    "Map": "TD_Chad.png",
+    "Fun Fact": "Lake Chad has shrunk by around 90% since the 1960s.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "td.png"
+  },
+  {
+    "ISO Code": "KM",
+    "Country": "Comoros",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Moroni",
+    "Main Languages": [
+      "Comorian",
+      "Arabic"
+    ],
+    "Currency Code": "KMF",
+    "Currency Name": "Comorian Franc",
+    "Continent": "Africa",
+    "Population (2026)": 899010,
+    "Area (in km2)": 2235,
+    "Map": "KM_Comoros.png",
+    "Fun Fact": "A top producer of ylang-ylang, a key ingredient in perfumes.",
+    "Flag Colors": [
+      "Yellow",
+      "White",
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "Flag": "km.png"
+  },
+  {
+    "ISO Code": "CG",
+    "Country": "Congo (Congo-Brazzaville)",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Brazzaville",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 6637785,
+    "Area (in km2)": 342000,
+    "Map": "CG_Congo_(Congo-Brazzaville).png",
+    "Fun Fact": "Brazzaville is home to 'La Sape', a flamboyant dandy subculture.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "cg.png"
+  },
+  {
+    "ISO Code": "CI",
+    "Country": "Côte d'Ivoire",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Yamoussoukro",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 33494346,
+    "Area (in km2)": 322463,
+    "Map": "CI_Côte_d'Ivoire.png",
+    "Fun Fact": "Yamoussoukro has one of the largest churches in the world.",
+    "Flag Colors": [
+      "Orange",
+      "White",
+      "Green"
+    ],
+    "Flag": "ci.png"
+  },
+  {
+    "ISO Code": "DJ",
+    "Country": "Djibouti",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Djibouti",
+    "Main Languages": [
+      "French",
+      "Arabic"
+    ],
+    "Currency Code": "DJF",
+    "Currency Name": "Djiboutian Franc",
+    "Continent": "Africa",
+    "Population (2026)": 1199459,
+    "Area (in km2)": 23200,
+    "Map": "DJ_Djibouti.png",
+    "Fun Fact": "Lake Assal is the lowest point in Africa.",
+    "Flag Colors": [
+      "Light blue",
+      "Green",
+      "White",
+      "Red"
+    ],
+    "Flag": "dj.png"
+  },
+  {
+    "ISO Code": "SV",
+    "Country": "El Salvador",
+    "Difficulty Category": "Hard",
+    "Capital Name": "San Salvador",
+    "Main Languages": [
+      "Spanish"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "North America",
+    "Population (2026)": 6391253,
+    "Area (in km2)": 21041,
+    "Map": "SV_El_Salvador.png",
+    "Fun Fact": "The only Central American country without a Caribbean coast.",
+    "Flag Colors": [
+      "Blue",
+      "White"
+    ],
+    "Flag": "sv.png"
+  },
+  {
+    "ISO Code": "GQ",
+    "Country": "Equatorial Guinea",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Malabo",
+    "Main Languages": [
+      "Spanish",
+      "French"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 1984468,
+    "Area (in km2)": 28051,
+    "Map": "GQ_Equatorial_Guinea.png",
+    "Fun Fact": "The only Spanish-speaking country in Africa.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red",
+      "Blue"
+    ],
+    "Flag": "gq.png"
+  },
+  {
+    "ISO Code": "ER",
+    "Country": "Eritrea",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Asmara",
+    "Main Languages": [
+      "Tigrinya",
+      "Arabic"
+    ],
+    "Currency Code": "ERN",
+    "Currency Name": "Eritrean Nakfa",
+    "Continent": "Africa",
+    "Population (2026)": 3682669,
+    "Area (in km2)": 117600,
+    "Map": "ER_Eritrea.png",
+    "Fun Fact": "Asmara's Art Deco and modernist buildings earned UNESCO status.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "er.png"
+  },
+  {
+    "ISO Code": "SZ",
+    "Country": "Eswatini",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Mbabane",
+    "Main Languages": [
+      "Swazi",
+      "English"
+    ],
+    "Currency Code": "SZL",
+    "Currency Name": "Swazi Lilangeni",
+    "Continent": "Africa",
+    "Population (2026)": 1269859,
+    "Area (in km2)": 17364,
+    "Map": "SZ_Eswatini.png",
+    "Fun Fact": "Hosts the annual Umhlanga Reed Dance.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red",
+      "White",
+      "Black"
+    ],
+    "Flag": "sz.png"
+  },
+  {
+    "ISO Code": "GA",
+    "Country": "Gabon",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Libreville",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XAF",
+    "Currency Name": "Central African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 2647399,
+    "Area (in km2)": 267668,
+    "Map": "GA_Gabon.png",
+    "Fun Fact": "Roughly 88% of the land is covered in forest.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Blue"
+    ],
+    "Flag": "ga.png"
+  },
+  {
+    "ISO Code": "GM",
+    "Country": "Gambia",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Banjul",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "GMD",
+    "Currency Name": "Gambian Dalasi",
+    "Continent": "Africa",
+    "Population (2026)": 2884079,
+    "Area (in km2)": 11295,
+    "Map": "GM_Gambia.png",
+    "Fun Fact": "A narrow strip of land that follows the Gambia River and is almost entirely surrounded by Senegal.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "Green",
+      "White"
+    ],
+    "Flag": "gm.png"
+  },
+  {
+    "ISO Code": "GN",
+    "Country": "Guinea",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Conakry",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "GNF",
+    "Currency Name": "Guinean Franc",
+    "Continent": "Africa",
+    "Population (2026)": 15441993,
+    "Area (in km2)": 245857,
+    "Map": "GN_Guinea.png",
+    "Fun Fact": "Source of the Niger, Gambia and Senegal rivers.",
+    "Flag Colors": [
+      "Red",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "gn.png"
+  },
+  {
+    "ISO Code": "GW",
+    "Country": "Guinea-Bissau",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Bissau",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 2297808,
+    "Area (in km2)": 36125,
+    "Map": "GW_Guinea-Bissau.png",
+    "Fun Fact": "The Bijagós islands are home to saltwater-dwelling hippos.",
+    "Flag Colors": [
+      "Red",
+      "Yellow",
+      "Green",
+      "Black"
+    ],
+    "Flag": "gw.png"
+  },
+  {
+    "ISO Code": "GY",
+    "Country": "Guyana",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Georgetown",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "GYD",
+    "Currency Name": "Guyanese Dollar",
+    "Continent": "South America",
+    "Population (2026)": 840890,
+    "Area (in km2)": 214969,
+    "Map": "GY_Guyana.png",
+    "Fun Fact": "The only English-speaking country in South America.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "White",
+      "Black",
+      "Red"
+    ],
+    "Flag": "gy.png"
+  },
+  {
+    "ISO Code": "KG",
+    "Country": "Kyrgyzstan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Bishkek",
+    "Main Languages": [
+      "Kyrgyz",
+      "Russian"
+    ],
+    "Currency Code": "KGS",
+    "Currency Name": "Kyrgyzstani Som",
+    "Continent": "Asia",
+    "Population (2026)": 7400465,
+    "Area (in km2)": 199951,
+    "Map": "KG_Kyrgyzstan.png",
+    "Fun Fact": "Home to the world's largest natural walnut forests.",
+    "Flag Colors": [
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "kg.png"
+  },
+  {
+    "ISO Code": "LA",
+    "Country": "Laos",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Vientiane",
+    "Main Languages": [
+      "Lao"
+    ],
+    "Currency Code": "LAK",
+    "Currency Name": "Lao Kip",
+    "Continent": "Asia",
+    "Population (2026)": 7974017,
+    "Area (in km2)": 236800,
+    "Map": "LA_Laos.png",
+    "Fun Fact": "The Plain of Jars is scattered with thousands of giant ancient stone jars.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "White"
+    ],
+    "Flag": "la.png"
+  },
+  {
+    "ISO Code": "LS",
+    "Country": "Lesotho",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Maseru",
+    "Main Languages": [
+      "Sotho",
+      "English"
+    ],
+    "Currency Code": "LSL",
+    "Currency Name": "Lesotho Loti",
+    "Continent": "Africa",
+    "Population (2026)": 2389336,
+    "Area (in km2)": 30355,
+    "Map": "LS_Lesotho.png",
+    "Fun Fact": "The only country entirely above 1,000 m elevation.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Green",
+      "Black"
+    ],
+    "Flag": "ls.png"
+  },
+  {
+    "ISO Code": "LR",
+    "Country": "Liberia",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Monrovia",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "LRD",
+    "Currency Name": "Liberian Dollar",
+    "Continent": "Africa",
+    "Population (2026)": 5853949,
+    "Area (in km2)": 111369,
+    "Map": "LR_Liberia.png",
+    "Fun Fact": "Founded by freed American slaves; its flag resembles the Stars and Stripes.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "Flag": "lr.png"
+  },
+  {
+    "ISO Code": "LU",
+    "Country": "Luxembourg",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Luxembourg City",
+    "Main Languages": [
+      "Luxembourgish",
+      "French"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 687448,
+    "Area (in km2)": 2586,
+    "Map": "LU_Luxembourg.png",
+    "Fun Fact": "The world's only remaining sovereign grand duchy.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Light blue"
+    ],
+    "Flag": "lu.png"
+  },
+  {
+    "ISO Code": "MW",
+    "Country": "Malawi",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Lilongwe",
+    "Main Languages": [
+      "English",
+      "Chewa"
+    ],
+    "Currency Code": "MWK",
+    "Currency Name": "Malawian Kwacha",
+    "Continent": "Africa",
+    "Population (2026)": 22785535,
+    "Area (in km2)": 118484,
+    "Map": "MW_Malawi.png",
+    "Fun Fact": "One of it's lakes has more fish species than any other lake.",
+    "Flag Colors": [
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "Flag": "mw.png"
+  },
+  {
+    "ISO Code": "MR",
+    "Country": "Mauritania",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Nouakchott",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "MRU",
+    "Currency Name": "Mauritanian Ouguiya",
+    "Continent": "Africa",
+    "Population (2026)": 5461319,
+    "Area (in km2)": 1030700,
+    "Map": "MR_Mauritania.png",
+    "Fun Fact": "The Richat Structure, or 'Eye of the Sahara', is visible from space.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "mr.png"
+  },
+  {
+    "ISO Code": "MU",
+    "Country": "Mauritius",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Port Louis",
+    "Main Languages": [
+      "English",
+      "French"
+    ],
+    "Currency Code": "MUR",
+    "Currency Name": "Mauritian Rupee",
+    "Continent": "Africa",
+    "Population (2026)": 1265059,
+    "Area (in km2)": 2040,
+    "Map": "MU_Mauritius.png",
+    "Fun Fact": "The only known home of the dodo, extinct since the 1600s.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "mu.png"
+  },
+  {
+    "ISO Code": "ME",
+    "Country": "Montenegro",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Podgorica",
+    "Main Languages": [
+      "Montenegrin"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 626233,
+    "Area (in km2)": 13812,
+    "Map": "ME_Montenegro.png",
+    "Fun Fact": "The Tara River Canyon is the deepest in Europe.",
+    "Flag Colors": [
+      "Red",
+      "Gold"
+    ],
+    "Flag": "me.png"
+  },
+  {
+    "ISO Code": "MZ",
+    "Country": "Mozambique",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Maputo",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "MZN",
+    "Currency Name": "Mozambican Metical",
+    "Continent": "Africa",
+    "Population (2026)": 36639851,
+    "Area (in km2)": 801590,
+    "Map": "MZ_Mozambique.png",
+    "Fun Fact": "Its flag features an AK-47.",
+    "Flag Colors": [
+      "Green",
+      "Black",
+      "Yellow",
+      "White",
+      "Red"
+    ],
+    "Flag": "mz.png"
+  },
+  {
+    "ISO Code": "NE",
+    "Country": "Niger",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Niamey",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 28814878,
+    "Area (in km2)": 1267000,
+    "Map": "NE_Niger.png",
+    "Fun Fact": "One of the youngest populations in the world, with a median age around 15.",
+    "Flag Colors": [
+      "Orange",
+      "White",
+      "Green"
+    ],
+    "Flag": "ne.png"
+  },
+  {
+    "ISO Code": "PS",
+    "Country": "Palestine State",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Jerusalem",
+    "Main Languages": [
+      "Arabic"
+    ],
+    "Currency Code": "ILS",
+    "Currency Name": "Israeli New Shekel",
+    "Continent": "Asia",
+    "Population (2026)": 5692790,
+    "Area (in km2)": 6020,
+    "Map": "PS_Palestine_State.png",
+    "Fun Fact": "Jericho is among the oldest continuously inhabited cities on Earth.",
+    "Flag Colors": [
+      "Black",
+      "White",
+      "Green",
+      "Red"
+    ],
+    "Flag": "ps.png"
+  },
+  {
+    "ISO Code": "RW",
+    "Country": "Rwanda",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Kigali",
+    "Main Languages": [
+      "Kinyarwanda",
+      "English"
+    ],
+    "Currency Code": "RWF",
+    "Currency Name": "Rwandan Franc",
+    "Continent": "Africa",
+    "Population (2026)": 14889693,
+    "Area (in km2)": 26338,
+    "Map": "RW_Rwanda.png",
+    "Fun Fact": "Banned plastic bags in 2008.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "rw.png"
+  },
+  {
+    "ISO Code": "SL",
+    "Country": "Sierra Leone",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Freetown",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "SLL",
+    "Currency Name": "Sierra Leonean Leone",
+    "Continent": "Africa",
+    "Population (2026)": 8996745,
+    "Area (in km2)": 71740,
+    "Map": "SL_Sierra_Leone.png",
+    "Fun Fact": "Name comes from Portuguese for 'lion mountains'.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Blue"
+    ],
+    "Flag": "sl.png"
+  },
+  {
+    "ISO Code": "SO",
+    "Country": "Somalia",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Mogadishu",
+    "Main Languages": [
+      "Somali",
+      "Arabic"
+    ],
+    "Currency Code": "SOS",
+    "Currency Name": "Somali Shilling",
+    "Continent": "Africa",
+    "Population (2026)": 20305907,
+    "Area (in km2)": 637657,
+    "Map": "SO_Somalia.png",
+    "Fun Fact": "Has the longest coastline on mainland Africa.",
+    "Flag Colors": [
+      "Light blue",
+      "White"
+    ],
+    "Flag": "so.png"
+  },
+  {
+    "ISO Code": "SS",
+    "Country": "South Sudan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Juba",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "SSP",
+    "Currency Name": "South Sudanese Pound",
+    "Continent": "Africa",
+    "Population (2026)": 12436037,
+    "Area (in km2)": 644329,
+    "Map": "SS_South_Sudan.png",
+    "Fun Fact": "The Sudd is one of the world's largest wetlands.",
+    "Flag Colors": [
+      "Black",
+      "Red",
+      "Green",
+      "White",
+      "Blue",
+      "Yellow"
+    ],
+    "Flag": "ss.png"
+  },
+  {
+    "ISO Code": "SD",
+    "Country": "Sudan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Khartoum",
+    "Main Languages": [
+      "Arabic",
+      "English"
+    ],
+    "Currency Code": "SDG",
+    "Currency Name": "Sudanese Pound",
+    "Continent": "Africa",
+    "Population (2026)": 53282719,
+    "Area (in km2)": 1886068,
+    "Map": "SD_Sudan.png",
+    "Fun Fact": "Has more pyramids than Egypt.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black",
+      "Green"
+    ],
+    "Flag": "sd.png"
+  },
+  {
+    "ISO Code": "SR",
+    "Country": "Suriname",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Paramaribo",
+    "Main Languages": [
+      "Dutch"
+    ],
+    "Currency Code": "SRD",
+    "Currency Name": "Surinamese Dollar",
+    "Continent": "South America",
+    "Population (2026)": 645256,
+    "Area (in km2)": 163820,
+    "Map": "SR_Suriname.png",
+    "Fun Fact": "Roughly 93% forest, the most forested country on Earth.",
+    "Flag Colors": [
+      "Green",
+      "White",
+      "Red",
+      "Yellow"
+    ],
+    "Flag": "sr.png"
+  },
+  {
+    "ISO Code": "TJ",
+    "Country": "Tajikistan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Dushanbe",
+    "Main Languages": [
+      "Tajik",
+      "Russian"
+    ],
+    "Currency Code": "TJS",
+    "Currency Name": "Tajikistani Somoni",
+    "Continent": "Asia",
+    "Population (2026)": 10978599,
+    "Area (in km2)": 143100,
+    "Map": "TJ_Tajikistan.png",
+    "Fun Fact": "Fedchenko Glacier is the longest glacier outside the polar regions.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Green",
+      "Gold"
+    ],
+    "Flag": "tj.png"
+  },
+  {
+    "ISO Code": "TL",
+    "Country": "Timor-Leste",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Dili",
+    "Main Languages": [
+      "Tetum",
+      "Portuguese"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "Asia",
+    "Population (2026)": 1436923,
+    "Area (in km2)": 14874,
+    "Map": "TL_Timor-Leste.png",
+    "Fun Fact": "The first new sovereign state of the 21st century (2002).",
+    "Flag Colors": [
+      "Red",
+      "Yellow",
+      "Black",
+      "White"
+    ],
+    "Flag": "tl.png"
+  },
+  {
+    "ISO Code": "TG",
+    "Country": "Togo",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Lomé",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "XOF",
+    "Currency Name": "West African CFA Franc",
+    "Continent": "Africa",
+    "Population (2026)": 9930918,
+    "Area (in km2)": 56785,
+    "Map": "TG_Togo.png",
+    "Fun Fact": "Lomé sits right on the border with Ghana.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red",
+      "White"
+    ],
+    "Flag": "tg.png"
+  },
+  {
+    "ISO Code": "TT",
+    "Country": "Trinidad and Tobago",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Port of Spain",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "TTD",
+    "Currency Name": "Trinidad and Tobago Dollar",
+    "Continent": "North America",
+    "Population (2026)": 1513268,
+    "Area (in km2)": 5128,
+    "Map": "TT_Trinidad_and_Tobago.png",
+    "Fun Fact": "Birthplace of the steelpan, the only acoustic instrument invented in the 20th century.",
+    "Flag Colors": [
+      "Red",
+      "White",
+      "Black"
+    ],
+    "Flag": "tt.png"
+  },
+  {
+    "ISO Code": "TM",
+    "Country": "Turkmenistan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Ashgabat",
+    "Main Languages": [
+      "Turkmen"
+    ],
+    "Currency Code": "TMT",
+    "Currency Name": "Turkmenistani Manat",
+    "Continent": "Asia",
+    "Population (2026)": 7736632,
+    "Area (in km2)": 488100,
+    "Map": "TM_Turkmenistan.png",
+    "Fun Fact": "The Darvaza gas crater has been burning since 1971.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "White"
+    ],
+    "Flag": "tm.png"
+  },
+  {
+    "ISO Code": "UG",
+    "Country": "Uganda",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Kampala",
+    "Main Languages": [
+      "English",
+      "Swahili"
+    ],
+    "Currency Code": "UGX",
+    "Currency Name": "Ugandan Shilling",
+    "Continent": "Africa",
+    "Population (2026)": 52761469,
+    "Area (in km2)": 241550,
+    "Map": "UG_Uganda.png",
+    "Fun Fact": "Winston Churchill dubbed it the 'Pearl of Africa'.",
+    "Flag Colors": [
+      "Black",
+      "Yellow",
+      "Red",
+      "White",
+      "Gray"
+    ],
+    "Flag": "ug.png"
+  },
+  {
+    "ISO Code": "UZ",
+    "Country": "Uzbekistan",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Tashkent",
+    "Main Languages": [
+      "Uzbek"
+    ],
+    "Currency Code": "UZS",
+    "Currency Name": "Uzbekistani Som",
+    "Continent": "Asia",
+    "Population (2026)": 37724223,
+    "Area (in km2)": 447400,
+    "Map": "UZ_Uzbekistan.png",
+    "Fun Fact": "One of only two doubly landlocked countries in the world.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Green",
+      "Red"
+    ],
+    "Flag": "uz.png"
+  },
+  {
+    "ISO Code": "ZM",
+    "Country": "Zambia",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Lusaka",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "ZMW",
+    "Currency Name": "Zambian Kwacha",
+    "Continent": "Africa",
+    "Population (2026)": 22521915,
+    "Area (in km2)": 752612,
+    "Map": "ZM_Zambia.png",
+    "Fun Fact": "Shares Victoria Falls with Zimbabwe, and the Zambezi forms the border.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "Black",
+      "Orange"
+    ],
+    "Flag": "zm.png"
+  },
+  {
+    "ISO Code": "ZW",
+    "Country": "Zimbabwe",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Harare",
+    "Main Languages": [
+      "English",
+      "Shona"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "Africa",
+    "Population (2026)": 17273580,
+    "Area (in km2)": 390757,
+    "Map": "ZW_Zimbabwe.png",
+    "Fun Fact": "Name means 'stone houses', after Great Zimbabwe's ruins.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red",
+      "Black",
+      "White"
+    ],
+    "Flag": "zw.png"
+  },
+  {
+    "ISO Code": "VA",
+    "Country": "Holy See",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Vatican City",
+    "Main Languages": [
+      "Italian",
+      "Latin"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 506,
+    "Area (in km2)": 0.44,
+    "Map": "VA_Holy_See.png",
+    "Fun Fact": "Has an ATM with instructions in Latin.",
+    "Flag Colors": [
+      "Yellow",
+      "White",
+      "Red"
+    ],
+    "Flag": "va.png"
+  },
+  {
+    "ISO Code": "LI",
+    "Country": "Liechtenstein",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Vaduz",
+    "Main Languages": [
+      "German"
+    ],
+    "Currency Code": "CHF",
+    "Currency Name": "Swiss Franc",
+    "Continent": "Europe",
+    "Population (2026)": 40368,
+    "Area (in km2)": 160,
+    "Map": "LI_Liechtenstein.png",
+    "Fun Fact": "Has no airport and is also doubly landlocked.",
+    "Flag Colors": [
+      "Blue",
+      "Red",
+      "Gold"
+    ],
+    "Flag": "li.png"
+  },
+  {
+    "ISO Code": "MT",
+    "Country": "Malta",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Valletta",
+    "Main Languages": [
+      "Maltese",
+      "English"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 549011,
+    "Area (in km2)": 316,
+    "Map": "MT_Malta.png",
+    "Fun Fact": "Ġgantija temples predate Stonehenge and the pyramids.",
+    "Flag Colors": [
+      "White",
+      "Red"
+    ],
+    "Flag": "mt.png"
+  },
+  {
+    "ISO Code": "MC",
+    "Country": "Monaco",
+    "Difficulty Category": "Hard",
+    "Capital Name": "Monaco",
+    "Main Languages": [
+      "French"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 38087,
+    "Area (in km2)": 2,
+    "Map": "MC_Monaco.png",
+    "Fun Fact": "Covers only about 2 km², smaller than New York's Central Park.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "mc.png"
+  },
+  {
+    "ISO Code": "SM",
+    "Country": "San Marino",
+    "Difficulty Category": "Hard",
+    "Capital Name": "San Marino",
+    "Main Languages": [
+      "Italian"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 33605,
+    "Area (in km2)": 61,
+    "Map": "SM_San_Marino.png",
+    "Fun Fact": "Claims to be the world's oldest republic, founded in 301 CE.",
+    "Flag Colors": [
+      "White",
+      "Light blue"
+    ],
+    "Flag": "sm.png"
+  },
+  {
+    "ISO Code": "AD",
+    "Country": "Andorra",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Andorra la Vella",
+    "Main Languages": [
+      "Catalan"
+    ],
+    "Currency Code": "EUR",
+    "Currency Name": "Euro",
+    "Continent": "Europe",
+    "Population (2026)": 83753,
+    "Area (in km2)": 468,
+    "Map": "AD_Andorra.png",
+    "Fun Fact": "Catalan is its only official language.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red"
+    ],
+    "Flag": "ad.png"
+  },
+  {
+    "ISO Code": "AG",
+    "Country": "Antigua and Barbuda",
+    "Difficulty Category": "Expert",
+    "Capital Name": "St. John's",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 94626,
+    "Area (in km2)": 442,
+    "Map": "AG_Antigua_and_Barbuda.png",
+    "Fun Fact": "Said to have a beach for every day of the year.",
+    "Flag Colors": [
+      "Red",
+      "Black",
+      "Blue",
+      "White",
+      "Yellow"
+    ],
+    "Flag": "ag.png"
+  },
+  {
+    "ISO Code": "BB",
+    "Country": "Barbados",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Bridgetown",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "BBD",
+    "Currency Name": "Barbadian Dollar",
+    "Continent": "North America",
+    "Population (2026)": 282724,
+    "Area (in km2)": 430,
+    "Map": "BB_Barbados.png",
+    "Fun Fact": "Claims to be the birthplace of commercial rum.",
+    "Flag Colors": [
+      "Blue",
+      "Gold",
+      "Black"
+    ],
+    "Flag": "bb.png"
+  },
+  {
+    "ISO Code": "DM",
+    "Country": "Dominica",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Roseau",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 65511,
+    "Area (in km2)": 751,
+    "Map": "DM_Dominica.png",
+    "Fun Fact": "Home to the Boiling Lake, one of the largest hot lakes in the world.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Black",
+      "White",
+      "Red",
+      "Purple"
+    ],
+    "Flag": "dm.png"
+  },
+  {
+    "ISO Code": "GD",
+    "Country": "Grenada",
+    "Difficulty Category": "Expert",
+    "Capital Name": "St. George's",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 117362,
+    "Area (in km2)": 344,
+    "Map": "GD_Grenada.png",
+    "Fun Fact": "Nicknamed the 'Spice Isle'; its flag carries a nutmeg.",
+    "Flag Colors": [
+      "Red",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "gd.png"
+  },
+  {
+    "ISO Code": "KI",
+    "Country": "Kiribati",
+    "Difficulty Category": "Expert",
+    "Capital Name": "South Tarawa",
+    "Main Languages": [
+      "English",
+      "Gilbertese"
+    ],
+    "Currency Code": "AUD",
+    "Currency Name": "Australian Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 138445,
+    "Area (in km2)": 811,
+    "Map": "KI_Kiribati.png",
+    "Fun Fact": "The only country in all four hemispheres.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "White",
+      "Yellow"
+    ],
+    "Flag": "ki.png"
+  },
+  {
+    "ISO Code": "MH",
+    "Country": "Marshall Islands",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Majuro",
+    "Main Languages": [
+      "Marshallese",
+      "English"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 35075,
+    "Area (in km2)": 181,
+    "Map": "MH_Marshall_Islands.png",
+    "Fun Fact": "Bikini Atoll gave its name to the swimsuit.",
+    "Flag Colors": [
+      "Blue",
+      "White",
+      "Orange"
+    ],
+    "Flag": "mh.png"
+  },
+  {
+    "ISO Code": "FM",
+    "Country": "Micronesia",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Palikir",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 114183,
+    "Area (in km2)": 702,
+    "Map": "FM_Micronesia.png",
+    "Fun Fact": "Nan Madol is an ancient city built on artificial islets.",
+    "Flag Colors": [
+      "Light blue",
+      "White"
+    ],
+    "Flag": "fm.png"
+  },
+  {
+    "ISO Code": "NR",
+    "Country": "Nauru",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Yaren",
+    "Main Languages": [
+      "Nauruan",
+      "English"
+    ],
+    "Currency Code": "AUD",
+    "Currency Name": "Australian Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 12101,
+    "Area (in km2)": 21,
+    "Map": "NR_Nauru.png",
+    "Fun Fact": "Has no official capital.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "White"
+    ],
+    "Flag": "nr.png"
+  },
+  {
+    "ISO Code": "PW",
+    "Country": "Palau",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Ngerulmud",
+    "Main Languages": [
+      "Palauan",
+      "English"
+    ],
+    "Currency Code": "USD",
+    "Currency Name": "United States Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 17614,
+    "Area (in km2)": 459,
+    "Map": "PW_Palau.png",
+    "Fun Fact": "Requires visitors to sign an eco-pledge stamped in their passport.",
+    "Flag Colors": [
+      "Light blue",
+      "Yellow"
+    ],
+    "Flag": "pw.png"
+  },
+  {
+    "ISO Code": "KN",
+    "Country": "Saint Kitts and Nevis",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Basseterre",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 46992,
+    "Area (in km2)": 261,
+    "Map": "KN_Saint_Kitts_and_Nevis.png",
+    "Fun Fact": "The smallest sovereign country in the Americas.",
+    "Flag Colors": [
+      "Green",
+      "Red",
+      "Yellow",
+      "Black",
+      "White"
+    ],
+    "Flag": "kn.png"
+  },
+  {
+    "ISO Code": "LC",
+    "Country": "Saint Lucia",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Castries",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 180488,
+    "Area (in km2)": 616,
+    "Map": "LC_Saint_Lucia.png",
+    "Fun Fact": "One of the few countries named after a woman: Saint Lucy.",
+    "Flag Colors": [
+      "Light blue",
+      "Yellow",
+      "White",
+      "Black"
+    ],
+    "Flag": "lc.png"
+  },
+  {
+    "ISO Code": "VC",
+    "Country": "Saint Vincent and the Grenadines",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Kingstown",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "XCD",
+    "Currency Name": "East Caribbean Dollar",
+    "Continent": "North America",
+    "Population (2026)": 99245,
+    "Area (in km2)": 389,
+    "Map": "VC_Saint_Vincent_and_the_Grenadines.png",
+    "Fun Fact": "Parts of 'Pirates of the Caribbean' were filmed here.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Green"
+    ],
+    "Flag": "vc.png"
+  },
+  {
+    "ISO Code": "WS",
+    "Country": "Samoa",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Apia",
+    "Main Languages": [
+      "Samoan",
+      "English"
+    ],
+    "Currency Code": "WST",
+    "Currency Name": "Samoan Tālā",
+    "Continent": "Oceania",
+    "Population (2026)": 220528,
+    "Area (in km2)": 2842,
+    "Map": "WS_Samoa.png",
+    "Fun Fact": "Skipped December 30, 2011 by jumping across the International Date Line.",
+    "Flag Colors": [
+      "Red",
+      "Blue",
+      "White"
+    ],
+    "Flag": "ws.png"
+  },
+  {
+    "ISO Code": "ST",
+    "Country": "Sao Tome and Principe",
+    "Difficulty Category": "Expert",
+    "Capital Name": "São Tomé",
+    "Main Languages": [
+      "Portuguese"
+    ],
+    "Currency Code": "STN",
+    "Currency Name": "São Tomé and Príncipe Dobra",
+    "Continent": "Africa",
+    "Population (2026)": 244994,
+    "Area (in km2)": 964,
+    "Map": "ST_Sao_Tome_and_Principe.png",
+    "Fun Fact": "Straddles the equator and is a notable cocoa producer.",
+    "Flag Colors": [
+      "Green",
+      "Yellow",
+      "Red",
+      "Black"
+    ],
+    "Flag": "st.png"
+  },
+  {
+    "ISO Code": "SC",
+    "Country": "Seychelles",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Victoria",
+    "Main Languages": [
+      "Seychellois Creole",
+      "English"
+    ],
+    "Currency Code": "SCR",
+    "Currency Name": "Seychellois Rupee",
+    "Continent": "Africa",
+    "Population (2026)": 134959,
+    "Area (in km2)": 452,
+    "Map": "SC_Seychelles.png",
+    "Fun Fact": "Coco de mer grows here, the largest seed in the plant kingdom.",
+    "Flag Colors": [
+      "Blue",
+      "Yellow",
+      "Red",
+      "White",
+      "Green"
+    ],
+    "Flag": "sc.png"
+  },
+  {
+    "ISO Code": "SB",
+    "Country": "Solomon Islands",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Honiara",
+    "Main Languages": [
+      "English"
+    ],
+    "Currency Code": "SBD",
+    "Currency Name": "Solomon Islands Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 858288,
+    "Area (in km2)": 28896,
+    "Map": "SB_Solomon_Islands.png",
+    "Fun Fact": "Shell money was used in Malaita well into modern times.",
+    "Flag Colors": [
+      "Blue",
+      "Green",
+      "Yellow",
+      "White"
+    ],
+    "Flag": "sb.png"
+  },
+  {
+    "ISO Code": "TO",
+    "Country": "Tonga",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Nukuʻalofa",
+    "Main Languages": [
+      "Tongan",
+      "English"
+    ],
+    "Currency Code": "TOP",
+    "Currency Name": "Tongan Paʻanga",
+    "Continent": "Oceania",
+    "Population (2026)": 103291,
+    "Area (in km2)": 747,
+    "Map": "TO_Tonga.png",
+    "Fun Fact": "The only Pacific island kingdom never colonised.",
+    "Flag Colors": [
+      "Red",
+      "White"
+    ],
+    "Flag": "to.png"
+  },
+  {
+    "ISO Code": "TV",
+    "Country": "Tuvalu",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Funafuti",
+    "Main Languages": [
+      "Tuvaluan",
+      "English"
+    ],
+    "Currency Code": "TVD",
+    "Currency Name": "Tuvaluan Dollar",
+    "Continent": "Oceania",
+    "Population (2026)": 9362,
+    "Area (in km2)": 26,
+    "Map": "TV_Tuvalu.png",
+    "Fun Fact": "Earns significant income from leasing its '.tv' internet domain.",
+    "Flag Colors": [
+      "Light blue",
+      "Yellow",
+      "White"
+    ],
+    "Flag": "tv.png"
+  },
+  {
+    "ISO Code": "VU",
+    "Country": "Vanuatu",
+    "Difficulty Category": "Expert",
+    "Capital Name": "Port Vila",
+    "Main Languages": [
+      "Bislama",
+      "English"
+    ],
+    "Currency Code": "VUV",
+    "Currency Name": "Vanuatu Vatu",
+    "Continent": "Oceania",
+    "Population (2026)": 342564,
+    "Area (in km2)": 12189,
+    "Map": "VU_Vanuatu.png",
+    "Fun Fact": "Land diving on Pentecost Island inspired bungee jumping.",
+    "Flag Colors": [
+      "Red",
+      "Green",
+      "Black",
+      "Yellow"
+    ],
+    "Flag": "vu.png"
+  }
+]

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="6dp">
+
+    <!-- Card container — background swapped per state -->
+    <LinearLayout
+        android:id="@+id/cellContainer"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/cell_locked"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- "Day X" label -->
+        <TextView
+            android:id="@+id/tvDayLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Day 1"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center" />
+
+        <!-- Status icon: tick (✓) or lock (🔒) -->
+        <TextView
+            android:id="@+id/tvStatusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔒"
+            android:textSize="16sp"
+            android:layout_marginTop="2dp"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</LinearLayout>
