@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Custom success dialog for GeoQuiz.
+  Warm earth-tone theme: cream background, brown text/borders, tan accents.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_success_background"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="24dp"
+    android:paddingBottom="20dp">
+
+    <!-- Title row -->
+    <TextView
+        android:id="@+id/tvSuccessTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Congratulations! 🎉"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4A882"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp" />
+
+    <!-- "You found it!" -->
+    <TextView
+        android:id="@+id/tvSuccessFoundIt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You found it!"
+        android:textSize="16sp"
+        android:textColor="#5D4037"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Country -->
+    <TextView
+        android:id="@+id/tvSuccessCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Guesses -->
+    <TextView
+        android:id="@+id/tvSuccessGuesses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Coins row: "+80 [coin.png] coins earned!" -->
+    <LinearLayout
+        android:id="@+id/layoutCoinsRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/tvSuccessCoinsPrefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+        <ImageView
+            android:id="@+id/ivCoin"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/coin"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:contentDescription="coin" />
+
+        <TextView
+            android:id="@+id/tvSuccessCoinsSuffix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="coins earned!"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+    </LinearLayout>
+
+    <!-- Penalty / bonus breakdown (hidden when not needed) -->
+    <TextView
+        android:id="@+id/tvSuccessCoinsBreakdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#8B4513"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4A882"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Buttons row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnStayHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stay Here"
+            android:textColor="#8B4513"
+            android:textStyle="bold"
+            android:background="@drawable/button_background"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnNextLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next Level"
+            android:textColor="#3E2723"
+            android:textStyle="bold"
+            android:background="@drawable/button_background"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,19 +4,24 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -42,18 +47,13 @@ public class DailyCountryActivity extends AppCompatActivity {
     private TextView             tvLevelIndicator;
     private TextView             tvGuessCounter;
     private AutoCompleteTextView etCountryInput;
-    /** Hint button — replaces the old Search button. */
+    /** Hint button — opens the hint-shop modal dialog. */
     private TextView             btnHint;
-    private TextView             btnCloseHints;
     private RecyclerView         rvGuessList;
     private ImageButton          btnBack;
 
-    // Hints panel views
-    private LinearLayout layoutHintsPanel;
-    private LinearLayout layoutHintRows;
-    private TextView     tvHintCoinBalance;
-    private TextView     tvSlot1Status;
-    private TextView     tvSlot2Status;
+    /** The currently open hint-shop dialog, or null if not showing. */
+    private android.app.Dialog   hintDialog = null;
 
     // -------------------------------------------------------------------------
     // State
@@ -155,23 +155,14 @@ public class DailyCountryActivity extends AppCompatActivity {
         tvGuessCounter    = findViewById(R.id.tvGuessCounter);
         etCountryInput    = findViewById(R.id.etCountryInput);
         btnHint           = findViewById(R.id.btnHint);
-        btnCloseHints     = findViewById(R.id.btnCloseHints);
         rvGuessList       = findViewById(R.id.rvGuessList);
-        layoutHintsPanel  = findViewById(R.id.layoutHintsPanel);
-        layoutHintRows    = findViewById(R.id.layoutHintRows);
-        tvHintCoinBalance = findViewById(R.id.tvHintCoinBalance);
-        tvSlot1Status     = findViewById(R.id.tvSlot1Status);
-        tvSlot2Status     = findViewById(R.id.tvSlot2Status);
 
         btnBack.setOnClickListener(v -> finish());
 
-        // Hint button opens the hints panel
+        // Hint button opens the custom modal dialog
         btnHint.setOnClickListener(v -> {
-            if (btnHint.isEnabled()) showHintsPanel();
+            if (btnHint.isEnabled()) showHintShopDialog();
         });
-
-        // Close button collapses the hints panel
-        btnCloseHints.setOnClickListener(v -> layoutHintsPanel.setVisibility(View.GONE));
 
         // IME "search" action still submits the current text
         etCountryInput.setOnEditorActionListener((v, actionId, event) -> {
@@ -218,67 +209,108 @@ public class DailyCountryActivity extends AppCompatActivity {
     }
 
     // -------------------------------------------------------------------------
-    // Hints panel — opened by tapping the hint button
+    // Hints modal dialog
     // -------------------------------------------------------------------------
 
-    /** Populate and reveal the hints panel. */
-    private void showHintsPanel() {
+    /**
+     * Build and show the hint-shop as a centred square modal with a blurry
+     * dimmed background over the game screen.
+     *
+     * Layout:  the card sits in the vertical centre of the screen with
+     * automatic top/bottom space supplied by WRAP_CONTENT + Gravity.CENTER.
+     * Horizontal margins keep it from touching the screen edges.
+     */
+    private void showHintShopDialog() {
         int guessCount = guessedCountryNames.size();
 
-        tvHintCoinBalance.setText("🪙 " + coinManager.getCoins());
+        // Inflate the custom dialog layout
+        View dialogView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_hint_shop, null);
 
-        boolean slot1Unlocked = hintManager.isSlot1Unlocked(guessCount);
-        boolean slot2Unlocked = hintManager.isSlot2Unlocked(guessCount);
-        updateSlotStatusBadge(tvSlot1Status, 1, slot1Unlocked, hintManager.isSlot1Used());
-        updateSlotStatusBadge(tvSlot2Status, 2, slot2Unlocked, hintManager.isSlot2Used());
+        // Wire up coin balance (number only — coin.png image is in the layout)
+        TextView tvCoinBalance = dialogView.findViewById(R.id.tvDialogCoinBalance);
+        tvCoinBalance.setText(String.valueOf(coinManager.getCoins()));
 
-        layoutHintRows.removeAllViews();
+        // Populate hint rows
+        LinearLayout hintRows = dialogView.findViewById(R.id.layoutDialogHintRows);
+        hintRows.removeAllViews();
         for (HintType type : HintType.values()) {
-            addHintRow(type, guessCount);
+            addHintRow(type, guessCount, hintRows);
         }
 
-        layoutHintsPanel.setVisibility(View.VISIBLE);
+        // Build the Dialog with a transparent window
+        android.app.Dialog dialog = new android.app.Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(dialogView);
+        dialog.setCanceledOnTouchOutside(true);
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            // Keep window background transparent — card drawable handles its own styling.
+            // Setting any drawable here (including a blurred screenshot) causes the window
+            // to expand to full screen height, which we explicitly want to avoid.
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+
+            // Centre the card on screen; width = 88% of screen so there are side margins.
+            // Height is WRAP_CONTENT so the window shrinks to exactly the card's content.
+            int screenWidth = getResources().getDisplayMetrics().widthPixels;
+            int cardWidth   = (int) (screenWidth * 0.88f);
+            window.setLayout(cardWidth, WindowManager.LayoutParams.WRAP_CONTENT);
+            window.setGravity(Gravity.CENTER);
+
+            // Dim the area behind the card (55% dark scrim)
+            window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            WindowManager.LayoutParams lp = window.getAttributes();
+            lp.dimAmount = 0.6f;
+            window.setAttributes(lp);
+
+            // Fade + subtle scale-in animation
+            dialogView.setAlpha(0f);
+            dialogView.setScaleX(0.92f);
+            dialogView.setScaleY(0.92f);
+            dialogView.animate()
+                    .alpha(1f)
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(220)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator())
+                    .start();
+        }
+
+        // Close button inside the dialog
+        dialogView.findViewById(R.id.tvDialogClose)
+                .setOnClickListener(v -> dialog.dismiss());
+
+        hintDialog = dialog;
+        dialog.setOnDismissListener(d -> hintDialog = null);
+        dialog.show();
     }
 
     /**
-     * Refresh the contents of the panel if it is currently visible
-     * (called after a hint is purchased so the bought row turns green).
+     * Dismiss the hint dialog and immediately re-open it with fresh data.
+     * Called after a successful hint purchase so the row turns green.
      */
-    private void refreshHintsPanelIfVisible() {
-        if (layoutHintsPanel.getVisibility() == View.VISIBLE) {
-            showHintsPanel();
+    private void refreshHintDialog() {
+        if (hintDialog != null) {
+            hintDialog.dismiss();
         }
+        showHintShopDialog();
     }
 
-    private void updateSlotStatusBadge(TextView badge, int slotIndex,
-                                       boolean unlocked, boolean used) {
-        if (used) {
-            badge.setText("Slot " + slotIndex + ": ✅ Used");
-            badge.setTextColor(Color.parseColor("#1B5E20"));
-        } else if (unlocked) {
-            badge.setText("Slot " + slotIndex + ": 🔓 Unlocked");
-            badge.setTextColor(Color.parseColor("#1B5E20"));
-        } else {
-            int threshold = (slotIndex == 1)
-                    ? HintManager.SLOT1_UNLOCK_AFTER
-                    : HintManager.SLOT2_UNLOCK_AFTER;
-            badge.setText("Slot " + slotIndex + ": 🔒 After guess " + threshold);
-            badge.setTextColor(Color.parseColor("#5D4037"));
-        }
-    }
-
-    private void addHintRow(HintType type, int guessCount) {
+    private void addHintRow(HintType type, int guessCount, LinearLayout container) {
         LayoutInflater inflater = LayoutInflater.from(this);
-        View row = inflater.inflate(R.layout.item_hint_row, layoutHintRows, false);
+        View row = inflater.inflate(R.layout.item_hint_row, container, false);
 
-        TextView tvLabel   = row.findViewById(R.id.tvHintLabel);
-        TextView tvSubtext = row.findViewById(R.id.tvHintSubtext);
-        TextView tvPrice   = row.findViewById(R.id.tvHintPrice);
-        View     rowRoot   = row.findViewById(R.id.hintRowRoot);
+        TextView tvLabel      = row.findViewById(R.id.tvHintLabel);
+        TextView tvSubtext    = row.findViewById(R.id.tvHintSubtext);
+        TextView tvPrice      = row.findViewById(R.id.tvHintPrice);
+        View     priceBadge   = row.findViewById(R.id.layoutHintPriceBadge);
+        View     coinIcon     = row.findViewById(R.id.ivHintCoinIcon);
+        View     rowRoot      = row.findViewById(R.id.hintRowRoot);
 
         tvLabel.setText(type.label);
 
-        // Case 1: already purchased
+        // Case 1: already purchased — green row, show revealed text, hide price badge
         HintManager.PurchasedHint ph = findPurchasedHintByType(type);
         if (ph != null) {
             rowRoot.setBackgroundResource(R.drawable.tile_green);
@@ -286,12 +318,15 @@ public class DailyCountryActivity extends AppCompatActivity {
             tvSubtext.setVisibility(View.VISIBLE);
             tvSubtext.setText(ph.revealedText);
             tvSubtext.setTextColor(Color.WHITE);
+            priceBadge.setVisibility(View.GONE);
+            // Show a small "✅ Slot N" text instead
             tvPrice.setText("✅ Slot " + ph.slotIndex);
             tvPrice.setTextColor(Color.WHITE);
-            tvPrice.setBackgroundResource(R.drawable.tile_green);
+            tvPrice.setVisibility(View.VISIBLE);
+            if (coinIcon != null) coinIcon.setVisibility(View.GONE);
             rowRoot.setClickable(false);
             rowRoot.setFocusable(false);
-            layoutHintRows.addView(row);
+            container.addView(row);
             return;
         }
 
@@ -303,53 +338,50 @@ public class DailyCountryActivity extends AppCompatActivity {
                 rowRoot.setBackgroundResource(R.drawable.button_background);
                 tvLabel.setTextColor(Color.parseColor("#3E2723"));
                 tvSubtext.setVisibility(View.GONE);
-                tvPrice.setText(type.price + " 🪙");
+                tvPrice.setText(String.valueOf(type.price));
                 tvPrice.setTextColor(Color.parseColor("#3E2723"));
-                tvPrice.setBackgroundResource(R.drawable.coin_background);
+                priceBadge.setBackgroundResource(R.drawable.coin_background);
+                priceBadge.setVisibility(View.VISIBLE);
                 rowRoot.setClickable(true);
                 rowRoot.setFocusable(true);
                 rowRoot.setOnClickListener(v -> onHintRowClicked(type, guessCount));
                 break;
 
             case ALREADY_KNOWN:
-                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice,
+                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
                         "Already known from guesses", type.price);
-                break;
-
-            case CANNOT_ELIMINATE:
-                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice,
-                        "Not enough candidates", type.price);
                 break;
 
             case SLOT_NOT_UNLOCKED: {
                 int threshold = !hintManager.isSlot1Used()
                         ? HintManager.SLOT1_UNLOCK_AFTER
                         : HintManager.SLOT2_UNLOCK_AFTER;
-                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice,
+                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
                         "Unlocks after guess " + threshold, type.price);
                 break;
             }
 
             case NO_SLOTS_REMAINING:
             case SLOT_USED:
-                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice,
+                styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
                         "No hint slots remaining", type.price);
                 break;
         }
 
-        layoutHintRows.addView(row);
+        container.addView(row);
     }
 
     private void styleDisabledRow(View rowRoot, TextView label, TextView subtext,
-                                  TextView price, String reason, int hintPrice) {
+                                  TextView price, View priceBadge,
+                                  String reason, int hintPrice) {
         rowRoot.setBackgroundResource(R.drawable.tile_grey);
         label.setTextColor(Color.WHITE);
         subtext.setVisibility(View.VISIBLE);
         subtext.setText(reason);
         subtext.setTextColor(Color.parseColor("#BDBDBD"));
-        price.setText(hintPrice + " 🪙");
+        price.setText(String.valueOf(hintPrice));
         price.setTextColor(Color.WHITE);
-        price.setBackgroundResource(R.drawable.tile_grey);
+        if (priceBadge != null) priceBadge.setBackgroundResource(R.drawable.tile_grey);
         rowRoot.setClickable(false);
         rowRoot.setFocusable(false);
     }
@@ -370,7 +402,7 @@ public class DailyCountryActivity extends AppCompatActivity {
         HintManager.EligibilityStatus status = hintManager.checkEligibility(type, guessCount);
         if (status != HintManager.EligibilityStatus.AVAILABLE) {
             Toast.makeText(this, "This hint is no longer available.", Toast.LENGTH_SHORT).show();
-            refreshHintsPanelIfVisible();
+            refreshHintDialog();
             return;
         }
 
@@ -382,58 +414,127 @@ public class DailyCountryActivity extends AppCompatActivity {
 
         int balance = coinManager.getCoins();
         if (balance < type.price) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Insufficient Coins")
-                    .setMessage("You need " + type.price + " 🪙 for this hint, "
-                            + "but you only have " + balance + " 🪙.\n\n"
-                            + "Earn more coins by completing levels!")
-                    .setPositiveButton("OK", null)
-                    .show();
+            // Insufficient coins — themed dialog
+            showInsufficientCoinsDialog(type.price, balance);
             return;
         }
 
         String revealText = hintManager.generateRevealText(type);
         if (revealText == null || revealText.isEmpty()) {
             Toast.makeText(this, "This hint is not available right now.", Toast.LENGTH_SHORT).show();
-            refreshHintsPanelIfVisible();
+            refreshHintDialog();
             return;
         }
 
-        String confirmMsg = "Purchase \"" + type.label + "\" for " + type.price + " 🪙?\n\n"
-                + "Your balance: " + balance + " 🪙\n"
-                + "After purchase: " + (balance - type.price) + " 🪙\n\n"
-                + "This will use hint slot " + nextSlot + ".";
+        // Show themed buy-confirmation dialog
+        showBuyHintConfirmDialog(type, guessCount, nextSlot, balance, revealText);
+    }
 
-        new AlertDialog.Builder(this)
-                .setTitle("Buy Hint?")
-                .setMessage(confirmMsg)
-                .setCancelable(true)
-                .setPositiveButton("Buy", (dialog, which) -> {
-                    HintManager.EligibilityStatus reCheck =
-                            hintManager.checkEligibility(type, guessedCountryNames.size());
-                    if (reCheck != HintManager.EligibilityStatus.AVAILABLE) {
-                        Toast.makeText(this, "Hint no longer available.", Toast.LENGTH_SHORT).show();
-                        refreshHintsPanelIfVisible();
-                        return;
-                    }
-                    int slot = hintManager.nextAvailableSlot(guessedCountryNames.size());
-                    if (slot == -1) {
-                        Toast.makeText(this, "No hint slot available.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    boolean deducted = coinManager.deductCoins(type.price);
-                    if (!deducted) {
-                        Toast.makeText(this, "Insufficient coins.", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    hintManager.recordHintPurchase(type, revealText, slot);
-                    saveHintState();
-                    // Update hint button (both slots may now be used)
-                    updateHintButton();
-                    refreshHintsPanelIfVisible();
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
+    /** Themed "not enough coins" dialog. */
+    private void showInsufficientCoinsDialog(int price, int balance) {
+        View v = LayoutInflater.from(this).inflate(R.layout.dialog_buy_hint, null);
+
+        ((TextView) v.findViewById(R.id.tvBuyTitle)).setText("Not Enough Coins");
+        ((TextView) v.findViewById(R.id.tvBuyHintName)).setText(
+                "You need " + price + " coins for this hint.");
+        ((TextView) v.findViewById(R.id.tvBuyPrice)).setText(String.valueOf(price));
+        ((TextView) v.findViewById(R.id.tvBuyBalance)).setText(String.valueOf(balance));
+        ((TextView) v.findViewById(R.id.tvBuyAfter)).setText("—");
+        ((TextView) v.findViewById(R.id.tvBuySlotNote)).setText(
+                "Earn more coins by completing levels!");
+        v.findViewById(R.id.tvBuyConfirm).setVisibility(View.GONE);
+
+        android.app.Dialog d = new android.app.Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setContentView(v);
+        d.setCanceledOnTouchOutside(true);
+        styleConfirmWindow(d);
+
+        ((TextView) v.findViewById(R.id.tvBuyCancel)).setText("Close");
+        v.findViewById(R.id.tvBuyCancel).setOnClickListener(x -> d.dismiss());
+        d.show();
+    }
+
+    /** Themed buy-confirmation dialog. */
+    private void showBuyHintConfirmDialog(HintType type, int guessCount,
+                                          int nextSlot, int balance, String revealText) {
+        View v = LayoutInflater.from(this).inflate(R.layout.dialog_buy_hint, null);
+
+        ((TextView) v.findViewById(R.id.tvBuyHintName)).setText(type.label);
+        ((TextView) v.findViewById(R.id.tvBuyPrice)).setText(String.valueOf(type.price));
+        ((TextView) v.findViewById(R.id.tvBuyBalance)).setText(String.valueOf(balance));
+        ((TextView) v.findViewById(R.id.tvBuyAfter)).setText(String.valueOf(balance - type.price));
+        ((TextView) v.findViewById(R.id.tvBuySlotNote)).setText(
+                "This will use hint slot " + nextSlot + ".");
+
+        android.app.Dialog d = new android.app.Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setContentView(v);
+        d.setCanceledOnTouchOutside(true);
+        styleConfirmWindow(d);
+
+        v.findViewById(R.id.tvBuyCancel).setOnClickListener(x -> d.dismiss());
+        v.findViewById(R.id.tvBuyConfirm).setOnClickListener(x -> {
+            d.dismiss();
+            // Re-check everything before committing
+            HintManager.EligibilityStatus reCheck =
+                    hintManager.checkEligibility(type, guessedCountryNames.size());
+            if (reCheck != HintManager.EligibilityStatus.AVAILABLE) {
+                Toast.makeText(this, "Hint no longer available.", Toast.LENGTH_SHORT).show();
+                refreshHintDialog();
+                return;
+            }
+            int slot = hintManager.nextAvailableSlot(guessedCountryNames.size());
+            if (slot == -1) {
+                Toast.makeText(this, "No hint slot available.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            boolean deducted = coinManager.deductCoins(type.price);
+            if (!deducted) {
+                Toast.makeText(this, "Insufficient coins.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            hintManager.recordHintPurchase(type, revealText, slot);
+            saveHintState();
+
+            if (hintDialog != null) {
+                hintDialog.dismiss();
+                hintDialog = null;
+            }
+
+            HintManager.PurchasedHint purchased = hintManager.getPurchasedHint(slot);
+            if (purchased != null) {
+                rvGuessList.scrollToPosition(0);
+                guessAdapter.addHintReveal(purchased, rvGuessList);
+            }
+            updateHintButton();
+        });
+        d.show();
+    }
+
+    /** Apply the same centred-modal window params used by the hint shop. */
+    private void styleConfirmWindow(android.app.Dialog d) {
+        Window window = d.getWindow();
+        if (window == null) return;
+        window.setBackgroundDrawableResource(android.R.color.transparent);
+        int cardWidth = (int) (getResources().getDisplayMetrics().widthPixels * 0.88f);
+        window.setLayout(cardWidth, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setGravity(Gravity.CENTER);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.dimAmount = 0.6f;
+        window.setAttributes(lp);
+        // Fade + scale-in
+        View content = window.getDecorView().findViewById(android.R.id.content);
+        if (content != null) {
+            content.setAlpha(0f);
+            content.setScaleX(0.92f);
+            content.setScaleY(0.92f);
+            content.animate().alpha(1f).scaleX(1f).scaleY(1f)
+                    .setDuration(200)
+                    .setInterpolator(new android.view.animation.DecelerateInterpolator())
+                    .start();
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -446,7 +547,11 @@ public class DailyCountryActivity extends AppCompatActivity {
         if (!enabled) {
             btnHint.setEnabled(false);
             btnHint.setAlpha(0.4f);
-            layoutHintsPanel.setVisibility(View.GONE);
+            // Dismiss the hint dialog if it's open
+            if (hintDialog != null) {
+                hintDialog.dismiss();
+                hintDialog = null;
+            }
         }
     }
 
@@ -487,9 +592,12 @@ public class DailyCountryActivity extends AppCompatActivity {
         saveHintState();
         updateGuessCounter();
 
-        // Collapse the hints panel after a guess (keeps the UI clean) and
+        // Dismiss the hints dialog after a guess (keeps the UI clean) and
         // refresh the hint button — a new slot may have just unlocked.
-        layoutHintsPanel.setVisibility(View.GONE);
+        if (hintDialog != null) {
+            hintDialog.dismiss();
+            hintDialog = null;
+        }
         updateHintButton();
 
         if (guess.isCorrect()) {
@@ -501,7 +609,10 @@ public class DailyCountryActivity extends AppCompatActivity {
                 coinsAwarded = awardCompletionReward();
             }
             final int finalCoinsAwarded = coinsAwarded;
-            rvGuessList.post(() -> showSuccessDialog(finalCoinsAwarded));
+            // Delay dialog until the tile flip-in animation has finished (~1620 ms)
+            // plus a short pause so the player can see the completed row (≈ 2 s total).
+            new Handler(getMainLooper()).postDelayed(
+                    () -> showSuccessDialog(finalCoinsAwarded), 2000);
 
         } else if (!isReplayMode && guessedCountryNames.size() >= MAX_GUESSES) {
             setInputEnabled(false);
@@ -545,54 +656,109 @@ public class DailyCountryActivity extends AppCompatActivity {
     // -------------------------------------------------------------------------
 
     private void showSuccessDialog(int coinsAwarded) {
+        // Guard: activity might have been finished before the delayed call fires
+        if (isFinishing() || isDestroyed()) return;
+
         int totalLevels = repository.getTotalCountries();
         boolean lastLevel = (currentLevel >= totalLevels);
 
-        String coinsLine;
-        if (isReplayMode) {
-            coinsLine = "";
+        // ---- Inflate the custom layout ----
+        View dialogView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_success, null);
+
+        TextView tvTitle     = dialogView.findViewById(R.id.tvSuccessTitle);
+        TextView tvFoundIt   = dialogView.findViewById(R.id.tvSuccessFoundIt);
+        TextView tvCountry   = dialogView.findViewById(R.id.tvSuccessCountry);
+        TextView tvGuesses   = dialogView.findViewById(R.id.tvSuccessGuesses);
+        LinearLayout layoutCoins   = dialogView.findViewById(R.id.layoutCoinsRow);
+        TextView tvCoinsPrefix     = dialogView.findViewById(R.id.tvSuccessCoinsPrefix);
+        TextView tvCoinsSuffix     = dialogView.findViewById(R.id.tvSuccessCoinsSuffix);
+        TextView tvBreakdown       = dialogView.findViewById(R.id.tvSuccessCoinsBreakdown);
+        Button   btnStayHere       = dialogView.findViewById(R.id.btnStayHere);
+        Button   btnNextLevel      = dialogView.findViewById(R.id.btnNextLevel);
+
+        // ---- "All levels done" title variant ----
+        if (lastLevel && !isReplayMode) {
+            tvTitle.setText("All Done! \uD83C\uDF0D");
+            tvFoundIt.setText("You've completed all " + totalLevels + " levels!");
+        }
+
+        tvCountry.setText("Country: " + targetCountry.getCountry());
+        tvGuesses.setText("Guesses: " + guessedCountryNames.size());
+
+        // ---- Coins row ----
+        if (isReplayMode || coinsAwarded == 0) {
+            layoutCoins.setVisibility(View.GONE);
+            tvBreakdown.setVisibility(View.GONE);
         } else {
+            tvCoinsPrefix.setText("+" + coinsAwarded);
+            // tvCoinsSuffix already reads "coins earned!" from XML
+
             int hintsUsed = (hintManager.isSlot1Used() ? 1 : 0)
                           + (hintManager.isSlot2Used() ? 1 : 0);
             if (hintsUsed > 0) {
                 int penalty = RewardCalculator.HINT_PENALTY * hintsUsed;
-                coinsLine = "\n+" + coinsAwarded + " 🪙 coins earned!"
-                        + "\n(Base " + RewardCalculator.BASE_REWARD
-                        + " − " + penalty + " hint penalty)";
+                tvBreakdown.setText("(Base " + RewardCalculator.BASE_REWARD
+                        + " \u2212 " + penalty + " hint penalty)");
+                tvBreakdown.setVisibility(View.VISIBLE);
             } else {
                 int bonus = RewardCalculator.performanceBonus(guessedCountryNames.size());
                 if (bonus > 0) {
-                    coinsLine = "\n+" + coinsAwarded + " 🪙 coins earned!"
-                            + "\n(Base " + RewardCalculator.BASE_REWARD
-                            + " + " + bonus + " speed bonus)";
-                } else {
-                    coinsLine = "\n+" + coinsAwarded + " 🪙 coins earned!";
+                    tvBreakdown.setText("(Base " + RewardCalculator.BASE_REWARD
+                            + " + " + bonus + " speed bonus)");
+                    tvBreakdown.setVisibility(View.VISIBLE);
                 }
             }
         }
 
-        String body = "You found it!\n\n"
-                + "Country: " + targetCountry.getCountry() + "\n"
-                + "Guesses: " + guessedCountryNames.size()
-                + coinsLine;
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setTitle("Congratulations! \uD83C\uDF89")
-                .setCancelable(false);
+        // ---- Buttons ----
+        android.app.Dialog dialog = new android.app.Dialog(this,
+                android.R.style.Theme_Translucent_NoTitleBar);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(dialogView);
+        dialog.setCancelable(false);
 
         if (isReplayMode || lastLevel) {
-            String msg = (lastLevel && !isReplayMode)
-                    ? "You've completed all " + totalLevels + " levels! \uD83C\uDF0D\n\n"
-                      + "Country: " + targetCountry.getCountry() + "\n"
-                      + "Guesses: " + guessedCountryNames.size() + coinsLine
-                    : body;
-            builder.setMessage(msg).setPositiveButton("Finish", (d, w) -> finish());
+            // Only "Finish" button
+            btnStayHere.setVisibility(View.GONE);
+            btnNextLevel.setText("Finish");
+            btnNextLevel.setOnClickListener(v -> { dialog.dismiss(); finish(); });
         } else {
-            builder.setMessage(body)
-                   .setPositiveButton("Next Level", (d, w) -> loadNextLevel())
-                   .setNegativeButton("Stay Here", null);
+            btnStayHere.setVisibility(View.VISIBLE);
+            btnNextLevel.setText("Next Level");
+            btnNextLevel.setOnClickListener(v -> { dialog.dismiss(); loadNextLevel(); });
+            btnStayHere.setOnClickListener(v -> dialog.dismiss());
         }
-        builder.show();
+
+        // ---- Window styling — same as hint-shop dialog ----
+        Window window = dialog.getWindow();
+        if (window != null) {
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+
+            int screenWidth = getResources().getDisplayMetrics().widthPixels;
+            window.setLayout((int) (screenWidth * 0.88f),
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            window.setGravity(Gravity.CENTER);
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            WindowManager.LayoutParams lp = window.getAttributes();
+            lp.dimAmount = 0.6f;
+            window.setAttributes(lp);
+        }
+
+        // ---- Entrance animation — same as hint-shop dialog ----
+        dialogView.setAlpha(0f);
+        dialogView.setScaleX(0.92f);
+        dialogView.setScaleY(0.92f);
+        dialogView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f)
+                .setDuration(220)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator())
+                .start();
+
+        dialog.show();
     }
 
     private void showFailureDialog() {
@@ -620,9 +786,9 @@ public class DailyCountryActivity extends AppCompatActivity {
         progressManager.clearHintState();
         hintManager = new HintManager(targetCountry, repository);
 
+        if (hintDialog != null) { hintDialog.dismiss(); hintDialog = null; }
         etCountryInput.setEnabled(true);
         etCountryInput.setText("");
-        layoutHintsPanel.setVisibility(View.GONE);
         updateGuessCounter();
         updateHintButton();
     }
@@ -652,9 +818,9 @@ public class DailyCountryActivity extends AppCompatActivity {
         progressManager.clearHintState();
         hintManager = new HintManager(targetCountry, repository);
 
+        if (hintDialog != null) { hintDialog.dismiss(); hintDialog = null; }
         etCountryInput.setEnabled(true);
         etCountryInput.setText("");
-        layoutHintsPanel.setVisibility(View.GONE);
         updateLevelIndicator();
         updateGuessCounter();
         updateHintButton();
@@ -710,6 +876,17 @@ public class DailyCountryActivity extends AppCompatActivity {
         int unlockedLevel = progressManager.loadCurrentLevel();
         if (progressManager.isLevelCompleted(currentLevel) && currentLevel < unlockedLevel) return;
         hintManager.fromJson(progressManager.loadHintState(targetCountry.getIsoCode()));
+
+        // Re-insert hint reveal cards into the adapter for any already-purchased hints.
+        // Hints are shown below the guess that triggered the purchase, but since we can't
+        // know the original insertion order vs. guesses we add them after guess restoration
+        // (restoreGuessHistory is called first). They appear at the top, newest first.
+        for (int slot = 1; slot <= 2; slot++) {
+            HintManager.PurchasedHint ph = hintManager.getPurchasedHint(slot);
+            if (ph != null) {
+                guessAdapter.addHintReveal(ph);
+            }
+        }
     }
 
     private Country findCountryByIso(String iso) {
