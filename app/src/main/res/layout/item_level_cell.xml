@@ -17,12 +17,12 @@
         android:clickable="true"
         android:focusable="true">
 
-        <!-- "Day X" label -->
+        <!-- "Level X" label -->
         <TextView
             android:id="@+id/tvDayLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Day 1"
+            android:text="Level 1"
             android:textSize="12sp"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -37,6 +37,18 @@
             android:textSize="16sp"
             android:layout_marginTop="2dp"
             android:gravity="center" />
+
+        <!-- Difficulty label (Easy / Intermediate / Hard / Expert) -->
+        <TextView
+            android:id="@+id/tvDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="9sp"
+            android:textStyle="italic"
+            android:layout_marginTop="1dp"
+            android:gravity="center"
+            android:visibility="gone" />
 
     </LinearLayout>
 

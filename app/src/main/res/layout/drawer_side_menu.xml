@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Side drawer panel for GeoQuiz.
+  Shown when the user taps the ☰ menu button on the home screen.
+  Contains: header with app name, Language option.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF8E7"
+    android:elevation="8dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#8B4513"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/side_menu_header"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#FFF8E7" />
+
+    </LinearLayout>
+
+    <!-- Thin divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4A882" />
+
+    <!-- Language option row -->
+    <LinearLayout
+        android:id="@+id/menuItemLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌐"
+            android:textSize="22sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:id="@+id/tvMenuLanguageLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/side_menu_language"
+            android:textSize="16sp"
+            android:textColor="#3E2723"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Thin divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0D0B8"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp" />
+
+</LinearLayout>

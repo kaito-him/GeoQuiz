@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CountryRepository {
@@ -61,12 +62,69 @@ public class CountryRepository {
             }
 
             Log.d(TAG, "Loaded " + countries.size() + " countries");
+
+            // Sort by difficulty tier (Easy → Intermediate → Hard → Expert),
+            // then shuffle randomly within each tier so the order is never
+            // alphabetical or identical to the source file.
+            applyDifficultyOrder();
+
             return true;
 
         } catch (JSONException e) {
             Log.e(TAG, "Error parsing JSON array", e);
             return false;
         }
+    }
+
+    /**
+     * Reorders the country list so all Easy levels come first, then
+     * Intermediate, then Hard, then Expert.  Within each tier the countries
+     * are shuffled randomly — so the grid never looks alphabetical or mirrors
+     * the original JSON file order.
+     *
+     * This is called once, immediately after the initial JSON parse.  Because
+     * CountryRepository is a singleton the order is determined once per app
+     * process launch and stays stable for the whole session.
+     */
+    private void applyDifficultyOrder() {
+        // Bucket by tier
+        List<Country> easy         = new ArrayList<>();
+        List<Country> intermediate = new ArrayList<>();
+        List<Country> hard         = new ArrayList<>();
+        List<Country> expert       = new ArrayList<>();
+        List<Country> other        = new ArrayList<>(); // safety net for unknowns
+
+        for (Country c : countries) {
+            String d = c.getDifficultyCategory();
+            if (d == null) { other.add(c); continue; }
+            switch (d.trim().toLowerCase()) {
+                case "easy":         easy.add(c);         break;
+                case "intermediate": intermediate.add(c); break;
+                case "hard":         hard.add(c);         break;
+                case "expert":       expert.add(c);       break;
+                default:             other.add(c);        break;
+            }
+        }
+
+        // Shuffle within each tier independently
+        Collections.shuffle(easy);
+        Collections.shuffle(intermediate);
+        Collections.shuffle(hard);
+        Collections.shuffle(expert);
+        Collections.shuffle(other);
+
+        // Rebuild the master list in tier order
+        countries.clear();
+        countries.addAll(easy);
+        countries.addAll(intermediate);
+        countries.addAll(hard);
+        countries.addAll(expert);
+        countries.addAll(other);
+
+        Log.d(TAG, "Difficulty order applied: Easy=" + easy.size()
+                + " Intermediate=" + intermediate.size()
+                + " Hard=" + hard.size()
+                + " Expert=" + expert.size());
     }
 
     /**
@@ -78,6 +136,7 @@ public class CountryRepository {
             
             country.setIsoCode(obj.optString("ISO Code", ""));
             country.setCountry(obj.optString("Country", ""));
+            country.setCountryAr(obj.optString("Country_AR", ""));
             country.setDifficultyCategory(obj.optString("Difficulty Category", ""));
             country.setCapitalName(obj.optString("Capital Name", ""));
             country.setCurrencyCode(obj.optString("Currency Code", ""));
@@ -161,6 +220,19 @@ public class CountryRepository {
      */
     public int getTotalCountries() {
         return countries.size();
+    }
+
+    /**
+     * Find country by Arabic name (case-insensitive, trims whitespace).
+     */
+    public Country findCountryByNameAr(String name) {
+        if (name == null || name.trim().isEmpty()) return null;
+        String search = name.trim();
+        for (Country country : countries) {
+            String ar = country.getCountryAr();
+            if (ar != null && ar.trim().equals(search)) return country;
+        }
+        return null;
     }
 
     /**

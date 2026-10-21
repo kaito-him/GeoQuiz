@@ -66,7 +66,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Language"
+                    android:text="@string/tile_language"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
@@ -99,7 +99,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Currency"
+                    android:text="@string/tile_currency"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
@@ -141,7 +141,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Population"
+                    android:text="@string/tile_population"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
@@ -174,7 +174,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Area"
+                    android:text="@string/tile_area"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
@@ -215,7 +215,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Continent"
+                    android:text="@string/tile_continent"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
@@ -248,7 +248,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Flag Colors"
+                    android:text="@string/tile_flag_colors"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"

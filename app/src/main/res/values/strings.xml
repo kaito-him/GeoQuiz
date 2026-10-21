@@ -1,14 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App -->
     <string name="app_name">Geo Quiz</string>
-    <string name="daily_country_title">Daily Country</string>
+
+    <!-- First Page -->
+    <string name="btn_daily_country">Country Quest</string>
+    <string name="btn_guess_by_map">Guess by Map</string>
+    <string name="btn_guess_by_flag">Guess by Flag</string>
+    <string name="btn_guess_the_capital">Guess the Capital</string>
+
+    <!-- Level Select -->
+    <string name="daily_country_title">Country Quest</string>
     <string name="level_format">Level %1$d / %2$d</string>
+    <string name="progress_format">%1$d / %2$d completed</string>
+
+    <!-- Game screen -->
     <string name="enter_country_name">Enter a country name</string>
     <string name="search">Search</string>
     <string name="your_guesses">Your Guesses:</string>
+    <string name="guess_counter_format">%1$d / %2$d</string>
     <string name="back">Back</string>
     <string name="menu">Menu</string>
+    <string name="hint_content_description">Hint</string>
+
+    <!-- Tile labels -->
+    <string name="tile_language">Language</string>
+    <string name="tile_currency">Currency</string>
+    <string name="tile_population">Population</string>
+    <string name="tile_area">Area</string>
+    <string name="tile_continent">Continent</string>
+    <string name="tile_flag_colors">Flag Colors</string>
+
+    <!-- Difficulty labels -->
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_intermediate">Intermediate</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="difficulty_expert">Expert</string>
+
+    <!-- Level cell -->
+    <string name="level_label_format">Level %1$d</string>
+
+    <!-- Hint shop -->
+    <string name="hint_shop_title">💡 Hint Shop</string>
+    <string name="hint_already_known">Already known from guesses</string>
+    <string name="hint_slot_not_unlocked_format">Unlocks after guess %1$d</string>
+    <string name="hint_no_slots">No hint slots remaining</string>
+    <string name="hint_slot_used_format">✅ Slot %1$d</string>
+
+    <!-- Hint types -->
+    <string name="hint_reveal_continent">Reveal Continent</string>
+    <string name="hint_reveal_flag_color">Reveal a Flag Color</string>
+    <string name="hint_reveal_language">Reveal a Language</string>
+    <string name="hint_reveal_currency">Reveal Currency Name</string>
+    <string name="hint_reveal_capital">Reveal Capital City</string>
+    <string name="hint_reveal_num_clue">Population/Area Clue</string>
+    <string name="hint_reveal_fun_fact">Reveal Fun Fact</string>
+
+    <!-- Hint reveal card -->
+    <string name="hint_revealed">Hint Revealed</string>
+
+    <!-- Buy hint dialog -->
+    <string name="buy_hint_title">Buy Hint?</string>
+    <string name="buy_hint_your_balance">Your balance</string>
+    <string name="buy_hint_after_purchase">After purchase</string>
+    <string name="buy_hint_cancel">Cancel</string>
+    <string name="buy_hint_buy">Buy</string>
+    <string name="buy_hint_close">Close</string>
+    <string name="not_enough_coins">Not Enough Coins</string>
+    <string name="earn_more_coins">Earn more coins by completing levels!</string>
+    <string name="hint_will_use_slot_format">This will use hint slot %1$d.</string>
+    <string name="hint_needs_coins_format">You need %1$d coins for this hint.</string>
+
+    <!-- Success dialog -->
+    <string name="success_title">Congratulations! 🎉</string>
+    <string name="success_found_it">You found it!</string>
+    <string name="success_all_done_format">You\'ve completed all %1$d levels!</string>
+    <string name="success_all_done_title">All Done! 🌍</string>
+    <string name="success_country_format">Country: %1$s</string>
+    <string name="success_guesses_format">Guesses: %1$d</string>
+    <string name="success_coins_suffix">coins earned!</string>
+    <string name="success_base_bonus_format">(Base %1$d + %2$d speed bonus)</string>
+    <string name="success_base_penalty_format">(Base %1$d − %2$d hint penalty)</string>
+    <string name="btn_stay_here">Stay Here</string>
+    <string name="btn_next_level">Next Level</string>
+    <string name="btn_finish">Finish</string>
+
+    <!-- Failure dialog -->
+    <string name="failure_title">Out of guesses! 😔</string>
+    <string name="failure_message_format">The country was: %1$s\n\nYou\'ve used all %2$d guesses.\nTap \'Try Again\' to reset this level and start over.</string>
+    <string name="btn_try_again">Try Again</string>
+    <string name="btn_give_up">Give Up</string>
+
+    <!-- Numeric clue -->
+    <string name="num_clue_format">Population: %1$s\nArea: %2$s</string>
+
+    <!-- Errors -->
     <string name="error_load_countries">Failed to load countries data</string>
     <string name="error_empty_input">Please enter a country name</string>
     <string name="error_already_guessed">You already guessed this country!</string>
     <string name="error_invalid_country">Invalid country name. Please check spelling.</string>
+    <string name="error_invalid_level">Invalid level</string>
+    <string name="error_no_more_levels">No more levels!</string>
+    <string name="error_loading_level">Error loading level</string>
+    <string name="error_hint_unavailable">This hint is not available right now.</string>
+    <string name="error_hint_no_longer">Hint no longer available.</string>
+    <string name="error_no_slot">No hint slot available.</string>
+    <string name="error_insufficient_coins">Insufficient coins.</string>
+    <string name="error_hint_not_available">This hint is no longer available.</string>
+    <string name="error_no_slots_now">No hint slots available right now.</string>
+
+    <!-- Side menu / drawer -->
+    <string name="side_menu_language">Language</string>
+    <string name="side_menu_language_title">Choose Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_arabic">Arabic (عربي)</string>
+    <string name="side_menu_header">GeoQuiz</string>
+
+    <!-- Misc -->
+    <string name="km_squared">km²</string>
+    <string name="area_format">%1$s km²</string>
+    <string name="unknown_country">Unknown</string>
 </resources>

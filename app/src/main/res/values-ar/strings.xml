@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">جيو كويز</string>
+
+    <!-- First Page -->
+    <string name="btn_daily_country">مهمة الدولة</string>
+    <string name="btn_guess_by_map">خمّن من الخريطة</string>
+    <string name="btn_guess_by_flag">خمّن من العلم</string>
+    <string name="btn_guess_the_capital">خمّن العاصمة</string>
+
+    <!-- Level Select -->
+    <string name="daily_country_title">مهمة الدولة</string>
+    <string name="level_format">المستوى %1$d / %2$d</string>
+    <string name="progress_format">%1$d / %2$d مكتمل</string>
+
+    <!-- Game screen -->
+    <string name="enter_country_name">أدخل اسم الدولة</string>
+    <string name="search">بحث</string>
+    <string name="your_guesses">تخميناتك:</string>
+    <string name="guess_counter_format">%1$d / %2$d</string>
+    <string name="back">رجوع</string>
+    <string name="menu">القائمة</string>
+    <string name="hint_content_description">تلميح</string>
+
+    <!-- Tile labels -->
+    <string name="tile_language">اللغة</string>
+    <string name="tile_currency">العملة</string>
+    <string name="tile_population">السكان</string>
+    <string name="tile_area">المساحة</string>
+    <string name="tile_continent">القارة</string>
+    <string name="tile_flag_colors">ألوان العلم</string>
+
+    <!-- Difficulty labels -->
+    <string name="difficulty_easy">سهل</string>
+    <string name="difficulty_intermediate">متوسط</string>
+    <string name="difficulty_hard">صعب</string>
+    <string name="difficulty_expert">خبير</string>
+
+    <!-- Level cell -->
+    <string name="level_label_format">مستوى %1$d</string>
+
+    <!-- Hint shop -->
+    <string name="hint_shop_title">💡 متجر التلميحات</string>
+    <string name="hint_already_known">معروف بالفعل من التخمينات</string>
+    <string name="hint_slot_not_unlocked_format">يُفتح بعد التخمين %1$d</string>
+    <string name="hint_no_slots">لا توجد فتحات تلميح متبقية</string>
+    <string name="hint_slot_used_format">✅ فتحة %1$d</string>
+
+    <!-- Hint types -->
+    <string name="hint_reveal_continent">اكشف القارة</string>
+    <string name="hint_reveal_flag_color">اكشف لون العلم</string>
+    <string name="hint_reveal_language">اكشف اللغة</string>
+    <string name="hint_reveal_currency">اكشف العملة</string>
+    <string name="hint_reveal_capital">اكشف العاصمة</string>
+    <string name="hint_reveal_num_clue">تلميح السكان/المساحة</string>
+    <string name="hint_reveal_fun_fact">اكشف حقيقة ممتعة</string>
+
+    <!-- Hint reveal card -->
+    <string name="hint_revealed">تم الكشف عن التلميح</string>
+
+    <!-- Buy hint dialog -->
+    <string name="buy_hint_title">شراء تلميح؟</string>
+    <string name="buy_hint_your_balance">رصيدك</string>
+    <string name="buy_hint_after_purchase">بعد الشراء</string>
+    <string name="buy_hint_cancel">إلغاء</string>
+    <string name="buy_hint_buy">شراء</string>
+    <string name="buy_hint_close">إغلاق</string>
+    <string name="not_enough_coins">عملات غير كافية</string>
+    <string name="earn_more_coins">اكسب المزيد من العملات بإكمال المستويات!</string>
+    <string name="hint_will_use_slot_format">سيستخدم فتحة التلميح %1$d.</string>
+    <string name="hint_needs_coins_format">تحتاج %1$d عملة لهذا التلميح.</string>
+
+    <!-- Success dialog -->
+    <string name="success_title">تهانينا! 🎉</string>
+    <string name="success_found_it">لقد وجدتها!</string>
+    <string name="success_all_done_format">لقد أكملت جميع %1$d مستوى!</string>
+    <string name="success_all_done_title">انتهيت! 🌍</string>
+    <string name="success_country_format">الدولة: %1$s</string>
+    <string name="success_guesses_format">التخمينات: %1$d</string>
+    <string name="success_coins_suffix">عملات مكتسبة!</string>
+    <string name="success_base_bonus_format">(أساس %1$d + %2$d مكافأة سرعة)</string>
+    <string name="success_base_penalty_format">(أساس %1$d − %2$d غرامة تلميح)</string>
+    <string name="btn_stay_here">ابق هنا</string>
+    <string name="btn_next_level">المستوى التالي</string>
+    <string name="btn_finish">إنهاء</string>
+
+    <!-- Failure dialog -->
+    <string name="failure_title">نفدت التخمينات! 😔</string>
+    <string name="failure_message_format">كانت الدولة: %1$s\n\nلقد استخدمت جميع %2$d تخمين.\nاضغط \'حاول مجدداً\' لإعادة تعيين هذا المستوى.</string>
+    <string name="btn_try_again">حاول مجدداً</string>
+    <string name="btn_give_up">استسلام</string>
+
+    <!-- Numeric clue -->
+    <string name="num_clue_format">السكان: %1$s\nالمساحة: %2$s</string>
+
+    <!-- Errors -->
+    <string name="error_load_countries">فشل تحميل بيانات الدول</string>
+    <string name="error_empty_input">الرجاء إدخال اسم الدولة</string>
+    <string name="error_already_guessed">لقد خمّنت هذه الدولة بالفعل!</string>
+    <string name="error_invalid_country">اسم الدولة غير صحيح. يرجى التحقق من التهجئة.</string>
+    <string name="error_invalid_level">مستوى غير صحيح</string>
+    <string name="error_no_more_levels">لا توجد مزيد من المستويات!</string>
+    <string name="error_loading_level">خطأ في تحميل المستوى</string>
+    <string name="error_hint_unavailable">هذا التلميح غير متاح الآن.</string>
+    <string name="error_hint_no_longer">التلميح لم يعد متاحاً.</string>
+    <string name="error_no_slot">لا توجد فتحة تلميح متاحة.</string>
+    <string name="error_insufficient_coins">عملات غير كافية.</string>
+    <string name="error_hint_not_available">هذا التلميح لم يعد متاحاً.</string>
+    <string name="error_no_slots_now">لا توجد فتحات تلميح متاحة الآن.</string>
+
+    <!-- Side menu / drawer -->
+    <string name="side_menu_language">اللغة</string>
+    <string name="side_menu_language_title">اختر اللغة</string>
+    <string name="lang_english">English (الإنجليزية)</string>
+    <string name="lang_arabic">عربي</string>
+    <string name="side_menu_header">جيو كويز</string>
+
+    <!-- Misc -->
+    <string name="km_squared">كم²</string>
+    <string name="area_format">%1$s كم²</string>
+    <string name="unknown_country">غير معروف</string>
+</resources>

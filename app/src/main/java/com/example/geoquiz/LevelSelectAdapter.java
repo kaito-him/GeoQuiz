@@ -93,7 +93,7 @@ public class LevelSelectAdapter extends RecyclerView.Adapter<LevelSelectAdapter.
         }
 
         void bind(int level) {
-            tvDayLabel.setText("Level " + level);
+            tvDayLabel.setText(context.getString(R.string.level_label_format, level));
 
             boolean completed = completedLevels.contains(level);
             boolean isCurrent = (level == currentLevel);
@@ -101,15 +101,16 @@ public class LevelSelectAdapter extends RecyclerView.Adapter<LevelSelectAdapter.
             // --- Difficulty label ---
             Country country = repo.getCountryByLevel(level);
             String difficulty = (country != null) ? country.getDifficultyCategory() : "";
-            if (difficulty != null && !difficulty.isEmpty()) {
-                tvDifficulty.setText(difficulty);
+            String difficultyLabel = localizedDifficulty(difficulty);
+            if (difficultyLabel != null && !difficultyLabel.isEmpty()) {
+                tvDifficulty.setText(difficultyLabel);
                 tvDifficulty.setVisibility(View.VISIBLE);
             } else {
                 tvDifficulty.setVisibility(View.GONE);
             }
 
             // Difficulty label colour is always tier-based regardless of cell state
-            if (difficulty != null && !difficulty.isEmpty()) {
+            if (difficultyLabel != null && !difficultyLabel.isEmpty()) {
                 tvDifficulty.setTextColor(difficultyColor(difficulty));
                 tvDifficulty.setAlpha(1f);
             }
@@ -152,10 +153,22 @@ public class LevelSelectAdapter extends RecyclerView.Adapter<LevelSelectAdapter.
         private int difficultyColor(String difficulty) {
             switch (difficulty.trim().toLowerCase()) {
                 case "easy":         return Color.WHITE;           // #FFFFFF
-                case "intermediate": return Color.parseColor("#D2B48C"); // tan
+                case "intermediate": return Color.parseColor("#6D4C41"); // brown
                 case "hard":         return Color.BLACK;           // #000000
                 case "expert":       return Color.parseColor("#4A148C"); // deep purple
                 default:             return Color.WHITE;
+            }
+        }
+
+        /** Returns a localised difficulty label string. */
+        private String localizedDifficulty(String difficulty) {
+            if (difficulty == null || difficulty.isEmpty()) return "";
+            switch (difficulty.trim().toLowerCase()) {
+                case "easy":         return context.getString(R.string.difficulty_easy);
+                case "intermediate": return context.getString(R.string.difficulty_intermediate);
+                case "hard":         return context.getString(R.string.difficulty_hard);
+                case "expert":       return context.getString(R.string.difficulty_expert);
+                default:             return difficulty;
             }
         }
     }

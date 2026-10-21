@@ -1,5 +1,6 @@
 package com.example.geoquiz;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -78,6 +78,11 @@ public class DailyCountryActivity extends AppCompatActivity {
     // -------------------------------------------------------------------------
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LanguageManager.applyLanguage(base));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_country);
@@ -116,7 +121,7 @@ public class DailyCountryActivity extends AppCompatActivity {
 
         targetCountry = repository.getCountryByLevel(currentLevel);
         if (targetCountry == null) {
-            Toast.makeText(this, "Invalid level", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_invalid_level), Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
@@ -175,17 +180,19 @@ public class DailyCountryActivity extends AppCompatActivity {
 
     private void setupAutocomplete() {
         List<String> allCountries = new ArrayList<>();
-        for (Country c : repository.getAllCountries()) allCountries.add(c.getCountry());
+        boolean arabic = LanguageManager.isArabic(this);
+        for (Country c : repository.getAllCountries()) {
+            String name = (arabic && c.getCountryAr() != null && !c.getCountryAr().isEmpty())
+                    ? c.getCountryAr() : c.getCountry();
+            allCountries.add(name);
+        }
 
         CountrySuggestionAdapter adapter =
                 new CountrySuggestionAdapter(this, allCountries, guessedNamesLower);
         etCountryInput.setAdapter(adapter);
         etCountryInput.setThreshold(1);
 
-        // Auto-submit when the user taps a suggestion from the dropdown
         etCountryInput.setOnItemClickListener((parent, view, position, id) -> {
-            // The AutoCompleteTextView fills its own text on item click; we
-            // post the submission so the text is fully set before we read it.
             etCountryInput.post(() -> submitCurrentInput());
         });
     }
@@ -308,7 +315,7 @@ public class DailyCountryActivity extends AppCompatActivity {
         View     coinIcon     = row.findViewById(R.id.ivHintCoinIcon);
         View     rowRoot      = row.findViewById(R.id.hintRowRoot);
 
-        tvLabel.setText(type.label);
+        tvLabel.setText(type.getLabel(this));
 
         // Case 1: already purchased — green row, show revealed text, hide price badge
         HintManager.PurchasedHint ph = findPurchasedHintByType(type);
@@ -319,8 +326,7 @@ public class DailyCountryActivity extends AppCompatActivity {
             tvSubtext.setText(ph.revealedText);
             tvSubtext.setTextColor(Color.WHITE);
             priceBadge.setVisibility(View.GONE);
-            // Show a small "✅ Slot N" text instead
-            tvPrice.setText("✅ Slot " + ph.slotIndex);
+            tvPrice.setText(getString(R.string.hint_slot_used_format, ph.slotIndex));
             tvPrice.setTextColor(Color.WHITE);
             tvPrice.setVisibility(View.VISIBLE);
             if (coinIcon != null) coinIcon.setVisibility(View.GONE);
@@ -349,7 +355,7 @@ public class DailyCountryActivity extends AppCompatActivity {
 
             case ALREADY_KNOWN:
                 styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
-                        "Already known from guesses", type.price);
+                        getString(R.string.hint_already_known), type.price);
                 break;
 
             case SLOT_NOT_UNLOCKED: {
@@ -357,14 +363,14 @@ public class DailyCountryActivity extends AppCompatActivity {
                         ? HintManager.SLOT1_UNLOCK_AFTER
                         : HintManager.SLOT2_UNLOCK_AFTER;
                 styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
-                        "Unlocks after guess " + threshold, type.price);
+                        getString(R.string.hint_slot_not_unlocked_format, threshold), type.price);
                 break;
             }
 
             case NO_SLOTS_REMAINING:
             case SLOT_USED:
                 styleDisabledRow(rowRoot, tvLabel, tvSubtext, tvPrice, priceBadge,
-                        "No hint slots remaining", type.price);
+                        getString(R.string.hint_no_slots), type.price);
                 break;
         }
 
@@ -401,32 +407,30 @@ public class DailyCountryActivity extends AppCompatActivity {
     private void onHintRowClicked(HintType type, int guessCount) {
         HintManager.EligibilityStatus status = hintManager.checkEligibility(type, guessCount);
         if (status != HintManager.EligibilityStatus.AVAILABLE) {
-            Toast.makeText(this, "This hint is no longer available.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_hint_not_available), Toast.LENGTH_SHORT).show();
             refreshHintDialog();
             return;
         }
 
         int nextSlot = hintManager.nextAvailableSlot(guessCount);
         if (nextSlot == -1) {
-            Toast.makeText(this, "No hint slots available right now.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_no_slots_now), Toast.LENGTH_SHORT).show();
             return;
         }
 
         int balance = coinManager.getCoins();
         if (balance < type.price) {
-            // Insufficient coins — themed dialog
             showInsufficientCoinsDialog(type.price, balance);
             return;
         }
 
-        String revealText = hintManager.generateRevealText(type);
+        String revealText = hintManager.generateRevealText(type, this);
         if (revealText == null || revealText.isEmpty()) {
-            Toast.makeText(this, "This hint is not available right now.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_hint_unavailable), Toast.LENGTH_SHORT).show();
             refreshHintDialog();
             return;
         }
 
-        // Show themed buy-confirmation dialog
         showBuyHintConfirmDialog(type, guessCount, nextSlot, balance, revealText);
     }
 
@@ -434,14 +438,13 @@ public class DailyCountryActivity extends AppCompatActivity {
     private void showInsufficientCoinsDialog(int price, int balance) {
         View v = LayoutInflater.from(this).inflate(R.layout.dialog_buy_hint, null);
 
-        ((TextView) v.findViewById(R.id.tvBuyTitle)).setText("Not Enough Coins");
+        ((TextView) v.findViewById(R.id.tvBuyTitle)).setText(getString(R.string.not_enough_coins));
         ((TextView) v.findViewById(R.id.tvBuyHintName)).setText(
-                "You need " + price + " coins for this hint.");
+                getString(R.string.hint_needs_coins_format, price));
         ((TextView) v.findViewById(R.id.tvBuyPrice)).setText(String.valueOf(price));
         ((TextView) v.findViewById(R.id.tvBuyBalance)).setText(String.valueOf(balance));
         ((TextView) v.findViewById(R.id.tvBuyAfter)).setText("—");
-        ((TextView) v.findViewById(R.id.tvBuySlotNote)).setText(
-                "Earn more coins by completing levels!");
+        ((TextView) v.findViewById(R.id.tvBuySlotNote)).setText(getString(R.string.earn_more_coins));
         v.findViewById(R.id.tvBuyConfirm).setVisibility(View.GONE);
 
         android.app.Dialog d = new android.app.Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
@@ -450,7 +453,7 @@ public class DailyCountryActivity extends AppCompatActivity {
         d.setCanceledOnTouchOutside(true);
         styleConfirmWindow(d);
 
-        ((TextView) v.findViewById(R.id.tvBuyCancel)).setText("Close");
+        ((TextView) v.findViewById(R.id.tvBuyCancel)).setText(getString(R.string.buy_hint_close));
         v.findViewById(R.id.tvBuyCancel).setOnClickListener(x -> d.dismiss());
         d.show();
     }
@@ -460,12 +463,12 @@ public class DailyCountryActivity extends AppCompatActivity {
                                           int nextSlot, int balance, String revealText) {
         View v = LayoutInflater.from(this).inflate(R.layout.dialog_buy_hint, null);
 
-        ((TextView) v.findViewById(R.id.tvBuyHintName)).setText(type.label);
+        ((TextView) v.findViewById(R.id.tvBuyHintName)).setText(type.getLabel(this));
         ((TextView) v.findViewById(R.id.tvBuyPrice)).setText(String.valueOf(type.price));
         ((TextView) v.findViewById(R.id.tvBuyBalance)).setText(String.valueOf(balance));
         ((TextView) v.findViewById(R.id.tvBuyAfter)).setText(String.valueOf(balance - type.price));
         ((TextView) v.findViewById(R.id.tvBuySlotNote)).setText(
-                "This will use hint slot " + nextSlot + ".");
+                getString(R.string.hint_will_use_slot_format, nextSlot));
 
         android.app.Dialog d = new android.app.Dialog(this, android.R.style.Theme_Translucent_NoTitleBar);
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -473,25 +476,27 @@ public class DailyCountryActivity extends AppCompatActivity {
         d.setCanceledOnTouchOutside(true);
         styleConfirmWindow(d);
 
+        ((TextView) v.findViewById(R.id.tvBuyCancel)).setText(getString(R.string.buy_hint_cancel));
+        ((TextView) v.findViewById(R.id.tvBuyConfirm)).setText(getString(R.string.buy_hint_buy));
+
         v.findViewById(R.id.tvBuyCancel).setOnClickListener(x -> d.dismiss());
         v.findViewById(R.id.tvBuyConfirm).setOnClickListener(x -> {
             d.dismiss();
-            // Re-check everything before committing
             HintManager.EligibilityStatus reCheck =
                     hintManager.checkEligibility(type, guessedCountryNames.size());
             if (reCheck != HintManager.EligibilityStatus.AVAILABLE) {
-                Toast.makeText(this, "Hint no longer available.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.error_hint_no_longer), Toast.LENGTH_SHORT).show();
                 refreshHintDialog();
                 return;
             }
             int slot = hintManager.nextAvailableSlot(guessedCountryNames.size());
             if (slot == -1) {
-                Toast.makeText(this, "No hint slot available.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.error_no_slot), Toast.LENGTH_SHORT).show();
                 return;
             }
             boolean deducted = coinManager.deductCoins(type.price);
             if (!deducted) {
-                Toast.makeText(this, "Insufficient coins.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.error_insufficient_coins), Toast.LENGTH_SHORT).show();
                 return;
             }
             hintManager.recordHintPurchase(type, revealText, slot);
@@ -565,12 +570,21 @@ public class DailyCountryActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.error_empty_input, Toast.LENGTH_SHORT).show();
             return;
         }
-        if (guessedNamesLower.contains(input.toLowerCase())) {
+
+        // Resolve typed name → Country (supports both English and Arabic names)
+        Country guessedCountry = repository.findCountryByName(input);
+        if (guessedCountry == null && LanguageManager.isArabic(this)) {
+            guessedCountry = repository.findCountryByNameAr(input);
+        }
+
+        // Normalise the display name to the English one for internal tracking
+        String trackName = (guessedCountry != null) ? guessedCountry.getCountry() : input;
+
+        if (guessedNamesLower.contains(trackName.toLowerCase())) {
             Toast.makeText(this, R.string.error_already_guessed, Toast.LENGTH_SHORT).show();
             etCountryInput.setText("");
             return;
         }
-        Country guessedCountry = repository.findCountryByName(input);
         if (guessedCountry == null) {
             Toast.makeText(this, R.string.error_invalid_country, Toast.LENGTH_SHORT).show();
             return;
@@ -592,8 +606,6 @@ public class DailyCountryActivity extends AppCompatActivity {
         saveHintState();
         updateGuessCounter();
 
-        // Dismiss the hints dialog after a guess (keeps the UI clean) and
-        // refresh the hint button — a new slot may have just unlocked.
         if (hintDialog != null) {
             hintDialog.dismiss();
             hintDialog = null;
@@ -609,8 +621,6 @@ public class DailyCountryActivity extends AppCompatActivity {
                 coinsAwarded = awardCompletionReward();
             }
             final int finalCoinsAwarded = coinsAwarded;
-            // Delay dialog until the tile flip-in animation has finished (~1620 ms)
-            // plus a short pause so the player can see the completed row (≈ 2 s total).
             new Handler(getMainLooper()).postDelayed(
                     () -> showSuccessDialog(finalCoinsAwarded), 2000);
 
@@ -621,12 +631,13 @@ public class DailyCountryActivity extends AppCompatActivity {
     }
 
     private void updateLevelIndicator() {
-        tvLevelIndicator.setText(currentLevel + "/" + repository.getTotalCountries());
+        tvLevelIndicator.setText(getString(R.string.guess_counter_format,
+                currentLevel, repository.getTotalCountries()));
     }
 
     private void updateGuessCounter() {
         int used = guessedCountryNames.size();
-        tvGuessCounter.setText(used + " / " + MAX_GUESSES);
+        tvGuessCounter.setText(getString(R.string.guess_counter_format, used, MAX_GUESSES));
         if (!isReplayMode && used >= MAX_GUESSES - 2) {
             tvGuessCounter.setTextColor(0xFFD32F2F);
         } else {
@@ -679,12 +690,20 @@ public class DailyCountryActivity extends AppCompatActivity {
 
         // ---- "All levels done" title variant ----
         if (lastLevel && !isReplayMode) {
-            tvTitle.setText("All Done! \uD83C\uDF0D");
-            tvFoundIt.setText("You've completed all " + totalLevels + " levels!");
+            tvTitle.setText(getString(R.string.success_all_done_title));
+            tvFoundIt.setText(getString(R.string.success_all_done_format, totalLevels));
+        } else {
+            tvTitle.setText(getString(R.string.success_title));
+            tvFoundIt.setText(getString(R.string.success_found_it));
         }
 
-        tvCountry.setText("Country: " + targetCountry.getCountry());
-        tvGuesses.setText("Guesses: " + guessedCountryNames.size());
+        // Use localized country name if Arabic
+        String displayName = (LanguageManager.isArabic(this)
+                && targetCountry.getCountryAr() != null
+                && !targetCountry.getCountryAr().isEmpty())
+                ? targetCountry.getCountryAr() : targetCountry.getCountry();
+        tvCountry.setText(getString(R.string.success_country_format, displayName));
+        tvGuesses.setText(getString(R.string.success_guesses_format, guessedCountryNames.size()));
 
         // ---- Coins row ----
         if (isReplayMode || coinsAwarded == 0) {
@@ -692,20 +711,20 @@ public class DailyCountryActivity extends AppCompatActivity {
             tvBreakdown.setVisibility(View.GONE);
         } else {
             tvCoinsPrefix.setText("+" + coinsAwarded);
-            // tvCoinsSuffix already reads "coins earned!" from XML
+            tvCoinsSuffix.setText(getString(R.string.success_coins_suffix));
 
             int hintsUsed = (hintManager.isSlot1Used() ? 1 : 0)
                           + (hintManager.isSlot2Used() ? 1 : 0);
             if (hintsUsed > 0) {
                 int penalty = RewardCalculator.HINT_PENALTY * hintsUsed;
-                tvBreakdown.setText("(Base " + RewardCalculator.BASE_REWARD
-                        + " \u2212 " + penalty + " hint penalty)");
+                tvBreakdown.setText(getString(R.string.success_base_penalty_format,
+                        RewardCalculator.BASE_REWARD, penalty));
                 tvBreakdown.setVisibility(View.VISIBLE);
             } else {
                 int bonus = RewardCalculator.performanceBonus(guessedCountryNames.size());
                 if (bonus > 0) {
-                    tvBreakdown.setText("(Base " + RewardCalculator.BASE_REWARD
-                            + " + " + bonus + " speed bonus)");
+                    tvBreakdown.setText(getString(R.string.success_base_bonus_format,
+                            RewardCalculator.BASE_REWARD, bonus));
                     tvBreakdown.setVisibility(View.VISIBLE);
                 }
             }
@@ -719,14 +738,14 @@ public class DailyCountryActivity extends AppCompatActivity {
         dialog.setCancelable(false);
 
         if (isReplayMode || lastLevel) {
-            // Only "Finish" button
             btnStayHere.setVisibility(View.GONE);
-            btnNextLevel.setText("Finish");
+            btnNextLevel.setText(getString(R.string.btn_finish));
             btnNextLevel.setOnClickListener(v -> { dialog.dismiss(); finish(); });
         } else {
             btnStayHere.setVisibility(View.VISIBLE);
-            btnNextLevel.setText("Next Level");
+            btnNextLevel.setText(getString(R.string.btn_next_level));
             btnNextLevel.setOnClickListener(v -> { dialog.dismiss(); loadNextLevel(); });
+            btnStayHere.setText(getString(R.string.btn_stay_here));
             btnStayHere.setOnClickListener(v -> dialog.dismiss());
         }
 
@@ -762,14 +781,17 @@ public class DailyCountryActivity extends AppCompatActivity {
     }
 
     private void showFailureDialog() {
+        String displayName = (LanguageManager.isArabic(this)
+                && targetCountry.getCountryAr() != null
+                && !targetCountry.getCountryAr().isEmpty())
+                ? targetCountry.getCountryAr() : targetCountry.getCountry();
+
         new AlertDialog.Builder(this)
-                .setTitle("Out of guesses! \uD83D\uDE14")
-                .setMessage("The country was: " + targetCountry.getCountry()
-                        + "\n\nYou've used all " + MAX_GUESSES + " guesses."
-                        + "\nTap 'Try Again' to reset this level and start over.")
+                .setTitle(getString(R.string.failure_title))
+                .setMessage(getString(R.string.failure_message_format, displayName, MAX_GUESSES))
                 .setCancelable(false)
-                .setPositiveButton("Try Again", (d, w) -> resetLevel())
-                .setNegativeButton("Give Up",   (d, w) -> finish())
+                .setPositiveButton(getString(R.string.btn_try_again), (d, w) -> resetLevel())
+                .setNegativeButton(getString(R.string.btn_give_up),   (d, w) -> finish())
                 .show();
     }
 
@@ -796,13 +818,13 @@ public class DailyCountryActivity extends AppCompatActivity {
     private void loadNextLevel() {
         int nextLevel = currentLevel + 1;
         if (nextLevel > repository.getTotalCountries()) {
-            Toast.makeText(this, "No more levels!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_no_more_levels), Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
         Country nextTarget = repository.getCountryByLevel(nextLevel);
         if (nextTarget == null) {
-            Toast.makeText(this, "Error loading level", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_loading_level), Toast.LENGTH_SHORT).show();
             return;
         }
 

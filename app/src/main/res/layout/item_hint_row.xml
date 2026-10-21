@@ -2,7 +2,7 @@
 <!--
   A single row inside the Hints panel.
   Three visual states:
-    1. AVAILABLE   — wheat background, enabled, shows price
+    1. AVAILABLE   — tan background, enabled, shows coin price
     2. DISABLED    — grey background, not clickable, shows reason
     3. REVEALED    — green background, not clickable, shows the revealed value
 -->
@@ -25,7 +25,6 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <!-- Hint name -->
         <TextView
             android:id="@+id/tvHintLabel"
             android:layout_width="wrap_content"
@@ -35,7 +34,7 @@
             android:textStyle="bold"
             android:textColor="#3E2723" />
 
-        <!-- Secondary line: disabled reason or revealed value (hidden when not needed) -->
+        <!-- Secondary line: disabled reason or revealed value -->
         <TextView
             android:id="@+id/tvHintSubtext"
             android:layout_width="wrap_content"
@@ -48,20 +47,38 @@
 
     </LinearLayout>
 
-    <!-- Right: price badge or state indicator -->
-    <TextView
-        android:id="@+id/tvHintPrice"
+    <!-- Right: price badge with coin image + number -->
+    <LinearLayout
+        android:id="@+id/layoutHintPriceBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20 🪙"
-        android:textSize="13sp"
-        android:textColor="#3E2723"
-        android:textStyle="bold"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:background="@drawable/coin_background"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
-        android:layout_marginStart="8dp" />
+        android:layout_marginStart="8dp">
+
+        <ImageView
+            android:id="@+id/ivHintCoinIcon"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/coin"
+            android:scaleType="fitCenter"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="coin" />
+
+        <TextView
+            android:id="@+id/tvHintPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="13sp"
+            android:textColor="#3E2723"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </LinearLayout>

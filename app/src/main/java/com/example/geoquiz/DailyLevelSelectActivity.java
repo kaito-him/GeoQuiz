@@ -1,5 +1,6 @@
 package com.example.geoquiz;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -40,6 +41,11 @@ public class DailyLevelSelectActivity extends AppCompatActivity {
     private boolean readyToRefresh = false;
 
     // -------------------------------------------------------------------------
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LanguageManager.applyLanguage(base));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,13 +106,14 @@ public class DailyLevelSelectActivity extends AppCompatActivity {
         Set<Integer> completedSet = new HashSet<>(doneList);
         int totalLevels     = repo.getTotalCountries();
 
-        tvProgress.setText(doneList.size() + " / " + totalLevels + " completed");
+        tvProgress.setText(getString(R.string.progress_format, doneList.size(), totalLevels));
 
         rvLevels.setAdapter(new LevelSelectAdapter(
                 this,
                 totalLevels,
                 currentLevel,
                 completedSet,
+                repo,
                 this::openLevel
         ));
 

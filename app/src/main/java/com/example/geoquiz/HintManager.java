@@ -57,8 +57,6 @@ public class HintManager {
         AVAILABLE,
         /** The information this hint would reveal is already known from guesses/prior hints. */
         ALREADY_KNOWN,
-        /** Not enough valid candidates for an elimination hint. */
-        CANNOT_ELIMINATE,
         /** The hint slot for this purchase has not unlocked yet. */
         SLOT_NOT_UNLOCKED,
         /** Both hint slots have already been used. */
@@ -229,13 +227,6 @@ public class HintManager {
             case REVEAL_FUN_FACT:
                 if (funFactRevealed) return EligibilityStatus.ALREADY_KNOWN;
                 break;
-
-            case ELIMINATE_THREE: {
-                // Need at least 3 valid candidates to eliminate
-                List<Country> candidates = getEliminationCandidates();
-                if (candidates.size() < 3) return EligibilityStatus.CANNOT_ELIMINATE;
-                break;
-            }
         }
 
         return EligibilityStatus.AVAILABLE;
@@ -249,10 +240,11 @@ public class HintManager {
      * Generate the text that should be displayed when a hint is revealed.
      * Call only after checkEligibility() returns AVAILABLE.
      *
-     * @param type the hint type to reveal
+     * @param type    the hint type to reveal
+     * @param context used to format locale-aware strings (e.g. num clue)
      * @return a non-null reveal string, or null if the hint cannot be generated safely
      */
-    public String generateRevealText(HintType type) {
+    public String generateRevealText(HintType type, android.content.Context context) {
         switch (type) {
             case REVEAL_CONTINENT:
                 return target.getContinent();
@@ -262,7 +254,6 @@ public class HintManager {
                 Set<String> unknown = new HashSet<>(targetColors);
                 unknown.removeAll(knownFlagColors);
                 if (unknown.isEmpty()) return null;
-                // Pick a random unknown color; use original casing from country data
                 for (String orig : target.getFlagColors()) {
                     if (unknown.contains(orig.toLowerCase())) return orig;
                 }
@@ -287,22 +278,10 @@ public class HintManager {
                 return target.getCapitalName();
 
             case REVEAL_NUM_CLUE:
-                return generateNumericClue();
+                return generateNumericClue(context);
 
             case REVEAL_FUN_FACT:
                 return target.getFunFact();
-
-            case ELIMINATE_THREE: {
-                List<Country> candidates = getEliminationCandidates();
-                if (candidates.size() < 3) return null;
-                Collections.shuffle(candidates, new Random());
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < 3; i++) {
-                    if (i > 0) sb.append(", ");
-                    sb.append(candidates.get(i).getCountry());
-                }
-                return sb.toString();
-            }
 
             default:
                 return null;
@@ -310,14 +289,19 @@ public class HintManager {
     }
 
     /**
-     * Builds a useful population/area range clue without revealing the exact value.
-     * Picks whichever dimension gives a narrower bracket based on what is already known.
+     * Overload for backward compat — falls back to English strings.
      */
-    private String generateNumericClue() {
+    public String generateRevealText(HintType type) {
+        return generateRevealText(type, null);
+    }
+
+    /**
+     * Builds a useful population/area range clue without revealing the exact value.
+     */
+    private String generateNumericClue(android.content.Context context) {
         long   pop  = target.getPopulation();
         double area = target.getArea();
 
-        // Population bracket: pick a round-number tier
         String popStr;
         if (pop < 100_000) {
             popStr = "under 100,000";
@@ -339,7 +323,6 @@ public class HintManager {
             popStr = "over 500M";
         }
 
-        // Area bracket
         String areaStr;
         if (area < 1_000) {
             areaStr = "under 1,000 km²";
@@ -357,41 +340,10 @@ public class HintManager {
             areaStr = "over 5M km²";
         }
 
+        if (context != null) {
+            return context.getString(R.string.num_clue_format, popStr, areaStr);
+        }
         return "Population: " + popStr + "\nArea: " + areaStr;
-    }
-
-    /**
-     * Returns countries that are valid elimination candidates:
-     *   - Not the target
-     *   - Not already guessed
-     *   - Not already in a prior elimination hint reveal
-     */
-    private List<Country> getEliminationCandidates() {
-        List<Country> all = repository.getAllCountries();
-        List<Country> candidates = new ArrayList<>();
-        String targetIso = target.getIsoCode().toLowerCase();
-
-        // Collect ISOs already used as elimination suggestions so we don't re-suggest them
-        Set<String> eliminatedIsos = new HashSet<>();
-        for (int slot = 1; slot <= 2; slot++) {
-            PurchasedHint ph = purchasedBySlot[slot];
-            if (ph != null && ph.type == HintType.ELIMINATE_THREE) {
-                // Stored text is comma-separated country names
-                for (String name : ph.revealedText.split(",")) {
-                    Country c = repository.findCountryByName(name.trim());
-                    if (c != null) eliminatedIsos.add(c.getIsoCode().toLowerCase());
-                }
-            }
-        }
-
-        for (Country c : all) {
-            String iso = c.getIsoCode().toLowerCase();
-            if (iso.equals(targetIso)) continue;
-            if (guessedIsos.contains(iso)) continue;
-            if (eliminatedIsos.contains(iso)) continue;
-            candidates.add(c);
-        }
-        return candidates;
     }
 
     // -------------------------------------------------------------------------
@@ -514,9 +466,6 @@ public class HintManager {
                 break;
             case REVEAL_FUN_FACT:
                 funFactRevealed = true;
-                break;
-            case ELIMINATE_THREE:
-                // No clue-model update needed; candidates list handles re-elimination
                 break;
         }
     }

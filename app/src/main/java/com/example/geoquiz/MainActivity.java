@@ -1,5 +1,6 @@
 package com.example.geoquiz;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,6 +10,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LanguageManager.applyLanguage(base));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

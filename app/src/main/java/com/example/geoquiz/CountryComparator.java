@@ -253,30 +253,13 @@ public class CountryComparator {
         else if (anyMatch)   status = CountryGuess.FlagColorsResult.Status.PARTIAL_MATCH;
         else                 status = CountryGuess.FlagColorsResult.Status.NO_MATCH;
 
-        // Build display text
-        String displayText;
-        if (perfectMatch) {
-            // Plain text — white on green tile, fully readable
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < guessedColors.size(); i++) {
-                sb.append(guessedColors.get(i));
-                if (i < guessedColors.size() - 1) sb.append(", ");
-            }
-            displayText = sb.toString();
-        } else {
-            // HTML: matching colors in green text, non-matching in white
-            StringBuilder html = new StringBuilder();
-            for (int i = 0; i < guessedColors.size(); i++) {
-                String color = guessedColors.get(i);
-                if (targetSet.contains(color.toLowerCase())) {
-                    html.append("<font color='#4CAF50'>").append(color).append("</font>");
-                } else {
-                    html.append(color);
-                }
-                if (i < guessedColors.size() - 1) html.append(", ");
-            }
-            displayText = html.toString();
+        // Build display text — plain white text on all tile states; only the tile background colour differs
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < guessedColors.size(); i++) {
+            sb.append(guessedColors.get(i));
+            if (i < guessedColors.size() - 1) sb.append(", ");
         }
+        String displayText = sb.toString();
 
         return new CountryGuess.FlagColorsResult(displayText, status);
     }

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Buy-hint confirmation dialog.
+  Same tan/brown theme as the hint shop modal.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/hint_modal_background"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvBuyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buy_hint_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#8B4513"
+        android:alpha="0.4"
+        android:layout_marginBottom="14dp" />
+
+    <!-- "Purchase X for N coins" row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/tvBuyHintName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Reveal a Language"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+        <!-- Price badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/coin_background"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/coin"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="coin" />
+
+            <TextView
+                android:id="@+id/tvBuyPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#3E2723" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Balance rows -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/buy_hint_your_balance"
+            android:textSize="13sp"
+            android:textColor="#5D4037" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/coin"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="3dp"
+                android:contentDescription="coin" />
+
+            <TextView
+                android:id="@+id/tvBuyBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="760"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#3E2723" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/buy_hint_after_purchase"
+            android:textSize="13sp"
+            android:textColor="#5D4037" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/coin"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="3dp"
+                android:contentDescription="coin" />
+
+            <TextView
+                android:id="@+id/tvBuyAfter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="710"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#3E2723" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Slot note -->
+    <TextView
+        android:id="@+id/tvBuySlotNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This will use hint slot 1."
+        android:textSize="12sp"
+        android:textColor="#8B4513"
+        android:textStyle="italic"
+        android:layout_marginBottom="18dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#8B4513"
+        android:alpha="0.4"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Action buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/tvBuyCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_hint_cancel"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#8B4513"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/tvBuyConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_hint_buy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#FFF8E7"
+            android:background="@drawable/button_brown"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -24,16 +24,23 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * RecyclerView adapter for country guess cards.
- * New guesses are inserted at position 0 so they appear at the top.
+ * RecyclerView adapter for country guess cards and hint reveal cards.
+ * New items are inserted at position 0 so they appear at the top.
+ *
+ * Two view types are supported:
+ *   VIEW_TYPE_GUESS — a standard country-guess card with comparison tiles
+ *   VIEW_TYPE_HINT  — a purchased-hint reveal card (amber/gold style)
  *
  * Tile animation
  * --------------
  * When a brand-new guess is bound (its ISO key is NOT in animatedKeys), the six
  * comparison tiles are revealed one by one with a flip-in + fade animation,
- * staggered 120 ms apart.  Restored / scrolled-back items are bound instantly.
+ * staggered 220 ms apart.  Restored / scrolled-back items are bound instantly.
  */
-public class GuessAdapter extends RecyclerView.Adapter<GuessAdapter.GuessViewHolder> {
+public class GuessAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final int VIEW_TYPE_GUESS = 0;
+    private static final int VIEW_TYPE_HINT  = 1;
 
     // Tiles animate exactly once per unique guess (keyed on guessedIso + targetIso)
     private final Set<String> animatedKeys = new HashSet<>();
@@ -42,47 +49,105 @@ public class GuessAdapter extends RecyclerView.Adapter<GuessAdapter.GuessViewHol
     private static final long TILE_DURATION_MS = 520;  // flip duration per tile
 
     private final Context context;
-    private final List<CountryGuess> guesses;
+
+    /**
+     * Each list item is either a {@link CountryGuess} or a
+     * {@link HintManager.PurchasedHint}. Using Object keeps the single list
+     * ordered by insertion time (newest first).
+     */
+    private final List<Object> items;
 
     public GuessAdapter(Context context) {
         this.context = context;
-        this.guesses = new ArrayList<>();
+        this.items   = new ArrayList<>();
     }
 
-    /** Insert a new guess at the top of the list. */
+    /** Insert a new country-guess card at the top of the list. */
     public void addGuess(CountryGuess guess) {
-        guesses.add(0, guess);
+        items.add(0, guess);
         notifyItemInserted(0);
     }
 
-    /** Remove all guesses (used when advancing to the next level). */
+    /**
+     * Insert a purchased-hint reveal card at the top of the list with a
+     * slide-down + fade-in entrance animation.
+     * Called right after a hint is successfully bought.
+     */
+    public void addHintReveal(HintManager.PurchasedHint hint, RecyclerView recyclerView) {
+        items.add(0, hint);
+        notifyItemInserted(0);
+
+        // Animate the new card after the RecyclerView has laid it out
+        recyclerView.post(() -> {
+            RecyclerView.ViewHolder vh = recyclerView.findViewHolderForAdapterPosition(0);
+            if (vh == null) return;
+            View card = vh.itemView;
+
+            // Start above its final position and invisible
+            card.setTranslationY(-card.getHeight() - 32f);
+            card.setAlpha(0f);
+
+            card.animate()
+                    .translationY(0f)
+                    .alpha(1f)
+                    .setDuration(380)
+                    .setInterpolator(new DecelerateInterpolator())
+                    .start();
+        });
+    }
+
+    /**
+     * Insert a purchased-hint reveal card at the top of the list without animation.
+     * Used when restoring state on activity resume.
+     */
+    public void addHintReveal(HintManager.PurchasedHint hint) {
+        items.add(0, hint);
+        notifyItemInserted(0);
+    }
+
+    /** Remove all items (used when advancing to the next level or resetting). */
     public void clearGuesses() {
-        int size = guesses.size();
-        guesses.clear();
+        int size = items.size();
+        items.clear();
         animatedKeys.clear();
         notifyItemRangeRemoved(0, size);
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return (items.get(position) instanceof HintManager.PurchasedHint)
+                ? VIEW_TYPE_HINT
+                : VIEW_TYPE_GUESS;
+    }
+
     @NonNull
     @Override
-    public GuessViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.item_country_guess, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        if (viewType == VIEW_TYPE_HINT) {
+            View view = inflater.inflate(R.layout.item_hint_reveal, parent, false);
+            return new HintViewHolder(view);
+        }
+        View view = inflater.inflate(R.layout.item_country_guess, parent, false);
         return new GuessViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GuessViewHolder holder, int position) {
-        CountryGuess guess = guesses.get(position);
-        String key = animationKey(guess);
-        boolean isNew = !animatedKeys.contains(key);
-        if (isNew) animatedKeys.add(key);
-        holder.bind(guess, isNew);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof HintViewHolder) {
+            ((HintViewHolder) holder).bind((HintManager.PurchasedHint) items.get(position));
+        } else {
+            CountryGuess guess = (CountryGuess) items.get(position);
+            String key = animationKey(guess);
+            boolean isNew = !animatedKeys.contains(key);
+            if (isNew) animatedKeys.add(key);
+            ((GuessViewHolder) holder).bind(guess, isNew);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return guesses.size();
+        return items.size();
     }
 
     private static String animationKey(CountryGuess g) {
@@ -90,7 +155,31 @@ public class GuessAdapter extends RecyclerView.Adapter<GuessAdapter.GuessViewHol
     }
 
     // =========================================================================
-    // ViewHolder
+    // HintViewHolder — amber card shown in the guess list for purchased hints
+    // =========================================================================
+
+    class HintViewHolder extends RecyclerView.ViewHolder {
+
+        final TextView tvHintRevealTitle;
+        final TextView tvHintTypeName;
+        final TextView tvHintRevealedValue;
+
+        HintViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvHintRevealTitle   = itemView.findViewById(R.id.tvHintRevealTitle);
+            tvHintTypeName      = itemView.findViewById(R.id.tvHintTypeName);
+            tvHintRevealedValue = itemView.findViewById(R.id.tvHintRevealedValue);
+        }
+
+        void bind(HintManager.PurchasedHint hint) {
+            tvHintRevealTitle.setText(context.getString(R.string.hint_revealed));
+            tvHintTypeName.setText(hint.type.getLabel(context));
+            tvHintRevealedValue.setText(hint.revealedText);
+        }
+    }
+
+    // =========================================================================
+    // GuessViewHolder — country comparison card with 6 coloured tiles
     // =========================================================================
 
     class GuessViewHolder extends RecyclerView.ViewHolder {
@@ -141,7 +230,12 @@ public class GuessAdapter extends RecyclerView.Adapter<GuessAdapter.GuessViewHol
             Country country = guess.getGuessedCountry();
             boolean correct = guess.isCorrect();
 
-            tvCountryName.setText(country.getCountry());
+            // Show Arabic name when the app is in Arabic mode
+            boolean arabic = LanguageManager.isArabic(context);
+            String displayName = (arabic && country.getCountryAr() != null
+                    && !country.getCountryAr().isEmpty())
+                    ? country.getCountryAr() : country.getCountry();
+            tvCountryName.setText(displayName);
             loadFlagFromAssets(country.getFlag());
 
             // Order matches the visual row order (left-to-right, top-to-bottom)
@@ -276,13 +370,7 @@ public class GuessAdapter extends RecyclerView.Adapter<GuessAdapter.GuessViewHol
                     break;
             }
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                tvFlagColors.setText(
-                        Html.fromHtml(result.getDisplayText(), Html.FROM_HTML_MODE_LEGACY));
-            } else {
-                //noinspection deprecation
-                tvFlagColors.setText(Html.fromHtml(result.getDisplayText()));
-            }
+            tvFlagColors.setText(result.getDisplayText());
         }
     }
 }
