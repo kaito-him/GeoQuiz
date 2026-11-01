@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Main gameplay screen for Guess by the Map.
+
+  Layout hierarchy (top → bottom):
+    1. Blurred background (full-screen)
+    2. Top bar      — back | "Guess by Map" title | coin badge
+    3. Info bar     — difficulty+level label (left) | timer badge (right)
+    4. Map card     — the country map image, central focus (~45 % of remaining height)
+    5. Input row    — AutoCompleteTextView + 💡 hint button
+    6. Status row   — "Your guess:" label (left) | attempt counter (right)
+    7. Feedback     — single TextView showing the result of the last guess
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Blurred background -->
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null" />
+
+    <!-- All foreground content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- ── TOP BAR ── -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:minHeight="48dp">
+
+            <!-- Back -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:contentDescription="@string/back"
+                android:scaleType="fitCenter"
+                android:padding="8dp" />
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/btn_guess_by_map"
+                android:textSize="22sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold" />
+
+            <!-- Coin badge (right) — nested RelativeLayout so icon overlaps left edge -->
+            <RelativeLayout
+                android:id="@+id/coinContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <LinearLayout
+                    android:id="@+id/layoutCoinBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/coin_background"
+                    android:paddingStart="28dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_centerVertical="true">
+
+                    <TextView
+                        android:id="@+id/tvCoinBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="18sp"
+                        android:textColor="#6D4C41"
+                        android:textStyle="bold"
+                        android:minWidth="28dp"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivCoinIcon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/coin"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@id/layoutCoinBadge"
+                    android:layout_alignBottom="@id/layoutCoinBadge"
+                    android:elevation="2dp"
+                    android:contentDescription="Coin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!-- ── INFO BAR: difficulty + level label | timer ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <!-- Left: difficulty · level -->
+            <TextView
+                android:id="@+id/tvLevelLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Easy · Level 1"
+                android:textSize="15sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:background="@drawable/coin_background"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Right: countdown timer -->
+            <TextView
+                android:id="@+id/tvTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2:00"
+                android:textSize="18sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:background="@drawable/timer_background"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- ── INPUT ROW: autocomplete + hint button ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/etCountryInput"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:hint="@string/enter_country_name"
+                android:textSize="16sp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:background="@drawable/button_background"
+                android:textColor="#000000"
+                android:textColorHint="#8B4513"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"
+                android:inputType="textCapWords"
+                android:popupBackground="@drawable/dropdown_background"
+                android:dropDownVerticalOffset="4dp"
+                android:completionThreshold="1" />
+
+            <TextView
+                android:id="@+id/btnHint"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:text="💡"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:background="@drawable/button_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:enabled="false"
+                android:alpha="0.4"
+                android:contentDescription="@string/hint_content_description" />
+
+        </LinearLayout>
+
+        <!-- ── MAP IMAGE — sized dynamically to fit the image exactly ── -->
+        <FrameLayout
+            android:id="@+id/frameMapCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp">
+
+            <!-- Actual map image — loaded from assets/country_maps/ at runtime -->
+            <ImageView
+                android:id="@+id/ivCountryMap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@drawable/map_image_background"
+                android:clipToOutline="true"
+                android:contentDescription="@string/map_image_description" />
+
+            <!-- Shown only when the map asset cannot be loaded -->
+            <TextView
+                android:id="@+id/tvMapFallback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/map_not_available"
+                android:textSize="15sp"
+                android:textColor="#8B4513"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <!--
+              Red wrong-answer overlay. Starts invisible (alpha=0); the activity
+              fades it in then out over ~800 ms on each wrong guess.
+            -->
+            <View
+                android:id="@+id/viewWrongOverlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/map_wrong_overlay"
+                android:alpha="0"
+                android:clickable="false" />
+
+        </FrameLayout>
+
+        <!-- ── STATUS ROW: label | guess counter ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/map_your_guess_label"
+                android:textSize="16sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvAttemptCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 / 10"
+                android:textSize="14sp"
+                android:textColor="#3E2723"
+                android:textStyle="bold"
+                android:background="@drawable/coin_background"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp" />
+
+        </LinearLayout>
+
+        <!-- ── HINT STATUS: explains current hint availability ── -->
+        <TextView
+            android:id="@+id/tvHintStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="12sp"
+            android:textColor="#5D4037"
+            android:textStyle="italic"
+            android:gravity="end"
+            android:layout_marginBottom="6dp" />
+
+        <!-- ── HINT FEEDBACK: purchased hint reveals ── -->
+        <TextView
+            android:id="@+id/tvGuessFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="13sp"
+            android:textColor="#5D4037"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:paddingTop="2dp"
+            android:paddingBottom="4dp"
+            android:visibility="gone" />
+
+        <!-- ── GUESSES LIST: scrollable list of wrong guesses ── -->
+        <ScrollView
+            android:id="@+id/scrollGuesses"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="false"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:id="@+id/layoutGuessList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="4dp" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

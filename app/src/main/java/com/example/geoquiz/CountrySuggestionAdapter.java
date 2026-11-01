@@ -28,6 +28,7 @@ public class CountrySuggestionAdapter extends ArrayAdapter<String> {
     private final LayoutInflater inflater;
     private final Set<String>    guessedNames;     // lower-cased English names
     private final List<String>   canonicalNames;   // English names, same order as display list
+    private final List<String>   displayNames;     // Store original display list for lookups
 
     /**
      * @param context        activity context
@@ -41,6 +42,7 @@ public class CountrySuggestionAdapter extends ArrayAdapter<String> {
                                     Set<String>  guessedNames) {
         super(context, R.layout.item_suggestion, displayNames);
         this.inflater       = LayoutInflater.from(context);
+        this.displayNames   = displayNames;
         this.canonicalNames = canonicalNames;
         this.guessedNames   = guessedNames;
     }
@@ -67,11 +69,28 @@ public class CountrySuggestionAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView tv = (TextView) inflater.inflate(R.layout.item_suggestion, parent, false);
-        tv.setText(getItem(position));
+        String currentDisplayText = getItem(position); // from the filtered list
+        tv.setText(currentDisplayText);
 
-        if (!isEnabled(position)) {
+        // Find this display text in the original full list to get the matching canonical name
+        String canonical = null;
+        for (int i = 0; i < displayNames.size(); i++) {
+            if (displayNames.get(i).equals(currentDisplayText)) {
+                canonical = canonicalNames.get(i);
+                break;
+            }
+        }
+
+        // Check if already guessed
+        boolean alreadyGuessed = canonical != null 
+                && guessedNames.contains(canonical.toLowerCase());
+
+        if (alreadyGuessed) {
             tv.setTextColor(Color.parseColor("#9E9E9E"));
             tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            tv.setBackground(null);          // remove ripple — looks and feels unclickable
+            tv.setClickable(false);
+            tv.setFocusable(false);
         } else {
             tv.setTextColor(Color.parseColor("#3E2723"));
             tv.setPaintFlags(tv.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Reusable result dialog for Guess by the Map.
+  Used for both success (WON) and failure (LOST) outcomes.
+  Styled identically to dialog_success.xml: cream background, brown text.
+
+  IDs that are always present and always populated:
+    tvResultTitle      – "Congratulations!" or "Out of guesses!"
+    tvResultCountry    – "Country: France"
+    tvResultGuesses    – "Guesses: 3 / 10"
+    tvResultTime       – "Time: 1:42"
+    btnResultPrimary   – "Next Level" (or "Finish" on last level)
+    btnResultSecondary – "Replay" (always shown)
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_success_background"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="22dp"
+    android:paddingBottom="18dp">
+
+    <!-- Emoji + title -->
+    <TextView
+        android:id="@+id/tvResultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/success_title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:gravity="center"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4A882"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Country revealed -->
+    <TextView
+        android:id="@+id/tvResultCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Guess count -->
+    <TextView
+        android:id="@+id/tvResultGuesses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#5D4037"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Elapsed time -->
+    <TextView
+        android:id="@+id/tvResultTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#5D4037"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Coins earned row (hidden on failure / replay) -->
+    <LinearLayout
+        android:id="@+id/layoutResultCoins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tvResultCoinsAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/coin"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:contentDescription="coin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/success_coins_suffix"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+    </LinearLayout>
+
+    <!-- Breakdown (speed bonus, hidden when not needed) -->
+    <TextView
+        android:id="@+id/tvResultCoinsBreakdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#8B4513"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone" />
+
+    <!-- Already-completed note (replay of a previously completed level) -->
+    <TextView
+        android:id="@+id/tvResultAlreadyCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/map_result_already_completed"
+        android:textSize="12sp"
+        android:textColor="#8B4513"
+        android:textStyle="italic"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C4A882"
+        android:layout_marginBottom="14dp" />
+
+    <!-- Action buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <!-- Replay — always visible -->
+        <Button
+            android:id="@+id/btnResultSecondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_try_again"
+            android:textColor="#8B4513"
+            android:textStyle="bold"
+            android:background="@drawable/button_background"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Next level / Finish -->
+        <Button
+            android:id="@+id/btnResultPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_next_level"
+            android:textColor="#FFF8E7"
+            android:textStyle="bold"
+            android:background="@drawable/button_brown"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

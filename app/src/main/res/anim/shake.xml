@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Horizontal shake animation applied to the map card on a wrong answer.
+  CycleInterpolator with cycles=5 oscillates left-right 5 times over 500 ms.
+-->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0%p"
+    android:toXDelta="2%p"
+    android:duration="500"
+    android:repeatCount="5"
+    android:repeatMode="reverse"
+    android:interpolator="@android:anim/cycle_interpolator" />

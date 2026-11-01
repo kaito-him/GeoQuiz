@@ -91,6 +91,11 @@
     <string name="btn_try_again">Try Again</string>
     <string name="btn_give_up">Give Up</string>
 
+    <!-- Game Over dialog -->
+    <string name="game_over_title">Game Over! 😔</string>
+    <string name="game_over_message">You\'ve used all 10 guesses without finding the answer.</string>
+    <string name="game_over_country_format">The country was: %1$s</string>
+
     <!-- Numeric clue -->
     <string name="num_clue_format">Population: %1$s\nArea: %2$s</string>
 
@@ -99,6 +104,7 @@
     <string name="error_empty_input">Please enter a country name</string>
     <string name="error_already_guessed">You already guessed this country!</string>
     <string name="error_invalid_country">Invalid country name. Please check spelling.</string>
+    <string name="error_max_guesses_reached">You\'ve reached the maximum of 10 guesses!</string>
     <string name="error_invalid_level">Invalid level</string>
     <string name="error_no_more_levels">No more levels!</string>
     <string name="error_loading_level">Error loading level</string>
@@ -115,6 +121,52 @@
     <string name="lang_english">English</string>
     <string name="lang_arabic">Arabic (عربي)</string>
     <string name="side_menu_header">GeoQuiz</string>
+
+    <!-- Guess by the Map mode -->
+    <string name="map_choose_difficulty">Choose a difficulty</string>
+    <string name="map_level_locked_message">Complete the previous level to unlock this one.</string>
+    <string name="map_level_coming_soon_format">Level %1$d — %2$s (coming soon)</string>
+    <string name="map_level_label_format">%1$s · Level %2$d</string>
+    <string name="map_attempts_format">Attempts: %1$d</string>
+    <string name="map_guesses_format">Guesses: %1$d / %2$d</string>
+    <string name="map_your_guess_label">Your guess:</string>
+    <string name="map_image_description">Country map silhouette</string>
+    <string name="map_not_available">Map not available</string>
+    <string name="map_correct_format">✅ Correct! It\'s %1$s!</string>
+    <string name="map_wrong_format">❌ Not %1$s — try again!</string>
+    <string name="map_result_failed_title">Out of guesses! 😔</string>
+    <string name="map_result_all_done_title">All Done! 🌍</string>
+    <string name="map_result_guesses_format">Guesses: %1$d / %2$d</string>
+    <string name="map_result_time_format">Time: %1$s</string>
+    <string name="map_result_coins_format">+%1$d</string>
+    <string name="map_result_bonus_format">(Base %1$d + %2$d speed bonus)</string>
+    <string name="map_result_no_bonus">(%1$d base — no speed bonus)</string>
+    <string name="map_result_already_completed">Level already completed — no completion coins earned.</string>
+
+    <!-- Guess by the Map — hints -->
+    <string name="map_hint_panel_title">💡 Hints</string>
+    <string name="map_hint_continent_label">Reveal Continent</string>
+    <string name="map_hint_continent_desc">Shows the continent this country is on.</string>
+    <string name="map_hint_fun_fact_label">Reveal Fun Fact</string>
+    <string name="map_hint_fun_fact_desc">Shows an interesting fact about this country.</string>
+    <string name="map_hint_first_letter_label">Reveal First Letter</string>
+    <string name="map_hint_first_letter_desc">Shows the first letter of the country\'s name.</string>
+    <string name="map_hint_flag_colors_label">Reveal Flag Colors</string>
+    <string name="map_hint_flag_colors_desc">Shows the colors present on the country\'s flag.</string>
+    <string name="map_hint_no_fun_fact">No fun fact available for this country.</string>
+    <string name="map_hint_no_flag_colors">No flag color data available for this country.</string>
+    <string name="map_hint_revealed_format">💡 %1$s: %2$s</string>
+    <string name="map_hint_status_before_4">First hint available after 4 guesses.</string>
+    <string name="map_hint_status_choose_first">Choose your first hint.</string>
+    <string name="map_hint_status_wait_for_8">Next hint available after 8 guesses.</string>
+    <string name="map_hint_status_skipped_wait">First hint skipped. Next opportunity after 8 guesses.</string>
+    <string name="map_hint_status_choose_second">Choose a hint.</string>
+    <string name="map_hint_status_none_remaining">No hints remaining.</string>
+    <string name="map_hint_not_enough_coins">Not enough coins for this hint.</string>
+    <string name="map_hint_confirm_title">Buy Hint?</string>
+    <string name="map_hint_confirm_format">Spend %1$d coins on \"%2$s\"?</string>
+    <string name="map_hint_buy">Buy</string>
+    <string name="map_hint_cancel">Cancel</string>
 
     <!-- Misc -->
     <string name="km_squared">km²</string>

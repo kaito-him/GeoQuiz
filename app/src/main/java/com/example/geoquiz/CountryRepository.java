@@ -1,6 +1,7 @@
 package com.example.geoquiz;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -14,6 +15,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class CountryRepository {
     private static final String TAG = "CountryRepository";
@@ -64,9 +66,10 @@ public class CountryRepository {
             Log.d(TAG, "Loaded " + countries.size() + " countries");
 
             // Sort by difficulty tier (Easy → Intermediate → Hard → Expert),
-            // then shuffle randomly within each tier so the order is never
-            // alphabetical or identical to the source file.
-            applyDifficultyOrder();
+            // then shuffle within each tier using a fixed seed that is generated
+            // once (on first launch) and persisted, so the level order never
+            // changes across app restarts.
+            applyDifficultyOrder(context);
 
             return true;
 
@@ -79,14 +82,23 @@ public class CountryRepository {
     /**
      * Reorders the country list so all Easy levels come first, then
      * Intermediate, then Hard, then Expert.  Within each tier the countries
-     * are shuffled randomly — so the grid never looks alphabetical or mirrors
-     * the original JSON file order.
-     *
-     * This is called once, immediately after the initial JSON parse.  Because
-     * CountryRepository is a singleton the order is determined once per app
-     * process launch and stays stable for the whole session.
+     * are shuffled using a seed that is generated once on the very first app
+     * launch and stored in SharedPreferences — so the level order is random
+     * but stable across all subsequent launches and process restarts.
      */
-    private void applyDifficultyOrder() {
+    private void applyDifficultyOrder(Context context) {
+        // Retrieve or create the persistent shuffle seed
+        SharedPreferences prefs = context.getApplicationContext()
+                .getSharedPreferences("country_order_prefs", Context.MODE_PRIVATE);
+        long seed;
+        if (prefs.contains("shuffle_seed")) {
+            seed = prefs.getLong("shuffle_seed", 0L);
+        } else {
+            seed = System.nanoTime();
+            prefs.edit().putLong("shuffle_seed", seed).apply();
+        }
+        Random rng = new Random(seed);
+
         // Bucket by tier
         List<Country> easy         = new ArrayList<>();
         List<Country> intermediate = new ArrayList<>();
@@ -106,12 +118,13 @@ public class CountryRepository {
             }
         }
 
-        // Shuffle within each tier independently
-        Collections.shuffle(easy);
-        Collections.shuffle(intermediate);
-        Collections.shuffle(hard);
-        Collections.shuffle(expert);
-        Collections.shuffle(other);
+        // Shuffle within each tier using the same seeded RNG so the result is
+        // always identical for a given seed value.
+        Collections.shuffle(easy,         rng);
+        Collections.shuffle(intermediate, rng);
+        Collections.shuffle(hard,         rng);
+        Collections.shuffle(expert,       rng);
+        Collections.shuffle(other,        rng);
 
         // Rebuild the master list in tier order
         countries.clear();
@@ -121,7 +134,7 @@ public class CountryRepository {
         countries.addAll(expert);
         countries.addAll(other);
 
-        Log.d(TAG, "Difficulty order applied: Easy=" + easy.size()
+        Log.d(TAG, "Difficulty order applied (seed=" + seed + "): Easy=" + easy.size()
                 + " Intermediate=" + intermediate.size()
                 + " Hard=" + hard.size()
                 + " Expert=" + expert.size());

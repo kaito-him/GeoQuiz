@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  A single selectable hint row inside the map hint-selection panel.
+  Visual states are applied programmatically:
+    AVAILABLE     – button_background (wheat), enabled
+    INSUFFICIENT  – tile_grey, disabled, shows "Need X coins"
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutHintOption"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/button_background"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Left column: label + description -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHintOptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hint name"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+        <TextView
+            android:id="@+id/tvHintOptionDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="12sp"
+            android:textColor="#5D4037"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- Right column: coin price badge -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/coin_background"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:layout_marginStart="8dp">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/coin"
+            android:scaleType="fitCenter"
+            android:layout_marginEnd="3dp"
+            android:contentDescription="coins" />
+
+        <TextView
+            android:id="@+id/tvHintOptionPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+    </LinearLayout>
+
+</LinearLayout>

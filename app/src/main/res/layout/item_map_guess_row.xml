@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/button_background"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:layout_marginBottom="6dp">
+
+    <!-- Flag -->
+    <ImageView
+        android:id="@+id/ivGuessFlag"
+        android:layout_width="36dp"
+        android:layout_height="24dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="Flag" />
+
+    <!-- Country name -->
+    <TextView
+        android:id="@+id/tvGuessName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="#3E2723"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <!-- ✗ wrong indicator -->
+    <TextView
+        android:id="@+id/tvGuessResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="✗"
+        android:textSize="18sp"
+        android:textColor="#C62828" />
+
+</LinearLayout>

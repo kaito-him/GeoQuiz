@@ -179,16 +179,20 @@ public class DailyCountryActivity extends AppCompatActivity {
     }
 
     private void setupAutocomplete() {
-        List<String> allCountries = new ArrayList<>();
+        List<String> displayNames   = new ArrayList<>();
+        List<String> canonicalNames = new ArrayList<>();
         boolean arabic = LanguageManager.isArabic(this);
         for (Country c : repository.getAllCountries()) {
-            String name = (arabic && c.getCountryAr() != null && !c.getCountryAr().isEmpty())
+            // canonicalNames always stores the English name used for guessed-lookup
+            canonicalNames.add(c.getCountry());
+            // displayNames shows Arabic when the UI language is Arabic
+            String display = (arabic && c.getCountryAr() != null && !c.getCountryAr().isEmpty())
                     ? c.getCountryAr() : c.getCountry();
-            allCountries.add(name);
+            displayNames.add(display);
         }
 
         CountrySuggestionAdapter adapter =
-                new CountrySuggestionAdapter(this, allCountries, guessedNamesLower);
+                new CountrySuggestionAdapter(this, displayNames, canonicalNames, guessedNamesLower);
         etCountryInput.setAdapter(adapter);
         etCountryInput.setThreshold(1);
 
@@ -562,8 +566,14 @@ public class DailyCountryActivity extends AppCompatActivity {
 
     /** Submit whatever is currently typed in the autocomplete field. */
     private void submitCurrentInput() {
+        // Guard: level already completed or input already disabled
         if (levelCompleted) return;
-        if (!isReplayMode && guessedCountryNames.size() >= MAX_GUESSES) return;
+        
+        // Guard: already at max guesses (check BEFORE adding new guess)
+        if (!isReplayMode && guessedCountryNames.size() >= MAX_GUESSES) {
+            Toast.makeText(this, R.string.error_max_guesses_reached, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String input = etCountryInput.getText().toString().trim();
         if (input.isEmpty()) {
@@ -625,7 +635,9 @@ public class DailyCountryActivity extends AppCompatActivity {
                     () -> showSuccessDialog(finalCoinsAwarded), 2000);
 
         } else if (!isReplayMode && guessedCountryNames.size() >= MAX_GUESSES) {
+            // Reached max guesses without finding the answer
             setInputEnabled(false);
+            levelCompleted = true; // Mark as completed to prevent any further guesses
             rvGuessList.post(this::showFailureDialog);
         }
     }
@@ -781,18 +793,82 @@ public class DailyCountryActivity extends AppCompatActivity {
     }
 
     private void showFailureDialog() {
+        // Guard: activity might have been finished before the call fires
+        if (isFinishing() || isDestroyed()) return;
+
         String displayName = (LanguageManager.isArabic(this)
                 && targetCountry.getCountryAr() != null
                 && !targetCountry.getCountryAr().isEmpty())
                 ? targetCountry.getCountryAr() : targetCountry.getCountry();
 
-        new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.failure_title))
-                .setMessage(getString(R.string.failure_message_format, displayName, MAX_GUESSES))
-                .setCancelable(false)
-                .setPositiveButton(getString(R.string.btn_try_again), (d, w) -> resetLevel())
-                .setNegativeButton(getString(R.string.btn_give_up),   (d, w) -> finish())
-                .show();
+        // ---- Inflate the custom layout ----
+        View dialogView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_game_over, null);
+
+        TextView tvTitle     = dialogView.findViewById(R.id.tvGameOverTitle);
+        TextView tvMessage   = dialogView.findViewById(R.id.tvGameOverMessage);
+        TextView tvCountry   = dialogView.findViewById(R.id.tvGameOverCountry);
+        TextView btnClose    = dialogView.findViewById(R.id.btnGameOverClose);
+        Button   btnTryAgain = dialogView.findViewById(R.id.btnTryAgain);
+        Button   btnGiveUp   = dialogView.findViewById(R.id.btnGiveUp);
+
+        // Set content
+        tvTitle.setText(getString(R.string.game_over_title));
+        tvMessage.setText(getString(R.string.game_over_message));
+        tvCountry.setText(getString(R.string.game_over_country_format, displayName));
+
+        // ---- Build the Dialog with a transparent window ----
+        android.app.Dialog dialog = new android.app.Dialog(this,
+                android.R.style.Theme_Translucent_NoTitleBar);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(dialogView);
+        dialog.setCancelable(false);
+
+        // ---- Window styling — same as success dialog ----
+        Window window = dialog.getWindow();
+        if (window != null) {
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+
+            int screenWidth = getResources().getDisplayMetrics().widthPixels;
+            window.setLayout((int) (screenWidth * 0.88f),
+                    WindowManager.LayoutParams.WRAP_CONTENT);
+            window.setGravity(Gravity.CENTER);
+
+            window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            WindowManager.LayoutParams lp = window.getAttributes();
+            lp.dimAmount = 0.6f;
+            window.setAttributes(lp);
+        }
+
+        // ---- Entrance animation — same as success dialog ----
+        dialogView.setAlpha(0f);
+        dialogView.setScaleX(0.92f);
+        dialogView.setScaleY(0.92f);
+        dialogView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f)
+                .setDuration(220)
+                .setInterpolator(new android.view.animation.DecelerateInterpolator())
+                .start();
+
+        // ---- Button actions ----
+        btnTryAgain.setOnClickListener(v -> {
+            dialog.dismiss();
+            resetLevel();
+        });
+
+        btnGiveUp.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish();
+        });
+
+        btnClose.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish();
+        });
+
+        dialog.show();
     }
 
     // -------------------------------------------------------------------------

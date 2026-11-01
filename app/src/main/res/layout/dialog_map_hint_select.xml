@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Hint-selection panel for Guess by the Map.
+  Shows the four hint options for the current opportunity.
+  Styled identically to dialog_hint_shop.xml: tan modal card.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/hint_modal_background"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp">
+
+    <!-- Header row: title + coin balance + close -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+
+        <TextView
+            android:id="@+id/tvHintPanelTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/map_hint_panel_title"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#3E2723" />
+
+        <!-- Coin balance badge -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/coin_background"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/coin"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="coins" />
+
+            <TextView
+                android:id="@+id/tvHintPanelCoinBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#3E2723" />
+
+        </LinearLayout>
+
+        <!-- Close button -->
+        <TextView
+            android:id="@+id/tvHintPanelClose"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="✕"
+            android:textSize="17sp"
+            android:textColor="#3E2723"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Close" />
+
+    </LinearLayout>
+
+    <!-- Status message (e.g. "Choose your first hint.") -->
+    <TextView
+        android:id="@+id/tvHintPanelStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="13sp"
+        android:textColor="#5D4037"
+        android:textStyle="italic"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#8B4513"
+        android:alpha="0.4"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Four hint option rows — injected programmatically -->
+    <LinearLayout
+        android:id="@+id/layoutHintOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

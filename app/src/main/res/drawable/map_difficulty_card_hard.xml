@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hard difficulty card — deep slate blue -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#1A237E">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#283593" />
+            <corners android:radius="14dp" />
+            <stroke android:width="2dp" android:color="#1A237E" />
+        </shape>
+    </item>
+</ripple>

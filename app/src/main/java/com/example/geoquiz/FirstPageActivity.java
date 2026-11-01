@@ -86,6 +86,11 @@ public class FirstPageActivity extends AppCompatActivity {
         btnDailyCountry = findViewById(R.id.btnDailyCountry);
         btnDailyCountry.setOnClickListener(v -> openDailyCountry());
 
+        LinearLayout btnGuessByMap = findViewById(R.id.btnGuessByMap);
+        if (btnGuessByMap != null) {
+            btnGuessByMap.setOnClickListener(v -> openGuessByMap());
+        }
+
         // Apply blur to background
         ImageView backgroundImage = findViewById(R.id.backgroundImage);
         blurBackground(backgroundImage);
@@ -137,6 +142,11 @@ public class FirstPageActivity extends AppCompatActivity {
 
     private void openDailyCountry() {
         Intent intent = new Intent(this, DailyLevelSelectActivity.class);
+        startActivity(intent);
+    }
+
+    private void openGuessByMap() {
+        Intent intent = new Intent(this, MapDifficultyActivity.class);
         startActivity(intent);
     }
 

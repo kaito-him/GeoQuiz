@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Required for the wrong-answer haptic feedback in GuessByMapActivity -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -44,6 +47,22 @@
         <activity
             android:name=".DailyLevelSelectActivity"
             android:exported="false" />
+
+        <!-- Guess by the Map: difficulty selection -->
+        <activity
+            android:name=".MapDifficultyActivity"
+            android:exported="false" />
+
+        <!-- Guess by the Map: level grid for a single difficulty -->
+        <activity
+            android:name=".MapLevelSelectActivity"
+            android:exported="false" />
+
+        <!-- Guess by the Map: main gameplay screen -->
+        <activity
+            android:name=".GuessByMapActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
