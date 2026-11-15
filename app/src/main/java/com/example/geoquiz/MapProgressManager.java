@@ -49,6 +49,7 @@ public class MapProgressManager {
     private static final String SUFFIX_COMPLETED     = "_completed";
     private static final String SUFFIX_FAILED        = "_failed";
     private static final String SUFFIX_REWARD_ISSUED = "_reward_issued";
+    private static final String SUFFIX_FORFEITED     = "_forfeited";
 
     /** The three possible permanent outcomes for a single level. */
     public enum LevelOutcome {
@@ -205,6 +206,27 @@ public class MapProgressManager {
      */
     public boolean hasRewardBeenIssued(MapDifficulty difficulty, int level) {
         return loadIntList(difficulty.prefsPrefix + SUFFIX_REWARD_ISSUED).contains(level);
+    }
+
+    // -------------------------------------------------------------------------
+    // Forfeit tracking (give up)
+    // -------------------------------------------------------------------------
+
+    /**
+     * Record that the player gave up on this level.
+     * Once forfeited, the player can never earn coins for this level again.
+     */
+    public void markLevelForfeited(MapDifficulty difficulty, int level) {
+        addToSet(difficulty.prefsPrefix + SUFFIX_FORFEITED, level);
+        // Also mark reward as issued so they can never get coins
+        addToSet(difficulty.prefsPrefix + SUFFIX_REWARD_ISSUED, level);
+    }
+
+    /**
+     * Returns true if the player gave up on this level.
+     */
+    public boolean hasLevelBeenForfeited(MapDifficulty difficulty, int level) {
+        return loadIntList(difficulty.prefsPrefix + SUFFIX_FORFEITED).contains(level);
     }
 
     // -------------------------------------------------------------------------

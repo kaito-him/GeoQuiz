@@ -84,7 +84,7 @@ public class GuessByMapActivity extends AppCompatActivity {
     public static final String EXTRA_LEVEL      = MapLevelSelectActivity.EXTRA_LEVEL;
 
     // ── Attempt state ─────────────────────────────────────────────────────
-    private enum AttemptState { READY, PLAYING, WON, LOST }
+    private enum AttemptState { READY, PLAYING, WON, LOST, GAVE_UP }
 
     // ── Hint slot thresholds ──────────────────────────────────────────────
     private static final int HINT_SLOT1_AFTER = 4;   // available once guessCount >= 4
@@ -92,8 +92,8 @@ public class GuessByMapActivity extends AppCompatActivity {
 
     // ── Constants ─────────────────────────────────────────────────────────
     private static final int  MAX_GUESSES         = 10;
-    private static final long WRONG_FEEDBACK_MS   = 900L;
-    private static final long OVERLAY_DURATION_MS = 700L;
+    private static final long WRONG_FEEDBACK_MS   = 500L;
+    private static final long OVERLAY_DURATION_MS = 400L;
     private static final long STOPWATCH_TICK_MS   = 1_000L;
 
     // ── savedInstanceState keys ───────────────────────────────────────────
@@ -124,6 +124,7 @@ public class GuessByMapActivity extends AppCompatActivity {
     private AutoCompleteTextView etCountryInput;
     private TextView             btnHint;
     private ImageButton          btnBack;
+    private TextView             btnGiveUp;
     private LinearLayout         layoutGuessList;
     private ScrollView           scrollGuesses;
     private CountrySuggestionAdapter suggestionAdapter;
@@ -257,10 +258,14 @@ public class GuessByMapActivity extends AppCompatActivity {
             attemptState = AttemptState.PLAYING;
         }
 
-        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST) {
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) {
             etCountryInput.setEnabled(false);
             btnHint.setEnabled(false);
             btnHint.setAlpha(0.4f);
+            if (btnGiveUp != null) {
+                btnGiveUp.setEnabled(false);
+                btnGiveUp.setAlpha(0.4f);
+            }
         }
     }
 
@@ -354,10 +359,12 @@ public class GuessByMapActivity extends AppCompatActivity {
         etCountryInput   = findViewById(R.id.etCountryInput);
         btnHint          = findViewById(R.id.btnHint);
         btnBack          = findViewById(R.id.btnBack);
+        btnGiveUp        = findViewById(R.id.btnGiveUp);
         layoutGuessList  = findViewById(R.id.layoutGuessList);
         scrollGuesses    = findViewById(R.id.scrollGuesses);
 
         btnBack.setOnClickListener(v -> finish());
+        btnGiveUp.setOnClickListener(v -> confirmGiveUp());
         btnHint.setEnabled(false);
         btnHint.setAlpha(0.4f);
         btnHint.setOnClickListener(v -> openHintPanel());
@@ -457,7 +464,7 @@ public class GuessByMapActivity extends AppCompatActivity {
     // =========================================================================
 
     private void submitCurrentInput() {
-        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST) return;
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) return;
         if (submissionInProgress) return;
 
         String input = etCountryInput.getText().toString().trim();
@@ -520,14 +527,27 @@ public class GuessByMapActivity extends AppCompatActivity {
     // =========================================================================
 
     private void concludeAttempt(boolean won) {
-        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST) return;
+        concludeAttempt(won, false);
+    }
 
-        attemptState = won ? AttemptState.WON : AttemptState.LOST;
+    private void concludeAttempt(boolean won, boolean gaveUp) {
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) return;
+
+        if (gaveUp) {
+            attemptState = AttemptState.GAVE_UP;
+        } else {
+            attemptState = won ? AttemptState.WON : AttemptState.LOST;
+        }
+        
         stopStopwatch();
         submissionInProgress = false;
         etCountryInput.setEnabled(false);
         btnHint.setEnabled(false);
         btnHint.setAlpha(0.4f);
+        if (btnGiveUp != null) {
+            btnGiveUp.setEnabled(false);
+            btnGiveUp.setAlpha(0.4f);
+        }
         dismissOpenDialogs();
 
         long elapsedMs = currentElapsedMs();
@@ -546,6 +566,10 @@ public class GuessByMapActivity extends AppCompatActivity {
                 rewardGivenThisAttempt = true;
             }
             updateCoinBalance();
+        } else if (gaveUp) {
+            progressManager.markLevelFailed(
+                    difficulty, levelWithinDifficulty, difficultyCountries.size());
+            progressManager.markLevelForfeited(difficulty, levelWithinDifficulty);
         } else {
             progressManager.markLevelFailed(
                     difficulty, levelWithinDifficulty, difficultyCountries.size());
@@ -553,9 +577,40 @@ public class GuessByMapActivity extends AppCompatActivity {
 
         final int finalCoins = coinsAwarded;
         final long finalElapsed = elapsedMs;
+        final boolean finalGaveUp = gaveUp;
         new Handler(Looper.getMainLooper()).postDelayed(
-                () -> showResultDialog(won, finalElapsed, finalCoins),
-                won ? 600L : 1200L);
+                () -> showResultDialog(won, finalElapsed, finalCoins, finalGaveUp),
+                won ? 600L : (gaveUp ? 0L : 1200L));
+    }
+
+    // =========================================================================
+    // Give Up confirmation
+    // =========================================================================
+
+    private void confirmGiveUp() {
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) return;
+
+        View dialogView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_give_up_confirm, null);
+
+        Button btnCancel = dialogView.findViewById(R.id.btnGiveUpCancel);
+        Button btnConfirm = dialogView.findViewById(R.id.btnGiveUpConfirm);
+
+        android.app.Dialog confirmDialog = new android.app.Dialog(this, 
+                android.R.style.Theme_Translucent_NoTitleBar);
+        confirmDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        confirmDialog.setContentView(dialogView);
+        confirmDialog.setCanceledOnTouchOutside(true);
+
+        btnCancel.setOnClickListener(v -> confirmDialog.dismiss());
+        btnConfirm.setOnClickListener(v -> {
+            confirmDialog.dismiss();
+            concludeAttempt(false, true);
+        });
+
+        styleDialogWindow(confirmDialog);
+        entranceAnim(dialogView);
+        confirmDialog.show();
     }
 
     // =========================================================================
@@ -607,7 +662,7 @@ public class GuessByMapActivity extends AppCompatActivity {
      *   - If the attempt is over, nothing is open.
      */
     private int currentOpenSlot() {
-        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST) return 0;
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) return 0;
         if (guessCount >= HINT_SLOT2_AFTER && !slot2Used) return 2;
         if (guessCount >= HINT_SLOT1_AFTER && !slot1Used) return 1;
         return 0;
@@ -627,7 +682,7 @@ public class GuessByMapActivity extends AppCompatActivity {
     }
 
     private String buildHintStatusText() {
-        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST) {
+        if (attemptState == AttemptState.WON || attemptState == AttemptState.LOST || attemptState == AttemptState.GAVE_UP) {
             return "";
         }
         boolean bothUsed = slot1Used && slot2Used;
@@ -726,13 +781,34 @@ public class GuessByMapActivity extends AppCompatActivity {
             return;
         }
 
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.map_hint_confirm_title)
-                .setMessage(getString(R.string.map_hint_confirm_format,
-                        type.price, type.getLabel(this)))
-                .setPositiveButton(R.string.map_hint_buy, (d, w) -> executeHintPurchase(type))
-                .setNegativeButton(R.string.map_hint_cancel, null)
-                .show();
+        // Inflate custom dialog layout
+        View dialogView = LayoutInflater.from(this)
+                .inflate(R.layout.dialog_hint_confirm, null);
+
+        TextView tvCost = dialogView.findViewById(R.id.tvHintConfirmCost);
+        TextView tvType = dialogView.findViewById(R.id.tvHintConfirmType);
+        Button btnCancel = dialogView.findViewById(R.id.btnHintConfirmCancel);
+        Button btnBuy = dialogView.findViewById(R.id.btnHintConfirmBuy);
+
+        tvCost.setText(String.valueOf(type.price));
+        tvType.setText(getString(R.string.map_hint_on) + " \"" + type.getLabel(this) + "\"?");
+
+        // Create custom dialog
+        android.app.Dialog confirmDialog = new android.app.Dialog(this, 
+                android.R.style.Theme_Translucent_NoTitleBar);
+        confirmDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        confirmDialog.setContentView(dialogView);
+        confirmDialog.setCanceledOnTouchOutside(true);
+
+        btnCancel.setOnClickListener(v -> confirmDialog.dismiss());
+        btnBuy.setOnClickListener(v -> {
+            confirmDialog.dismiss();
+            executeHintPurchase(type);
+        });
+
+        styleDialogWindow(confirmDialog);
+        entranceAnim(dialogView);
+        confirmDialog.show();
     }
 
     private void executeHintPurchase(MapHintType type) {
@@ -892,6 +968,10 @@ public class GuessByMapActivity extends AppCompatActivity {
     // =========================================================================
 
     private void showResultDialog(boolean won, long elapsedMs, int coinsAwarded) {
+        showResultDialog(won, elapsedMs, coinsAwarded, false);
+    }
+
+    private void showResultDialog(boolean won, long elapsedMs, int coinsAwarded, boolean gaveUp) {
         if (isFinishing() || isDestroyed()) return;
 
         boolean isLastLevel   = (levelWithinDifficulty >= difficultyCountries.size());
@@ -921,8 +1001,15 @@ public class GuessByMapActivity extends AppCompatActivity {
             tvTitle.setText(getString(R.string.map_result_failed_title));
         }
 
-        tvCountry.setText(getString(R.string.success_country_format,
-                resolveDisplayName(targetCountry)));
+        // Country name - only show if won OR gave up
+        if (won || gaveUp) {
+            tvCountry.setText(getString(R.string.success_country_format,
+                    resolveDisplayName(targetCountry)));
+            tvCountry.setVisibility(View.VISIBLE);
+        } else {
+            tvCountry.setVisibility(View.GONE);
+        }
+        
         tvGuesses.setText(getString(R.string.map_result_guesses_format,
                 guessCount, MAX_GUESSES));
         tvTime.setText(getString(R.string.map_result_time_format, formatElapsed(elapsedMs)));

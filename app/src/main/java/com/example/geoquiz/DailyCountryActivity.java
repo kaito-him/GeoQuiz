@@ -44,7 +44,6 @@ public class DailyCountryActivity extends AppCompatActivity {
     // -------------------------------------------------------------------------
     // Views
     // -------------------------------------------------------------------------
-    private TextView             tvLevelIndicator;
     private TextView             tvGuessCounter;
     private AutoCompleteTextView etCountryInput;
     /** Hint button — opens the hint-shop modal dialog. */
@@ -138,7 +137,6 @@ public class DailyCountryActivity extends AppCompatActivity {
         setupAutocomplete();
         restoreGuessHistory();
         restoreHintState();
-        updateLevelIndicator();
         updateGuessCounter();
         updateHintButton();       // set initial enabled/alpha state
     }
@@ -156,7 +154,6 @@ public class DailyCountryActivity extends AppCompatActivity {
 
     private void initViews() {
         btnBack           = findViewById(R.id.btnBack);
-        tvLevelIndicator  = findViewById(R.id.tvLevelIndicator);
         tvGuessCounter    = findViewById(R.id.tvGuessCounter);
         etCountryInput    = findViewById(R.id.etCountryInput);
         btnHint           = findViewById(R.id.btnHint);
@@ -638,13 +635,13 @@ public class DailyCountryActivity extends AppCompatActivity {
             // Reached max guesses without finding the answer
             setInputEnabled(false);
             levelCompleted = true; // Mark as completed to prevent any further guesses
+            
+            // Clear the failed attempt immediately so the user isn't stuck if they close the app
+            progressManager.clearGuessHistory();
+            progressManager.clearHintState();
+            
             rvGuessList.post(this::showFailureDialog);
         }
-    }
-
-    private void updateLevelIndicator() {
-        tvLevelIndicator.setText(getString(R.string.guess_counter_format,
-                currentLevel, repository.getTotalCountries()));
     }
 
     private void updateGuessCounter() {
@@ -860,11 +857,17 @@ public class DailyCountryActivity extends AppCompatActivity {
 
         btnGiveUp.setOnClickListener(v -> {
             dialog.dismiss();
+            // Clear the failed attempt so the level can be retried later
+            progressManager.clearGuessHistory();
+            progressManager.clearHintState();
             finish();
         });
 
         btnClose.setOnClickListener(v -> {
             dialog.dismiss();
+            // Clear the failed attempt so the level can be retried later
+            progressManager.clearGuessHistory();
+            progressManager.clearHintState();
             finish();
         });
 
@@ -919,7 +922,6 @@ public class DailyCountryActivity extends AppCompatActivity {
         if (hintDialog != null) { hintDialog.dismiss(); hintDialog = null; }
         etCountryInput.setEnabled(true);
         etCountryInput.setText("");
-        updateLevelIndicator();
         updateGuessCounter();
         updateHintButton();
     }
