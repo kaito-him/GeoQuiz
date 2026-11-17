@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Expert difficulty card — deep purple, matching the Expert text colour in the grid -->
+<!-- Expert difficulty card — frame.png background with ripple -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="#311B92">
     <item>
-        <shape android:shape="rectangle">
-            <solid android:color="#4A148C" />
-            <corners android:radius="14dp" />
-            <stroke android:width="2dp" android:color="#311B92" />
-        </shape>
+        <bitmap
+            android:src="@drawable/frame"
+            android:gravity="fill" />
     </item>
 </ripple>

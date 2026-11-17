@@ -12,6 +12,7 @@ import android.renderscript.ScriptIntrinsicBlur;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -112,12 +113,19 @@ public class MapDifficultyActivity extends AppCompatActivity {
     }
 
     private void updateProgressBadge(View card, MapDifficulty difficulty) {
-        TextView tvProgress = card.findViewById(R.id.tvDifficultyProgress);
-        if (tvProgress == null) return;
+        TextView    tvProgress  = card.findViewById(R.id.tvDifficultyProgress);
+        ProgressBar progressBar = card.findViewById(R.id.progressBar);
 
         int total     = countForDifficulty(difficulty);
         int completed = progressManager.completedCount(difficulty);
-        tvProgress.setText(getString(R.string.progress_format, completed, total));
+
+        if (tvProgress != null) {
+            tvProgress.setText(completed + "/" + total + " completed");
+        }
+        if (progressBar != null) {
+            progressBar.setMax(total > 0 ? total : 1);
+            progressBar.setProgress(completed);
+        }
     }
 
     private void updateProgressBadges() {

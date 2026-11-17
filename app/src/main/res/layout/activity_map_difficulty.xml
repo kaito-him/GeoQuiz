@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Difficulty selection screen for Guess by the Map.
-  Four difficulty cards stacked vertically: Easy, Intermediate, Hard, Expert.
-  Matches the app's existing warm brown / wheat colour palette.
--->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -25,12 +20,12 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Top bar: back button + centred title -->
+        <!-- Top bar -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="8dp"
             android:minHeight="48dp">
 
             <ImageButton
@@ -45,251 +40,309 @@
                 android:scaleType="fitCenter"
                 android:padding="8dp" />
 
-            <TextView
+            <com.example.geoquiz.StrokeTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/btn_guess_by_map"
                 android:textSize="26sp"
-                android:textColor="#3E2723"
+                android:textColor="#EBD6AD"
                 android:textStyle="bold" />
 
         </RelativeLayout>
 
         <!-- Sub-heading -->
-        <TextView
+        <com.example.geoquiz.StrokeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:text="@string/map_choose_difficulty"
-            android:textSize="16sp"
-            android:textColor="#5D4037" />
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:text="CHOOSE A DIFFICULTY"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#E8A040"
+            android:fontFamily="@font/philosopher_bold"
+            android:letterSpacing="0.15"
+            android:shadowColor="#000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="4" />
 
         <!-- ── EASY card ── -->
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/cardEasy"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/map_difficulty_card_easy"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
 
-            <!-- Left: emoji + label -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:scaleType="fitXY"
+                android:contentDescription="@null" />
+
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🌍"
-                    android:textSize="28sp"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
+                <com.example.geoquiz.StrokeTextView
                     android:id="@+id/tvDifficultyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/difficulty_easy"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#EBD6AD"
+                    android:shadowColor="#3E1A00"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:layout_marginBottom="5dp" />
+
+                <FrameLayout
+                    android:layout_width="200dp"
+                    android:layout_height="22dp">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/progress_bar_track" />
+
+                    <TextView
+                        android:id="@+id/tvDifficultyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0/39 completed"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
+
+                </FrameLayout>
 
             </LinearLayout>
-
-            <!-- Right: progress badge -->
-            <TextView
-                android:id="@+id/tvDifficultyProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 / 39"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/map_badge_white"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp" />
-
-        </LinearLayout>
+        </FrameLayout>
 
         <!-- ── INTERMEDIATE card ── -->
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/cardIntermediate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/map_difficulty_card_intermediate"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:scaleType="fitXY"
+                android:contentDescription="@null" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🗺️"
-                    android:textSize="28sp"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
+                <com.example.geoquiz.StrokeTextView
                     android:id="@+id/tvDifficultyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/difficulty_intermediate"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#EBD6AD"
+                    android:shadowColor="#3E1A00"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:layout_marginBottom="5dp" />
+
+                <FrameLayout
+                    android:layout_width="200dp"
+                    android:layout_height="22dp">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/progress_bar_track" />
+
+                    <TextView
+                        android:id="@+id/tvDifficultyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0/78 completed"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
+
+                </FrameLayout>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvDifficultyProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 / 78"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/map_badge_white"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp" />
-
-        </LinearLayout>
+        </FrameLayout>
 
         <!-- ── HARD card ── -->
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/cardHard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:background="@drawable/map_difficulty_card_hard"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:scaleType="fitXY"
+                android:contentDescription="@null" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🧭"
-                    android:textSize="28sp"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
+                <com.example.geoquiz.StrokeTextView
                     android:id="@+id/tvDifficultyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/difficulty_hard"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#EBD6AD"
+                    android:shadowColor="#3E1A00"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:layout_marginBottom="5dp" />
+
+                <FrameLayout
+                    android:layout_width="200dp"
+                    android:layout_height="22dp">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/progress_bar_track" />
+
+                    <TextView
+                        android:id="@+id/tvDifficultyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0/58 completed"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
+
+                </FrameLayout>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvDifficultyProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 / 58"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/map_badge_white"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp" />
-
-        </LinearLayout>
+        </FrameLayout>
 
         <!-- ── EXPERT card ── -->
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/cardExpert"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/map_difficulty_card_expert"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
+            android:layout_height="100dp"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:scaleType="fitXY"
+                android:contentDescription="@null" />
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⭐"
-                    android:textSize="28sp"
-                    android:layout_marginBottom="4dp" />
-
-                <TextView
+                <com.example.geoquiz.StrokeTextView
                     android:id="@+id/tvDifficultyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/difficulty_expert"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#EBD6AD"
+                    android:shadowColor="#3E1A00"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:layout_marginBottom="5dp" />
+
+                <FrameLayout
+                    android:layout_width="200dp"
+                    android:layout_height="22dp">
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressDrawable="@drawable/progress_bar_track" />
+
+                    <TextView
+                        android:id="@+id/tvDifficultyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0/20 completed"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
+
+                </FrameLayout>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvDifficultyProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 / 20"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/map_badge_white"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="4dp"
-                android:paddingBottom="4dp" />
-
-        </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 
